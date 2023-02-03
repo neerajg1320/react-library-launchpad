@@ -80,3 +80,27 @@ lerna add rollup-plugin-postcss --scope=@glassball/builder-rollup
 lerna add postcss --scope=@glassball/builder-rollup
 
 # We need postcss for CSS modules support
+
+# build scripts completion
+# In each of the packages we have
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+
+# In the main package.json
+  "scripts": {
+    "build": "lerna run build",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules"
+  },
+
+## Add Storybook
+npx -p @storybook/cli sb init --type react
+# Press y to create .npmrc
+
+npm install --save-dev react react-dom
+# We already have react installed due to components but the react-dom gets installed
+
+$ npm run storybook
+# The storybook is running
+
