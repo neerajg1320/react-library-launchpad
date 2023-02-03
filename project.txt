@@ -149,3 +149,39 @@ mkdir packages/components/text/docs
   }
 
 # The npm run build is also working
+
+## Publish the components
+Since we are publishing the components we have to fix the bundler interface points.
+Currently that point is "main" in our package.json
+
+But we will change that to three interface points:
+"main"
+"module"
+"src"
+
+The main and module will have interface points in dist folder whereas src will have interface point in lib folder.
+  "main": "dist/button.cjs.js",
+  "module": "dist/button.esm.js",
+  "src": "lib/button.js",
+
+  "main": "dist/gallery.cjs.js",
+  "module": "dist/gallery.esm.js",
+  "src": "lib/gallery.js",
+
+  "main": "dist/text.cjs.js",
+  "module": "dist/text.esm.js",
+  "src": "lib/text.js",
+
+ # We will have to adjust the interface point changes in
+ i) builder-rollup : Change input from "main" to "src"
+ ii) storybook: Change field lookup order
+
+
+# Note: We got the indication that the cjs modules do not support destructured export.
+So for using that we have to get the esm module !
+
+
+ .storybook/main.js
+
+    // This is where we change the order of resolution of main fields
+    config.resolve.mainFields = ['src', 'module', 'main'];

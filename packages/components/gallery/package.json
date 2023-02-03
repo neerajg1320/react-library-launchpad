@@ -5,7 +5,9 @@
   "keywords": [],
   "author": "Neeraj Gupta <neerajgupta.mbox@gmail.com>",
   "license": "ISC",
-  "main": "lib/gallery.js",
+  "main": "dist/gallery.cjs.js",
+  "module": "dist/gallery.esm.js",
+  "src": "lib/gallery.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
