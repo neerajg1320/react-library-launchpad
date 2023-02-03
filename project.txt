@@ -421,3 +421,5 @@ Now we  will try to use it in an application.
 
 sample-app-launchpad/ $ npm install --save-dev @glassball/simple-table
 sample-app-launchpad/ $ npm install --save-dev react-table
+
+lerna add --dev @rollup/plugin-commonjs --scope=@glassball/builder-rollup
