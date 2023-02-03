@@ -202,3 +202,48 @@ vi lerna.json
   "version": "0.0.25"
 }
 
+lerna publish
+
+## Now we will create a sample app to use the library
+npx create-react-app sample-app-launchpad
+cd sample-app-launchpad
+
+vi App.js
+
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Sample App using Launchpad</h1>
+    </div>
+  );
+}
+
+export default App;
+
+# Without library app is working
+
+Now we will add library
+npm install --save-dev @glassball/button
+
+# Create
+import './App.css';
+import {Button} from "@glassball/button";
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Sample App using Launchpad</h1>
+      <div>
+        <Button>Colored Button</Button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+# We will add second library as well
+npm install @glassball/text
+
