@@ -1,0 +1,62 @@
+react-library-launchpad/ $ history
+
+cd Projects
+cd Glassball
+cd Production
+
+mkdir react-library-launchpad
+cd react-library-launchpad
+
+npm init -y
+lerna init
+
+touch project.txt
+idea .
+
+mkdir packages/components
+
+lerna create @glassball/button --yes
+lerna create @glassball/text --yes
+lerna create @glassball/gallery --yes
+
+mv packages/button packages/components
+mv packages/text packages/components
+mv packages/gallery packages/components
+
+vi package.json
+
+  "workspaces": [
+    "packages/components/*"
+  ],
+
+lerna create @glassball/builder-rollup --yes
+# We do not move this to components as this is not a components
+
+lerna add @glassball/button --scope=@glassball/gallery
+lerna add @glassball/text --scope=@glassball/gallery
+lerna add react --dev --scope '{@glassball/button,@glassball/text}'
+lerna add react@18.x --peer --scope '{@glassball/button,@glassball/text}'
+
+lerna add clsx --dev --scope '{@glassball/button,@glassball/text}'
+
+## Setup builder
+$ cd packages/builder-rollup
+
+"bin": {
+  "builder-rollup": "./lib/builder-rollup.js"
+},
+
+# For testing we will just create a stub file:
+
+$ vi packages/builder-rollup/lib/builder-rollup.js
+#!/usr/bin/env node
+console.log('Lets Build');
+
+chmod +x packages/builder-rollup/lib/builder-rollup.js
+
+lerna add @glassball/builder-rollup --dev --scope '{@glassball/button,@glassball/text,@glassball/gallery}'
+
+# Add a target in all three packages
+    "build": "builder-rollup",
+
+#

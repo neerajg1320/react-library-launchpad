@@ -1,0 +1,19 @@
+{
+  "name": "react-library-launchpad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*",
+    "packages/components/*"
+  ],
+  "devDependencies": {
+    "lerna": "^6.4.1"
+  }
+}
