@@ -2,16 +2,13 @@
 
 var React = require('react');
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./dist/react-table.production.min.js');
-} else {
-  module.exports = require('./dist/react-table.development.js');
-}
+// SSR has issues with useLayoutEffect still, so use useEffect during SSR
+typeof document !== 'undefined' ? React.useLayoutEffect : React.useEffect;
 
 var Table = function Table(_ref) {
   var data = _ref.data,
     columns = _ref.columns;
-  var _ReactTable$useTable = undefined({
+  var _ReactTable$useTable = ReactTable.useTable({
       columns: columns,
       data: data
     }),

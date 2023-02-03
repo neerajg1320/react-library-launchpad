@@ -6,7 +6,7 @@
   "author": "Neeraj Gupta <neerajgupta.mbox@gmail.com>",
   "license": "ISC",
   "main": "dist/simple-table.cjs.js",
-  "module": "lib/simple-table.esm.js",
+  "module": "dist/simple-table.esm.js",
   "src": "lib/simple-table.js",
   "directories": {
     "lib": "lib",

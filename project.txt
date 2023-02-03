@@ -415,3 +415,9 @@ export default function Table({ columns, data }) {
   "src": "lib/simple-table.js",
 
 $ Add the build, clean, purge scripts
+
+# The table is built and is also being shown in storybook.
+Now we  will try to use it in an application.
+
+sample-app-launchpad/ $ npm install --save-dev @glassball/simple-table
+sample-app-launchpad/ $ npm install --save-dev react-table

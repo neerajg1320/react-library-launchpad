@@ -1,5 +1,6 @@
 import React from 'react';
-import * as ReactTable from "react-table";
+// import * as ReactTable from "react-table";
+import {useTable} from "react-table/src";
 
 const Table = ({data, columns}) => {
   const {
