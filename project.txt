@@ -147,3 +147,5 @@ mkdir packages/components/text/docs
     // Return the altered config
     return config;
   }
+
+# The npm run build is also working
