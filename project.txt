@@ -104,3 +104,46 @@ npm install --save-dev react react-dom
 $ npm run storybook
 # The storybook is running
 
+git status .
+git add .
+git commit -m "Added the storybook. Its working with default stories"
+git push
+git push -u origin storybook
+
+# Wire the component stories to the storybook.
+vi .storybook/main.js
+module.exports = {
+  "stories": [
+    "../packages/**/*.stories.mdx",
+    "../packages/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
+:
+}
+
+# Create docs folder in button and text packages
+mkdir packages/components/button/docs
+mkdir packages/components/text/docs
+
+# Add the support for CSS modules in storybook as our components are using the same.
+# The support for CSS modules in the builder-rollup has already been added.
+  webpackFinal: async (config) => {
+    // remove default css rule from storybook
+    config.module.rules = config.module.rules.filter((f) => f.test.toString() !== '/\\.css$/');
+
+    // push our custom easy one
+    config.module.rules.push({
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            // Key config
+            modules: true,
+          },
+        },
+      ],
+    });
+    // Return the altered config
+    return config;
+  }
