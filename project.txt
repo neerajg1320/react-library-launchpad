@@ -247,3 +247,103 @@ export default App;
 # We will add second library as well
 npm install @glassball/text
 
+
+## Create app inside the package
+# sample-app-basic
+mkdir packages/apps
+lerna create sample-app-basic --yes
+mv packages/sample-app-basic packages/apps
+
+# Update the package.json
+  "workspaces": [
+    "packages/*",
+    "packages/components/*",
+    "packages/apps/*"
+  ],
+
+# We could have set this up using vite, but we will keep variables to low
+mv packages/apps/sample-app-basic/lib packages/apps/sample-app-basic/src
+$ vi packages/apps/sample-app-basic/src/index.js
+
+import React from 'react';
+import {createRoot} from "react-dom/client";
+import App from './App';
+
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
+
+
+$ vi packages/apps/sample-app-basic/src/App.js
+import React from 'react';
+
+const App = () => {
+  return (<h1>App</h1>);
+}
+
+export default App;
+
+# Now we will try this using the same module builder-rollup
+# We keep in mind here that.
+# TBD: We can enhance our builder to look for "main" in absence of source
+"src": "src/index.js",
+
+$ lerna add @glassball/builder-rollup --scope=sample-app-basic
+# We add the build target
+  "scripts": {
+    "build": "builder-rollup",
+
+  },
+
+lerna add react --dev --scope=sample-app-basic
+lerna add react-dom --dev --scope=sample-app-basic
+
+$ lerna run build --scope=sample-app-basic
+The compilation works!
+
+# Now we will deploy it using http-server
+
+lerna add --dev http-server  --scope=sample-app-basic
+
+# We will add a deployment target:
+
+  "scripts": {
+    "deploy": "http-server ./dist",
+  },
+
+lerna run deploy --scope=sample-app-basic
+
+# Note we need to have the index.html file. We will hardcode it for now.
+$ vi dist/index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+            name="description"
+            content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>React App</title>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+<script src="./sample-app-basic.cjs.js"></script>
+</body>
+</html>
+
+# We get the error
+ReferenceError: Can't find variable: require
+
+'use strict';
+
+var React = require('react');
+
+# This means that the links haven't been resolved. Since our builder is meant for library, hence we are seeing this behaviour.
+# So we will leave it here for now and move on to including something which includes react-table
+

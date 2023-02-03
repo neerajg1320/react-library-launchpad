@@ -15,7 +15,8 @@
   "license": "ISC",
   "workspaces": [
     "packages/*",
-    "packages/components/*"
+    "packages/components/*",
+    "packages/apps/*"
   ],
   "devDependencies": {
     "@babel/core": "^7.20.12",
