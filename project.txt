@@ -185,3 +185,20 @@ So for using that we have to get the esm module !
 
     // This is where we change the order of resolution of main fields
     config.resolve.mainFields = ['src', 'module', 'main'];
+
+
+## Publish to repository
+i) We will setup the files to be exported which will be dist folder.
+  "files": [
+    "dist"
+  ],
+ii) Fix the lerna version to 0.0.25
+    Since we have already published these libraries to version 0.0.25 we need to bump up lerna version
+
+vi lerna.json
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "useWorkspaces": true,
+  "version": "0.0.25"
+}
+
