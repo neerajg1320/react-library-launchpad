@@ -6,7 +6,7 @@
   "author": "Neeraj Gupta <neerajgupta.mbox@gmail.com>",
   "license": "ISC",
   "bin": {
-    "builder-rollup": "./lib/builder-rollup.js"
+    "builder-rollup": "lib/builder-rollup.js"
   },
   "main": "lib/builder-rollup.js",
   "directories": {

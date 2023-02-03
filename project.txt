@@ -59,4 +59,9 @@ lerna add @glassball/builder-rollup --dev --scope '{@glassball/button,@glassball
 # Add a target in all three packages
     "build": "builder-rollup",
 
-#
+# Commit
+git status .
+vi .gitignore
+git add .
+git commit -m "Initial Commit"
+git remote add origin git@github.com:neeraj76/react-library-launchpad.git\ngit push -u origin master
