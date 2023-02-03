@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "build": "lerna run build"
+  },
   "workspaces": [
     "packages/*",
     "packages/components/*"

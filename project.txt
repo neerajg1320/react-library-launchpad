@@ -39,9 +39,11 @@ lerna add react@18.x --peer --scope '{@glassball/button,@glassball/text}'
 
 lerna add clsx --dev --scope '{@glassball/button,@glassball/text}'
 
-## Setup builder
+## Setup builder wiring
+# Create a test script
 $ cd packages/builder-rollup
 
+# Wire the CLI
 "bin": {
   "builder-rollup": "./lib/builder-rollup.js"
 },
@@ -65,3 +67,16 @@ vi .gitignore
 git add .
 git commit -m "Initial Commit"
 git remote add origin git@github.com:neeraj76/react-library-launchpad.git\ngit push -u origin master
+
+## Write the builder script
+
+lerna add rollup --scope=@glassball/builder-rollup
+lerna add @babel/core --scope=@glassball/builder-rollup
+lerna add @babel/preset-env --scope=@glassball/builder-rollup
+lerna add @babel/preset-react --scope=@glassball/builder-rollup
+lerna add @rollup/plugin-babel --scope=@glassball/builder-rollup
+lerna add @rollup/plugin-node-resolve --scope=@glassball/builder-rollup
+lerna add rollup-plugin-postcss --scope=@glassball/builder-rollup
+lerna add postcss --scope=@glassball/builder-rollup
+
+# We need postcss for CSS modules support
