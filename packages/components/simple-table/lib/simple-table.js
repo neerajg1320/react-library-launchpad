@@ -1,6 +1,6 @@
 import React from 'react';
 // import * as ReactTable from "react-table";
-import {useTable} from "react-table/src";
+import {useTable} from "react-table";
 
 const Table = ({data, columns}) => {
   const {
@@ -9,7 +9,7 @@ const Table = ({data, columns}) => {
     headerGroups, // headerGroups, if your table has groupings
     rows, // rows for the table based on the data passed
     prepareRow // Prepare the row (this function needs to be called for each row before getting the row props)
-  } = ReactTable.useTable({
+  } = useTable({
     columns,
     data
   });
