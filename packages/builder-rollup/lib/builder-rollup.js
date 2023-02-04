@@ -8,6 +8,9 @@ const commonjs = require('@rollup/plugin-commonjs').default;
 const postcss = require('rollup-plugin-postcss');
 
 const currentWorkingPath = process.cwd();
+
+// TBD: We have to support multiple entry points.
+// TBD: Our script is configured for libraries, we have to make one for apps as well.
 const { src, name } = require(path.join(currentWorkingPath, 'package.json'));
 
 const inputPath = path.join(currentWorkingPath, src);
@@ -18,7 +21,6 @@ const fileName = name.replace('@glassball/', '');
 // see below for details on the options
 const inputOptions = {
   input: inputPath,
-  // external: ['react', 'react-dom', 'react-table'],
   plugins: [
     postcss({
       // Key configuration
