@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {debug} from "../config/debug";
 import ExpandableButton from "../components/expandableButton/ExpandableButton";
 import {RowCheckbox} from "./parts/RowCheckbox";
-import TableDataContext from "./TableDataContext";
+import TableDataContext from "../TableDataContext";
 
 const ColumnVisibilitySection = () => {
   if (debug.lifecycle) {

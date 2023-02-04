@@ -1,16 +1,16 @@
-import {getColumns} from "../schema/generate";
-import {colToRTCol} from "./adapters/reactTableAdapter";
-import {presetColumns} from "../presets/presetColumns";
+import {getColumns} from "./schema/generate";
+import {colToRTCol} from "./features/adapters/reactTableAdapter";
+import {presetColumns} from "./presets/presetColumns";
 import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from "react";
 import Button from "react-bootstrap/Button";
-import {debug} from "../config/debugEnabled";
-import BulkOperationsSection from "./BulkOperationsSection";
+import {debug} from "./config/debugEnabled";
+import BulkOperationsSection from "./features/BulkOperationsSection";
 import TableDataContext from "./TableDataContext";
 import TableCore from "./TableCore";
-import {DELETE, PATCH} from "./common/operationsTypes";
-import GlobalFilterSection from "./GlobalFilterSection";
-import PaginationSection from "./PaginationSection";
-import ColumnVisibilitySection from "./ColumnVisibilitySection";
+import {DELETE, PATCH} from "./features/common/operationsTypes";
+import GlobalFilterSection from "./features/GlobalFilterSection";
+import PaginationSection from "./features/PaginationSection";
+import ColumnVisibilitySection from "./features/ColumnVisibilitySection";
 // import AppContext from "../AppContext";
 
 // We derive columns from data

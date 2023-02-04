@@ -1,6 +1,6 @@
 import {debug} from "../config/debug";
 import React, {useCallback, useContext, useEffect, useMemo, useState} from "react";
-import TableDataContext from "./TableDataContext";
+import TableDataContext from "../TableDataContext";
 import Button from "react-bootstrap/Button";
 import ExpandableButton from "../components/expandableButton/ExpandableButton";
 import ColumnsEditBox from "./parts/ColumnsEditBox";

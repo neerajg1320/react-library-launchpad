@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useMemo, useRef} from "react";
-import TableDataContext from "./TableDataContext";
+import TableDataContext from "../TableDataContext";
 import {GlobalFilter} from "./filter/GlobalFilter";
 import {debug} from "../config/debug";
 

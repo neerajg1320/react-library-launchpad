@@ -6,7 +6,7 @@ import ExpandableButton from "../../components/expandableButton/ExpandableButton
 import React,{useCallback, useContext, useEffect, useState} from "react";
 import InputWithIcons from "../../components/inputFlags/InputWithIcons";
 import {debug} from "../../config/debug";
-import TableDataContext from "../TableDataContext";
+import TableDataContext from "../../TableDataContext";
 
 export const ColumnFilterWithIcon = ({ column: renderedColumn }) => {
   if (debug.lifecycle && renderedColumn.id === "description") {

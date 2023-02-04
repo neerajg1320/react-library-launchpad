@@ -1,5 +1,5 @@
-// import './table.css';
-// import './table-column-resizer.css';
+import '../table.css';
+import './table-column-resizer.css';
 import {
   useTable,
   useRowSelect,
@@ -10,15 +10,15 @@ import {
   useBlockLayout,
   useResizeColumns
 } from "react-table";
-import {RowCheckbox} from "./parts/RowCheckbox";
-import EditableCell from "./parts/editableControlledCell";
-import SelectableCell from "./parts/selectableCell";
+import {RowCheckbox} from "./features/parts/RowCheckbox";
+import EditableCell from "./features/parts/editableControlledCell";
+import SelectableCell from "./features/parts/selectableCell";
 import React, {useCallback, useContext, useEffect, useMemo, useRef} from "react";
-import {debug} from "../config/debug";
+import {debug} from "./config/debug";
 import TableDataContext from "./TableDataContext";
-import {ColumnFilterWithIcon} from "./filter/ColumnFilterWithIcon";
-import {filterUsingRegex} from "./filter/customFilter";
-import TooltipComponent from "../components/tooltip/TooltipComponent";
+import {ColumnFilterWithIcon} from "./features/filter/ColumnFilterWithIcon";
+import {filterUsingRegex} from "./features/filter/customFilter";
+import TooltipComponent from "./components/tooltip/TooltipComponent";
 
 // Supports:
 //  - Rows Selection

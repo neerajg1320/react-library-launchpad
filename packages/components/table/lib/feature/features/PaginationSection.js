@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import {debug} from "../config/debug";
-import TableDataContext from "./TableDataContext";
+import TableDataContext from "../TableDataContext";
 
 const PaginationSection = () => {
   if (debug.lifecycle) {

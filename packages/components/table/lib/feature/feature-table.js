@@ -1,3 +1,3 @@
-import {TableWrapper as FeatureTable} from "./code/TableWrapper";
+import {TableWrapper as FeatureTable} from "./TableWrapper";
 
 export {FeatureTable};
