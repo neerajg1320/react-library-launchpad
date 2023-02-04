@@ -1,6 +1,6 @@
 'use strict';
 
-var React$1 = require('react');
+var React = require('react');
 var reactTable = require('react-table');
 var dateFns = require('date-fns');
 var Button = require('react-bootstrap/Button');
@@ -55,16 +55,16 @@ var BasicTable = function BasicTable(_ref) {
     headerGroups = _useTable.headerGroups,
     rows = _useTable.rows,
     prepareRow = _useTable.prepareRow;
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("table", getTableProps(), /*#__PURE__*/React$1.createElement("thead", null, headerGroups.map(function (headerGroup) {
-    return /*#__PURE__*/React$1.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
-      return /*#__PURE__*/React$1.createElement("th", column.getHeaderProps(), column.render("Header"));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("table", getTableProps(), /*#__PURE__*/React.createElement("thead", null, headerGroups.map(function (headerGroup) {
+    return /*#__PURE__*/React.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
+      return /*#__PURE__*/React.createElement("th", column.getHeaderProps(), column.render("Header"));
     }));
-  })), /*#__PURE__*/React$1.createElement("tbody", getTableBodyProps(), rows.map(function (row, i) {
+  })), /*#__PURE__*/React.createElement("tbody", getTableBodyProps(), rows.map(function (row, i) {
     prepareRow(row);
-    return /*#__PURE__*/React$1.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
-      return /*#__PURE__*/React$1.createElement("td", cell.getCellProps(), cell.render("Cell"));
+    return /*#__PURE__*/React.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
+      return /*#__PURE__*/React.createElement("td", cell.getCellProps(), cell.render("Cell"));
     }));
-  })))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("h2", null, "Data"), /*#__PURE__*/React$1.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React$1.createElement("h2", null, "Columns"), /*#__PURE__*/React$1.createElement("pre", null, JSON.stringify(columns, null, 2))));
+  })))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Data"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React.createElement("h2", null, "Columns"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(columns, null, 2))));
 };
 
 var StyledTable = function StyledTable(_ref) {
@@ -79,18 +79,18 @@ var StyledTable = function StyledTable(_ref) {
     headerGroups = _useTable.headerGroups,
     rows = _useTable.rows,
     prepareRow = _useTable.prepareRow;
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "styled-table"
-  }, /*#__PURE__*/React$1.createElement("table", getTableProps(), /*#__PURE__*/React$1.createElement("thead", null, headerGroups.map(function (headerGroup) {
-    return /*#__PURE__*/React$1.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
-      return /*#__PURE__*/React$1.createElement("th", column.getHeaderProps(), column.render("Header"));
+  }, /*#__PURE__*/React.createElement("table", getTableProps(), /*#__PURE__*/React.createElement("thead", null, headerGroups.map(function (headerGroup) {
+    return /*#__PURE__*/React.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
+      return /*#__PURE__*/React.createElement("th", column.getHeaderProps(), column.render("Header"));
     }));
-  })), /*#__PURE__*/React$1.createElement("tbody", getTableBodyProps(), rows.map(function (row, i) {
+  })), /*#__PURE__*/React.createElement("tbody", getTableBodyProps(), rows.map(function (row, i) {
     prepareRow(row);
-    return /*#__PURE__*/React$1.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
-      return /*#__PURE__*/React$1.createElement("td", cell.getCellProps(), cell.render("Cell"));
+    return /*#__PURE__*/React.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
+      return /*#__PURE__*/React.createElement("td", cell.getCellProps(), cell.render("Cell"));
     }));
-  })))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("h2", null, "Data"), /*#__PURE__*/React$1.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React$1.createElement("h2", null, "Columns"), /*#__PURE__*/React$1.createElement("pre", null, JSON.stringify(columns, null, 2))));
+  })))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Data"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React.createElement("h2", null, "Columns"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(columns, null, 2))));
 };
 
 function _iterableToArrayLimit(arr, i) {
@@ -389,7 +389,7 @@ function colToRTCol(colObj, _ref) {
     } else {
       alignment = valueType === "number" ? "flex-end" : valueType === "date" ? "center" : "flex-start";
     }
-    return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("div", {
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
       style: {
         height: "100%",
         overflow: "hidden",
@@ -398,26 +398,26 @@ function colToRTCol(colObj, _ref) {
         gap: "2px",
         justifyContent: "center"
       }
-    }, /*#__PURE__*/React$1.createElement("div", {
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         flexDirection: "column",
         alignItems: alignment
       }
-    }, /*#__PURE__*/React$1.createElement("div", {
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         height: "1em",
         display: "flex",
         flexDirection: "row",
         alignItems: "center"
       }
-    }, valToString(value, reactColObj.format) || "")), showTypes && /*#__PURE__*/React$1.createElement("div", {
+    }, valToString(value, reactColObj.format) || "")), showTypes && /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-end"
       }
-    }, /*#__PURE__*/React$1.createElement("span", {
+    }, /*#__PURE__*/React.createElement("span", {
       style: {
         color: "gray",
         fontSize: "0.7em"
@@ -543,7 +543,7 @@ var shadowColumns = [{
 }];
 var presetColumns = [].concat(statementColumns, accountingColumns, shadowColumns);
 
-var TableDataContext = /*#__PURE__*/React$1.createContext({});
+var TableDataContext = /*#__PURE__*/React.createContext({});
 
 // Currently its a controlled component
 var ExpandableButton = function ExpandableButton(_ref) {
@@ -558,11 +558,11 @@ var ExpandableButton = function ExpandableButton(_ref) {
   // console.log(`Rendering <ExpandableButton> value=${value}`);
 
   // The followed function can be use when we need to inject or remove props in child
-  var childrenWithProps = React$1.Children.map(children, function (child) {
+  var childrenWithProps = React.Children.map(children, function (child) {
     // https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
     // avoids typescript error as well
-    if ( /*#__PURE__*/React$1.isValidElement(child)) {
-      return /*#__PURE__*/React$1.cloneElement(child);
+    if ( /*#__PURE__*/React.isValidElement(child)) {
+      return /*#__PURE__*/React.cloneElement(child);
     }
     return child;
   });
@@ -575,7 +575,7 @@ var ExpandableButton = function ExpandableButton(_ref) {
       onChange(!expanded);
     }
   };
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     tabIndex: "1",
     onBlur: handleBlur,
     style: {
@@ -583,14 +583,14 @@ var ExpandableButton = function ExpandableButton(_ref) {
       flexDirection: "column",
       position: "relative"
     }
-  }, icon, clickComponent, !icon && !clickComponent && /*#__PURE__*/React$1.createElement(Button, {
+  }, icon, clickComponent, !icon && !clickComponent && /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "sm",
     disabled: disabled,
     onClick: function onClick(e) {
       return onChange(!expanded);
     }
-  }, title), expanded && /*#__PURE__*/React$1.createElement("div", {
+  }, title), expanded && /*#__PURE__*/React.createElement("div", {
     style: _objectSpread2({
       padding: "20px",
       display: "flex",
@@ -613,7 +613,7 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
   {
     console.log("Rendering <ColumnsEditBox>");
   }
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     {
       console.log("<ColumnsEditBox>: First render");
     }
@@ -648,12 +648,12 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
       onCancel();
     }
   };
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, columns.map(function (col, col_idx) {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, columns.map(function (col, col_idx) {
     columnValues.push({
       active: false,
       name: col.keyName
     });
-    return /*#__PURE__*/React$1.createElement("div", {
+    return /*#__PURE__*/React.createElement("div", {
       key: col_idx,
       style: {
         display: "flex",
@@ -661,18 +661,18 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
         alignItems: "center",
         gap: "10px"
       }
-    }, /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("input", {
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("input", {
       type: "checkbox",
       onChange: function onChange(e) {
         columnValues[col_idx].active = e.target.checked;
       }
-    })), /*#__PURE__*/React$1.createElement("div", {
+    })), /*#__PURE__*/React.createElement("div", {
       style: {
         minWidth: "80px"
       }
-    }, col.Header), /*#__PURE__*/React$1.createElement("div", null, col.type === "input" ? /*#__PURE__*/React$1.createElement("form", null, /*#__PURE__*/React$1.createElement("div", {
+    }, col.Header), /*#__PURE__*/React.createElement("div", null, col.type === "input" ? /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("div", {
       className: "form-group"
-    }, /*#__PURE__*/React$1.createElement("input", {
+    }, /*#__PURE__*/React.createElement("input", {
       type: "email",
       className: "form-control",
       "aria-describedby": "emailHelp",
@@ -680,7 +680,7 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
       onChange: function onChange(e) {
         columnValues[col_idx].value = e.target.value;
       }
-    }))) : col.type === "select" ? /*#__PURE__*/React$1.createElement(Select, {
+    }))) : col.type === "select" ? /*#__PURE__*/React.createElement(Select, {
       options: col.choices.map(function (choice) {
         return {
           label: choice,
@@ -702,18 +702,18 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
       }
       // isDisabled={false}
     }) : ""));
-  }), /*#__PURE__*/React$1.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       justifyContent: "end",
       paddingRight: "20px",
       gap: "10px"
     }
-  }, /*#__PURE__*/React$1.createElement(Button, {
+  }, /*#__PURE__*/React.createElement(Button, {
     variant: "outline-danger",
     size: "sm",
     onClick: handleCancelClick
-  }, "Cancel"), /*#__PURE__*/React$1.createElement(Button, {
+  }, "Cancel"), /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "sm",
     onClick: handleSaveClick
@@ -725,66 +725,66 @@ var DELETE = 'DELETE';
 
 var BulkOperationsSection = function BulkOperationsSection(_ref) {
   var edit = _ref.edit;
-  var _useContext = React$1.useContext(TableDataContext),
+  var _useContext = React.useContext(TableDataContext),
     columns = _useContext.columns,
     selectedFlatRows = _useContext.selectedFlatRows,
     toggleAllRowsSelected = _useContext.toggleAllRowsSelected,
     updateData = _useContext.onChange;
   var bulkEnabled = selectedFlatRows && (selectedFlatRows === null || selectedFlatRows === void 0 ? void 0 : selectedFlatRows.length) > 0;
-  var _useState = React$1.useState(false),
+  var _useState = React.useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     bulkEditExpanded = _useState2[0],
     setBulkEditExpanded = _useState2[1];
 
   // For debugging purpose
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     return function () {
     };
   }, []);
-  var getRowIndices = React$1.useCallback(function (selRows) {
+  var getRowIndices = React.useCallback(function (selRows) {
     return selRows.map(function (row) {
       return row.index;
     });
   }, []);
-  var handleBulkDeleteClick = React$1.useCallback(function () {
+  var handleBulkDeleteClick = React.useCallback(function () {
     var indices = getRowIndices(selectedFlatRows);
     updateData(DELETE, indices);
     setBulkEditExpanded(false);
   }, [selectedFlatRows]);
-  var handleBulkEditSaveClick = React$1.useCallback(function (patch) {
+  var handleBulkEditSaveClick = React.useCallback(function (patch) {
     var indices = getRowIndices(selectedFlatRows);
     updateData(PATCH, indices, patch);
     setBulkEditExpanded(false);
   }, [selectedFlatRows]);
-  var handleBulkEditCancelClick = React$1.useCallback(function () {
+  var handleBulkEditCancelClick = React.useCallback(function () {
     setBulkEditExpanded(false);
   }, []);
-  var handleClearSelectionClick = React$1.useCallback(function () {
+  var handleClearSelectionClick = React.useCallback(function () {
     if (toggleAllRowsSelected) {
       toggleAllRowsSelected(false);
     }
   }, [toggleAllRowsSelected]);
 
   // Support bulk select
-  var bulkColumns = React$1.useMemo(function () {
+  var bulkColumns = React.useMemo(function () {
     return columns !== null && columns !== void 0 && columns.length ? columns.filter(function (col) {
       return col.bulk;
     }) : [];
   }, [columns]);
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: "10px",
       alignItems: "center"
     }
-  }, edit && /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(Button, {
+  }, edit && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Button, {
     variant: "danger",
     size: "sm",
     disabled: !bulkEnabled,
     onClick: function onClick(e) {
       return handleBulkDeleteClick();
     }
-  }, "Bulk Delete"), /*#__PURE__*/React$1.createElement(ExpandableButton, {
+  }, "Bulk Delete"), /*#__PURE__*/React.createElement(ExpandableButton, {
     title: "Bulk Edit",
     disabled: !bulkColumns.length || !bulkEnabled,
     expanded: bulkEditExpanded,
@@ -795,12 +795,12 @@ var BulkOperationsSection = function BulkOperationsSection(_ref) {
       left: "60px",
       top: "25px"
     }
-  }, /*#__PURE__*/React$1.createElement(ColumnsEditBox, {
+  }, /*#__PURE__*/React.createElement(ColumnsEditBox, {
     columns: bulkColumns,
     onSave: handleBulkEditSaveClick,
     onCancel: handleBulkEditCancelClick,
     disabled: !bulkEnabled
-  }))), /*#__PURE__*/React$1.createElement(Button, {
+  }))), /*#__PURE__*/React.createElement(Button, {
     variant: "outline-dark",
     size: "sm",
     disabled: !bulkEnabled,
@@ -811,21 +811,21 @@ var BulkOperationsSection = function BulkOperationsSection(_ref) {
 // export default EditSelectionTable;
 
 // We use React.memo when we want to render the child only when any props change
-var BulkOperationsSection$1 = /*#__PURE__*/React$1.memo(BulkOperationsSection);
+var BulkOperationsSection$1 = /*#__PURE__*/React.memo(BulkOperationsSection);
 
 var css_248z$1 = ".table-column-resizer_resizer__ZPmdn {\n    display: inline-block;\n    background: green;\n    width: 10px;\n    height: 100%;\n    position: absolute;\n    right: 0;\n    top: 0;\n    transform: translateX(50%);\n    /*z-index: 1;*/\n    /* prevent scroll on touch devices */\n    touch-action: none;\n}\n\n\n.table-column-resizer_isResizing__l-fFJ {\n    background: darkgreen;\n}";
 styleInject(css_248z$1);
 
 var _excluded = ["indeterminate"];
-var RowCheckbox = /*#__PURE__*/React$1.forwardRef(function (_ref, ref) {
+var RowCheckbox = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var indeterminate = _ref.indeterminate,
     rest = _objectWithoutProperties(_ref, _excluded);
-  var defaultRef = React$1.useRef();
+  var defaultRef = React.useRef();
   var resolvedRef = ref || defaultRef;
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     resolvedRef.current.indeterminate = indeterminate;
   }, [resolvedRef, indeterminate]);
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("input", _extends({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("input", _extends({
     type: "checkbox",
     ref: resolvedRef
   }, rest)));
@@ -837,21 +837,21 @@ var EditableControlledCell = function EditableControlledCell(_ref) {
     row = _ref.row,
     column = _ref.column,
     updateData = _ref.updateData;
-  var _useState = React$1.useState(initialValue),
+  var _useState = React.useState(initialValue),
     _useState2 = _slicedToArray(_useState, 2),
     value = _useState2[0],
     setValue = _useState2[1];
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     return function () {
     };
   }, []);
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     setValue(initialValue);
   }, [initialValue]);
 
   // console.log(`value=${value} initialValue=${initialValue}`);
 
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("form", null, /*#__PURE__*/React$1.createElement("input", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("input", {
     className: "form-control",
     value: value,
     onChange: function onChange(e) {
@@ -871,23 +871,23 @@ var SelectableCell = function SelectableCell(_ref) {
     updateData = _ref.updateData,
     choices = _ref.choices,
     placement = _ref.placement;
-  var _useState = React$1.useState(initialValue || ""),
+  var _useState = React.useState(initialValue || ""),
     _useState2 = _slicedToArray(_useState, 2),
     value = _useState2[0],
     setValue = _useState2[1];
-  var _useState3 = React$1.useState([]),
+  var _useState3 = React.useState([]),
     _useState4 = _slicedToArray(_useState3, 2),
     options = _useState4[0],
     setOptions = _useState4[1];
 
   // If the initialValue is changed external, sync it up with our state
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     if (initialValue) {
       // console.log(`initialValue=${initialValue}`);
       setValue(initialValue);
     }
   }, [initialValue]);
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     var options = choices.map(function (choice) {
       return {
         label: choice,
@@ -896,16 +896,16 @@ var SelectableCell = function SelectableCell(_ref) {
     });
     setOptions(options);
   }, [choices]);
-  var handleSelect = React$1.useCallback(function (opt) {
+  var handleSelect = React.useCallback(function (opt) {
     // console.log(opt.value);
     setValue(opt.value);
     updateData(PATCH, [row.index], _defineProperty({}, column.keyName, opt.value));
   }, []);
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     style: {
       overflow: "visible"
     }
-  }, /*#__PURE__*/React$1.createElement(Select, {
+  }, /*#__PURE__*/React.createElement(Select, {
     menuPlacement: placement,
     options: choices.map(function (choice) {
       return {
@@ -946,20 +946,20 @@ var InputWithIcons = function InputWithIcons(_ref) {
     disabled = _ref.disabled;
   // console.log(`Rendering <InputWithIcons>`);
 
-  var _useState = React$1.useState(false),
+  var _useState = React.useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     caps = _useState2[0],
     setCaps = _useState2[1];
-  var _useState3 = React$1.useState(false),
+  var _useState3 = React.useState(false),
     _useState4 = _slicedToArray(_useState3, 2),
     full = _useState4[0],
     setFull = _useState4[1];
-  var _useState5 = React$1.useState(false),
+  var _useState5 = React.useState(false),
     _useState6 = _slicedToArray(_useState5, 2),
     regex = _useState6[0],
     setRegex = _useState6[1];
-  var inputRef = React$1.useRef();
-  React$1.useEffect(function () {
+  var inputRef = React.useRef();
+  React.useEffect(function () {
     if (inputRef.current.value) {
       onChange({
         text: inputRef.current.value,
@@ -971,7 +971,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
       });
     }
   }, [caps, full, regex]);
-  var handleInputChange = React$1.useCallback(function (e) {
+  var handleInputChange = React.useCallback(function (e) {
     onChange({
       text: e.target.value,
       flags: {
@@ -981,7 +981,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
       }
     });
   }, [caps, full, regex]);
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
       display: "flex",
@@ -989,7 +989,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
       gap: "4px",
       alignItems: "start"
     }
-  }, /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     ref: inputRef,
     disabled: disabled,
     className: "form-control",
@@ -998,7 +998,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
     style: {
       width: "200px"
     }
-  }), /*#__PURE__*/React$1.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "filter-flags",
     style: {
       display: "flex",
@@ -1007,55 +1007,55 @@ var InputWithIcons = function InputWithIcons(_ref) {
       position: "absolute",
       right: "5px"
     }
-  }, /*#__PURE__*/React$1.createElement(FlagIcon, {
+  }, /*#__PURE__*/React.createElement(FlagIcon, {
     value: caps,
     onChange: function onChange(e) {
       return setCaps(!caps);
     }
-  }, /*#__PURE__*/React$1.createElement(rx.RxLetterCaseCapitalize, null)), /*#__PURE__*/React$1.createElement(FlagIcon, {
+  }, /*#__PURE__*/React.createElement(rx.RxLetterCaseCapitalize, null)), /*#__PURE__*/React.createElement(FlagIcon, {
     value: full,
     onChange: function onChange(e) {
       return setFull(!full);
     }
-  }, /*#__PURE__*/React$1.createElement(tb.TbLetterF, null)), /*#__PURE__*/React$1.createElement(FlagIcon, {
+  }, /*#__PURE__*/React.createElement(tb.TbLetterF, null)), /*#__PURE__*/React.createElement(FlagIcon, {
     value: regex,
     onChange: function onChange(e) {
       return setRegex(!regex);
     }
-  }, /*#__PURE__*/React$1.createElement(si.SiExpress, null))));
+  }, /*#__PURE__*/React.createElement(si.SiExpress, null))));
 };
 
 var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
   var renderedColumn = _ref.column;
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     return function () {
     };
   }, []);
   var filterValue = renderedColumn.filterValue,
     setFilter = renderedColumn.setFilter;
-  var _useState = React$1.useState(false),
+  var _useState = React.useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     expanded = _useState2[0],
     setExpanded = _useState2[1];
-  var _useState3 = React$1.useState(filterValue === null || filterValue === void 0 ? void 0 : filterValue.flagBlank),
+  var _useState3 = React.useState(filterValue === null || filterValue === void 0 ? void 0 : filterValue.flagBlank),
     _useState4 = _slicedToArray(_useState3, 2),
     blankEnabled = _useState4[0],
     setBlankEnabled = _useState4[1];
-  var _useState5 = React$1.useState(filterValue === null || filterValue === void 0 ? void 0 : filterValue.flagText),
+  var _useState5 = React.useState(filterValue === null || filterValue === void 0 ? void 0 : filterValue.flagText),
     _useState6 = _slicedToArray(_useState5, 2),
     textEnabled = _useState6[0],
     setTextEnabled = _useState6[1];
-  var _useState7 = React$1.useState(filterValue === null || filterValue === void 0 ? void 0 : filterValue.filterText),
+  var _useState7 = React.useState(filterValue === null || filterValue === void 0 ? void 0 : filterValue.filterText),
     _useState8 = _slicedToArray(_useState7, 2),
     filterText = _useState8[0],
     setFilterText = _useState8[1];
-  var _useState9 = React$1.useState(filterValue === null || filterValue === void 0 ? void 0 : filterValue.filterText),
+  var _useState9 = React.useState(filterValue === null || filterValue === void 0 ? void 0 : filterValue.filterText),
     _useState10 = _slicedToArray(_useState9, 2),
     textFlags = _useState10[0],
     setTextFlags = _useState10[1];
 
   // This should be taken out if we can find a way to know which column filter changed
-  var _useContext = React$1.useContext(TableDataContext),
+  var _useContext = React.useContext(TableDataContext),
     updateColumnFilter = _useContext.onColumnFilterChange;
 
   // useEffect(() => {
@@ -1066,7 +1066,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
   //   // updateColumnFilter(renderedColumn.id, filterValue);
   // }, [filterValue]);
 
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     // Check if we need state
     // console.log(`ColumnFilterWithIcon: filterText=${filterText}`)
     var filterObject = {
@@ -1079,19 +1079,19 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
     updateColumnFilter(renderedColumn.id, filterObject);
     setFilter(filterObject);
   }, [blankEnabled, textEnabled, filterText, textFlags]);
-  var clearFilter = React$1.useCallback(function () {
+  var clearFilter = React.useCallback(function () {
     setExpanded(!expanded);
     updateColumnFilter(renderedColumn.id, undefined);
     setFilter(undefined);
   }, [expanded]);
-  var searchIcon = filterValue !== null && filterValue !== void 0 && filterValue.flagBlank || filterValue !== null && filterValue !== void 0 && filterValue.flagText && filterValue !== null && filterValue !== void 0 && filterValue.filterText ? /*#__PURE__*/React$1.createElement(fa.FaSearchPlus, {
+  var searchIcon = filterValue !== null && filterValue !== void 0 && filterValue.flagBlank || filterValue !== null && filterValue !== void 0 && filterValue.flagText && filterValue !== null && filterValue !== void 0 && filterValue.filterText ? /*#__PURE__*/React.createElement(fa.FaSearchPlus, {
     onClick: function onClick(e) {
       return setExpanded(!expanded);
     },
     style: {
       cursor: "pointer"
     }
-  }) : /*#__PURE__*/React$1.createElement(bi.BiSearchAlt, {
+  }) : /*#__PURE__*/React.createElement(bi.BiSearchAlt, {
     onClick: function onClick(e) {
       return setExpanded(!expanded);
     },
@@ -1099,7 +1099,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       cursor: "pointer"
     }
   });
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(ExpandableButton, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(ExpandableButton, {
     title: "S",
     icon: searchIcon,
     expanded: expanded,
@@ -1116,7 +1116,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       top: "100%",
       right: "50%"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       color: "black",
       display: "flex",
@@ -1124,7 +1124,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       gap: "5px",
       alignItems: "start"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
       color: "black",
@@ -1132,7 +1132,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       justifyContent: "space-between",
       gap: "10px"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       color: "black",
       display: "flex",
@@ -1141,13 +1141,13 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       gap: "5px",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React$1.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", {
     style: {
       color: "black",
       fontSize: ".8em",
       fontWeight: "normal"
     }
-  }, renderedColumn.Header), /*#__PURE__*/React$1.createElement(bi.BiSearchAlt, null)), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(ti.TiTick, {
+  }, renderedColumn.Header), /*#__PURE__*/React.createElement(bi.BiSearchAlt, null)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(ti.TiTick, {
     style: {
       color: "green",
       fontSize: "1.3em",
@@ -1156,7 +1156,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
     onClick: function onClick(e) {
       return setExpanded(!expanded);
     }
-  }), /*#__PURE__*/React$1.createElement(ai.AiOutlineClose, {
+  }), /*#__PURE__*/React.createElement(ai.AiOutlineClose, {
     onClick: function onClick(e) {
       return clearFilter();
     },
@@ -1164,20 +1164,20 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       color: "red",
       cursor: "pointer"
     }
-  }))), /*#__PURE__*/React$1.createElement("div", {
+  }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       gap: "10px"
     }
-  }, /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     type: "checkbox",
     defaultChecked: true,
     onChange: function onChange(e) {
       setTextEnabled(e.target.checked);
     }
-  }), /*#__PURE__*/React$1.createElement(InputWithIcons, {
+  }), /*#__PURE__*/React.createElement(InputWithIcons, {
     disabled: !textEnabled,
     defaultValue: {
       text: filterValue === null || filterValue === void 0 ? void 0 : filterValue.filterText,
@@ -1190,7 +1190,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       setFilterText(text);
       setTextFlags(flags);
     }
-  })), /*#__PURE__*/React$1.createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "center",
@@ -1199,12 +1199,12 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       fontWeight: "normal",
       marginTop: "5px"
     }
-  }, /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     type: "checkbox",
     onChange: function onChange(e) {
       setBlankEnabled(e.target.checked);
     }
-  }), /*#__PURE__*/React$1.createElement("label", null, "Blanks")))));
+  }), /*#__PURE__*/React.createElement("label", null, "Blanks")))));
 };
 
 var filterUsingRegex = function filterUsingRegex(rows, columnIds, filterValue) {
@@ -1304,24 +1304,24 @@ var TooltipComponent = function TooltipComponent(_ref) {
     message = _ref.message,
     disabled = _ref.disabled;
   var renderTooltip = function renderTooltip(props) {
-    return /*#__PURE__*/React$1.createElement(Tooltip, props, message);
+    return /*#__PURE__*/React.createElement(Tooltip, props, message);
   };
   if (disabled === true) {
-    return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, children);
+    return /*#__PURE__*/React.createElement(React.Fragment, null, children);
   }
-  return /*#__PURE__*/React$1.createElement(reactBootstrap.OverlayTrigger, {
+  return /*#__PURE__*/React.createElement(reactBootstrap.OverlayTrigger, {
     placement: "top",
     overlay: renderTooltip
   }, children);
 };
-var TooltipComponent$1 = /*#__PURE__*/React$1.memo(TooltipComponent);
+var TooltipComponent$1 = /*#__PURE__*/React.memo(TooltipComponent);
 
 // Supports:
 //  - Rows Selection
 //  - Edit cells using input and select
 
 var TableCore = function TableCore() {
-  var _useContext = React$1.useContext(TableDataContext),
+  var _useContext = React.useContext(TableDataContext),
     data = _useContext.data,
     columns = _useContext.columns,
     headersMap = _useContext.headersMap,
@@ -1349,21 +1349,21 @@ var TableCore = function TableCore() {
   // console.log(JSON.stringify(columns, null, 2));
 
   // For debugging purpose
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     return function () {
     };
   }, []);
-  var usePrepareColumn = React$1.useCallback(function (hooks) {
+  var usePrepareColumn = React.useCallback(function (hooks) {
     // Support row select
     var selectionColumn = {
       id: "selection",
       Header: function Header(_ref) {
         var getToggleAllRowsSelectedProps = _ref.getToggleAllRowsSelectedProps;
-        return /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(RowCheckbox, getToggleAllRowsSelectedProps()));
+        return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(RowCheckbox, getToggleAllRowsSelectedProps()));
       },
       Cell: function Cell(_ref2) {
         var row = _ref2.row;
-        return /*#__PURE__*/React$1.createElement("div", {
+        return /*#__PURE__*/React.createElement("div", {
           style: {
             height: "100%",
             display: "flex",
@@ -1371,7 +1371,7 @@ var TableCore = function TableCore() {
             justifyContent: "center",
             alignItems: "center"
           }
-        }, /*#__PURE__*/React$1.createElement(RowCheckbox, row.getToggleRowSelectedProps()));
+        }, /*#__PURE__*/React.createElement(RowCheckbox, row.getToggleRowSelectedProps()));
       },
       enableAddons: false,
       enableSorting: false,
@@ -1386,7 +1386,7 @@ var TableCore = function TableCore() {
               // The following is equivalent to col.Cell = EditableCell
               // We have kept it for uniformity
               col.Cell = function (props) {
-                return /*#__PURE__*/React$1.createElement(EditableControlledCell, props);
+                return /*#__PURE__*/React.createElement(EditableControlledCell, props);
               };
             } else if (col.type === 'select') {
               col.Cell = function (props) {
@@ -1405,7 +1405,7 @@ var TableCore = function TableCore() {
                   return item.index === row.index;
                 });
                 var placement = positionInView > topThreshold ? "top" : "bottom";
-                return /*#__PURE__*/React$1.createElement(SelectableCell, _extends({
+                return /*#__PURE__*/React.createElement(SelectableCell, _extends({
                   choices: col.choices
                 }, props, {
                   placement: placement
@@ -1423,7 +1423,7 @@ var TableCore = function TableCore() {
       }
     });
   }, [featureSelection, featureEdit]);
-  var pluginHooks = React$1.useMemo(function () {
+  var pluginHooks = React.useMemo(function () {
     var hooks = [];
     if (featureGlobalFilter) {
       hooks.push(reactTable.useGlobalFilter);
@@ -1449,13 +1449,13 @@ var TableCore = function TableCore() {
     hooks.push(usePrepareColumn);
     return hooks;
   }, [featureSelection, featureGlobalFilter, featureEdit, featurePagination]);
-  var currentPageIndex = React$1.useMemo(function () {
+  var currentPageIndex = React.useMemo(function () {
     return getCurrentPageIndex();
   }, [getCurrentPageIndex]);
 
   // console.log(`<TableCore>: currentPageIndex:${currentPageIndex}`);
 
-  var defaultColumnAttrs = React$1.useMemo(function () {
+  var defaultColumnAttrs = React.useMemo(function () {
     var attrs = {};
     if (featureColumnFilter) {
       attrs = {
@@ -1474,7 +1474,7 @@ var TableCore = function TableCore() {
     // console.log(`defaultColumnAttrs=`, attrs);
     return attrs;
   }, [featureSelection]);
-  var hiddenColumns = React$1.useMemo(function () {
+  var hiddenColumns = React.useMemo(function () {
     return columns.map(function (col) {
       if (col.hidden === true) {
         // console.log(`empty column = ${JSON.stringify(col, null, 2)}`);
@@ -1484,13 +1484,13 @@ var TableCore = function TableCore() {
       }
     });
   }, [columns]);
-  var globalFilter = React$1.useMemo(function () {
+  var globalFilter = React.useMemo(function () {
     return getGlobalFilter();
   }, [getGlobalFilter]);
-  var columnsFilters = React$1.useMemo(function () {
+  var columnsFilters = React.useMemo(function () {
     return getColumnsFilters();
   }, [getColumnsFilters]);
-  var initialState = React$1.useMemo(function () {
+  var initialState = React.useMemo(function () {
     var initState = {};
 
     // The hidden columns
@@ -1534,11 +1534,11 @@ var TableCore = function TableCore() {
     gotoPage = tableInstance.gotoPage,
     state = tableInstance.state,
     visibleColumns = tableInstance.visibleColumns;
-  var rowsPrevRef = React$1.useRef([]);
-  var visibleRows = React$1.useMemo(function () {
+  var rowsPrevRef = React.useRef([]);
+  var visibleRows = React.useMemo(function () {
     return featurePagination ? page : rows;
   }, [page, rows]);
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     if (rows.length != rowsPrevRef.current.length) {
       // console.log(`TableCore:rows prevRowCount:${rowsPrevRef.current.length} count=${rows.length}`)
       if (featurePagination) {
@@ -1554,39 +1554,39 @@ var TableCore = function TableCore() {
   }, [rows, currentPageIndex, gotoPage]);
   // console.log(`tableInstance=`, tableInstance);
 
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     // console.log(`visibleColumns=`, visibleColumns);
     updateVisibleColumns(visibleColumns);
   }, [visibleColumns]);
   var pageIndex = state.pageIndex,
     pageSize = state.pageSize;
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     updatePageIndex(pageIndex);
     updatePageSize(pageSize);
   }, [pageIndex, pageSize]);
 
   // Note: Causes a rerender
   // Required for rerendering the BulkSelection component
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     updateSelection(selectedFlatRows);
   }, [selectedFlatRows]);
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     // console.log(`Updated tableInstance`);
     updateRTable(tableInstance);
   }, [tableInstance]);
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("table", getTableProps(), /*#__PURE__*/React$1.createElement("thead", null, headerGroups.map(function (headerGroup) {
-    return /*#__PURE__*/React$1.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (hdrColumn) {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("table", getTableProps(), /*#__PURE__*/React.createElement("thead", null, headerGroups.map(function (headerGroup) {
+    return /*#__PURE__*/React.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (hdrColumn) {
       var _JSON$stringify, _headersMap$hdrColumn;
       return (
         /*#__PURE__*/
         //  If we want header to be clickable then modify getHeaderProps call as 
         //  getHeaderProps(featureSorting ? hdrColumn.getSortByToggleProps() : {})
-        React$1.createElement("th", hdrColumn.getHeaderProps(), /*#__PURE__*/React$1.createElement("div", {
+        React.createElement("th", hdrColumn.getHeaderProps(), /*#__PURE__*/React.createElement("div", {
           style: {
             display: "flex",
             flexDirection: "column"
           }
-        }, /*#__PURE__*/React$1.createElement("div", {
+        }, /*#__PURE__*/React.createElement("div", {
           style: {
             display: "flex",
             flexDirection: "row",
@@ -1594,28 +1594,28 @@ var TableCore = function TableCore() {
             alignItems: "center",
             gap: "10px"
           }
-        }, /*#__PURE__*/React$1.createElement("div", {
+        }, /*#__PURE__*/React.createElement("div", {
           style: {
             width: "100%"
             // border: "1px dashed white"
           }
-        }, /*#__PURE__*/React$1.createElement(TooltipComponent$1, {
+        }, /*#__PURE__*/React.createElement(TooltipComponent$1, {
           message: hdrColumn.render('Header'),
           disabled: !layoutHeaderTooltip || hdrColumn.enableAddons === false
-        }, /*#__PURE__*/React$1.createElement("span", {
+        }, /*#__PURE__*/React.createElement("span", {
           style: {
             whiteSpace: "nowrap"
           }
-        }, hdrColumn.render('Header')))), hdrColumn.enableAddons !== false && /*#__PURE__*/React$1.createElement("div", {
+        }, hdrColumn.render('Header')))), hdrColumn.enableAddons !== false && /*#__PURE__*/React.createElement("div", {
           style: {
             display: "flex",
             flexDirection: "row",
             gap: "5px",
             alignItems: "center"
           }
-        }, featureSorting && hdrColumn.enableSorting !== false && /*#__PURE__*/React$1.createElement("span", hdrColumn.getSortByToggleProps(), hdrColumn.isSorted ? hdrColumn.isSortedDesc ? ' >' : ' <' : '<>'), featureColumnFilter && /*#__PURE__*/React$1.createElement("span", null, hdrColumn.canFilter ? hdrColumn.render('Filter') : null), layoutResize && /*#__PURE__*/React$1.createElement("div", _extends({}, hdrColumn.getResizerProps(), {
+        }, featureSorting && hdrColumn.enableSorting !== false && /*#__PURE__*/React.createElement("span", hdrColumn.getSortByToggleProps(), hdrColumn.isSorted ? hdrColumn.isSortedDesc ? ' >' : ' <' : '<>'), featureColumnFilter && /*#__PURE__*/React.createElement("span", null, hdrColumn.canFilter ? hdrColumn.render('Filter') : null), layoutResize && /*#__PURE__*/React.createElement("div", _extends({}, hdrColumn.getResizerProps(), {
           className: "resizer ".concat(hdrColumn.isResizing ? "isResizing" : "")
-        })))), layoutShowHeaderTypes && /*#__PURE__*/React$1.createElement("div", {
+        })))), layoutShowHeaderTypes && /*#__PURE__*/React.createElement("div", {
           style: {
             fontSize: "0.7em",
             "fontWeight": "normal"
@@ -1623,14 +1623,14 @@ var TableCore = function TableCore() {
         }, (_JSON$stringify = JSON.stringify((_headersMap$hdrColumn = headersMap[hdrColumn.header]) === null || _headersMap$hdrColumn === void 0 ? void 0 : _headersMap$hdrColumn.detectedTypes)) === null || _JSON$stringify === void 0 ? void 0 : _JSON$stringify.replaceAll('"', ''))))
       );
     }));
-  })), /*#__PURE__*/React$1.createElement("tbody", getTableBodyProps(), visibleRows.map(function (row) {
+  })), /*#__PURE__*/React.createElement("tbody", getTableBodyProps(), visibleRows.map(function (row) {
     prepareRow(row);
-    return /*#__PURE__*/React$1.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
-      return /*#__PURE__*/React$1.createElement("td", cell.getCellProps(), cell.render('Cell'));
+    return /*#__PURE__*/React.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
+      return /*#__PURE__*/React.createElement("td", cell.getCellProps(), cell.render('Cell'));
     }));
-  })), /*#__PURE__*/React$1.createElement("tfoot", null, layoutFooter && footerGroups.map(function (footerGroup) {
-    return /*#__PURE__*/React$1.createElement("tr", footerGroup.getFooterGroupProps(), footerGroup.headers.map(function (column) {
-      return /*#__PURE__*/React$1.createElement("td", column.getFooterProps(), column.render('Footer'));
+  })), /*#__PURE__*/React.createElement("tfoot", null, layoutFooter && footerGroups.map(function (footerGroup) {
+    return /*#__PURE__*/React.createElement("tr", footerGroup.getFooterGroupProps(), footerGroup.headers.map(function (column) {
+      return /*#__PURE__*/React.createElement("td", column.getFooterProps(), column.render('Footer'));
     }));
   }))));
 };
@@ -1638,14 +1638,14 @@ var TableCore = function TableCore() {
 // export default TableCore;
 
 // We use React.memo when we want to render the child only when any props change
-var TableCore$1 = /*#__PURE__*/React$1.memo(TableCore);
+var TableCore$1 = /*#__PURE__*/React.memo(TableCore);
 
 var GlobalFilter = function GlobalFilter(_ref) {
   var globalFilter = _ref.globalFilter,
     setGlobalFilter = _ref.setGlobalFilter;
   // console.log(`Rendering <GlobalFilter>: filter=${filter}`);
 
-  var _useState = React$1.useState(globalFilter || ""),
+  var _useState = React.useState(globalFilter || ""),
     _useState2 = _slicedToArray(_useState, 2),
     value = _useState2[0],
     setValue = _useState2[1];
@@ -1655,17 +1655,17 @@ var GlobalFilter = function GlobalFilter(_ref) {
   }, 100);
 
   // If the value changes from outside
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     // console.log(`filter=${filter}`);
     setValue(globalFilter || "");
   }, [globalFilter]);
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: "10px",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React$1.createElement("span", null, "Search"), /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("span", null, "Search"), /*#__PURE__*/React.createElement("input", {
     className: "form-control",
     value: value,
     onChange: function onChange(e) {
@@ -1679,11 +1679,11 @@ var GlobalFilter = function GlobalFilter(_ref) {
 };
 
 var GlobalFilterSection = function GlobalFilterSection() {
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     return function () {
     };
   }, []);
-  var _useContext = React$1.useContext(TableDataContext),
+  var _useContext = React.useContext(TableDataContext),
     state = _useContext.state,
     setGlobalFilter = _useContext.setGlobalFilter,
     updateGlobalFilter = _useContext.onGlobalFilterChange;
@@ -1691,25 +1691,25 @@ var GlobalFilterSection = function GlobalFilterSection() {
 
   // This is important. The updated value is stored in the TableWrapper.
   // It is provided to TableCore upon re-render.
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     // console.log(`Global Filter: ${globalFilter}`)
     updateGlobalFilter(globalFilter);
   }, [globalFilter]);
 
   // We need to reset the pageIndex to 0 when we start typing in the filter
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(GlobalFilter, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(GlobalFilter, {
     globalFilter: globalFilter,
     setGlobalFilter: setGlobalFilter
   }));
 };
-var GlobalFilterSection$1 = /*#__PURE__*/React$1.memo(GlobalFilterSection);
+var GlobalFilterSection$1 = /*#__PURE__*/React.memo(GlobalFilterSection);
 
 var PaginationSection = function PaginationSection() {
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     return function () {
     };
   }, []);
-  var _useContext = React$1.useContext(TableDataContext),
+  var _useContext = React.useContext(TableDataContext),
     nextPage = _useContext.nextPage,
     previousPage = _useContext.previousPage,
     canNextPage = _useContext.canNextPage,
@@ -1722,7 +1722,7 @@ var PaginationSection = function PaginationSection() {
   var _ref = state || {},
     pageIndex = _ref.pageIndex,
     pageSize = _ref.pageSize;
-  return /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("span", null, "Page", ' ', /*#__PURE__*/React$1.createElement("strong", null, pageIndex + 1, " of ", pageOptions === null || pageOptions === void 0 ? void 0 : pageOptions.length), ' '), /*#__PURE__*/React$1.createElement("span", null, "| Go to page: ", ' ', /*#__PURE__*/React$1.createElement("input", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, "Page", ' ', /*#__PURE__*/React.createElement("strong", null, pageIndex + 1, " of ", pageOptions === null || pageOptions === void 0 ? void 0 : pageOptions.length), ' '), /*#__PURE__*/React.createElement("span", null, "| Go to page: ", ' ', /*#__PURE__*/React.createElement("input", {
     type: "number",
     value: (pageIndex || 0) + 1,
     onChange: function onChange(e) {
@@ -1732,32 +1732,32 @@ var PaginationSection = function PaginationSection() {
     style: {
       width: 50
     }
-  })), /*#__PURE__*/React$1.createElement("select", {
+  })), /*#__PURE__*/React.createElement("select", {
     value: pageSize,
     onChange: function onChange(e) {
       return setPageSize(Number(e.target.value));
     }
   }, [10, 25, 50].map(function (pageSize) {
-    return /*#__PURE__*/React$1.createElement("option", {
+    return /*#__PURE__*/React.createElement("option", {
       key: pageSize,
       value: pageSize
     }, "Show ", pageSize);
-  })), /*#__PURE__*/React$1.createElement("button", {
+  })), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return gotoPage(0);
     },
     disabled: !canPreviousPage
-  }, '<<'), /*#__PURE__*/React$1.createElement("button", {
+  }, '<<'), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return previousPage();
     },
     disabled: !canPreviousPage
-  }, "Previous"), /*#__PURE__*/React$1.createElement("button", {
+  }, "Previous"), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return nextPage();
     },
     disabled: !canNextPage
-  }, "Next"), /*#__PURE__*/React$1.createElement("button", {
+  }, "Next"), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return gotoPage(pageCount - 1);
     },
@@ -1766,22 +1766,22 @@ var PaginationSection = function PaginationSection() {
 };
 
 var ColumnVisibilitySection = function ColumnVisibilitySection() {
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     return function () {
     };
   }, []);
-  var _useState = React$1.useState(false),
+  var _useState = React.useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     showColumnsExpanded = _useState2[0],
     setShowColumnsExpanded = _useState2[1];
-  var _useContext = React$1.useContext(TableDataContext),
+  var _useContext = React.useContext(TableDataContext),
     allColumns = _useContext.allColumns,
     getToggleHideAllColumnsProps = _useContext.getToggleHideAllColumnsProps;
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, allColumns && /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, allColumns && /*#__PURE__*/React.createElement("div", {
     style: {
       marginLeft: "20px"
     }
-  }, /*#__PURE__*/React$1.createElement(ExpandableButton, {
+  }, /*#__PURE__*/React.createElement(ExpandableButton, {
     title: "Show Columns",
     expanded: showColumnsExpanded,
     onChange: setShowColumnsExpanded,
@@ -1789,31 +1789,31 @@ var ColumnVisibilitySection = function ColumnVisibilitySection() {
       top: "100%",
       left: "0px"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       width: "180px",
       padding: "10px",
       border: "1px dashed gray",
       borderRadius: "5px"
     }
-  }, /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(RowCheckbox, getToggleHideAllColumnsProps()), " Toggle All"),
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(RowCheckbox, getToggleHideAllColumnsProps()), " Toggle All"),
   // Individual checkbox for hide/show column
   allColumns.map(function (column) {
-    return /*#__PURE__*/React$1.createElement("div", {
+    return /*#__PURE__*/React.createElement("div", {
       key: column.id
-    }, /*#__PURE__*/React$1.createElement("div", {
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         flexDirection: "row",
         gap: "10px",
         alignItems: "center"
       }
-    }, /*#__PURE__*/React$1.createElement("input", _extends({
+    }, /*#__PURE__*/React.createElement("input", _extends({
       type: "checkbox"
-    }, column.getToggleHiddenProps())), /*#__PURE__*/React$1.createElement("span", null, column.render('Header'))));
+    }, column.getToggleHiddenProps())), /*#__PURE__*/React.createElement("span", null, column.render('Header'))));
   })))));
 };
-var ColumnVisibilitySection$1 = /*#__PURE__*/React$1.memo(ColumnVisibilitySection);
+var ColumnVisibilitySection$1 = /*#__PURE__*/React.memo(ColumnVisibilitySection);
 
 // import AppContext from "../AppContext";
 
@@ -1835,7 +1835,7 @@ var TableWrapper = function TableWrapper(_ref) {
   //   ledgers
   // } = useContext(AppContext);
 
-  var _useState = React$1.useState(initialData),
+  var _useState = React.useState(initialData),
     _useState2 = _slicedToArray(_useState, 2),
     data = _useState2[0],
     setData = _useState2[1];
@@ -1845,7 +1845,7 @@ var TableWrapper = function TableWrapper(_ref) {
   // TBD: We should put this in the context as well
   // const headersMap = useMemo(() => state?.headersMap && JSON.parse(state?.headersMap), []);
 
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     // console.log(`TableWrapper: initialData changed`);
     // console.log(appData);
     setData(initialData);
@@ -1853,10 +1853,10 @@ var TableWrapper = function TableWrapper(_ref) {
 
   // Data Features:
   // Update with commit
-  var updateWithCommit = React$1.useMemo(function () {
+  var updateWithCommit = React.useMemo(function () {
     return false;
   }, []);
-  var _useState3 = React$1.useState([]),
+  var _useState3 = React.useState([]),
     _useState4 = _slicedToArray(_useState3, 2),
     updates = _useState4[0],
     setUpdates = _useState4[1];
@@ -1864,8 +1864,8 @@ var TableWrapper = function TableWrapper(_ref) {
   // // Table Section
 
   // Used for re-rendering the table
-  var tableKeyRef = React$1.useRef(1);
-  var tableInstanceRef = React$1.useRef({});
+  var tableKeyRef = React.useRef(1);
+  var tableInstanceRef = React.useRef({});
 
   // Here we put features which affect each other
   // Here is the list:
@@ -1878,76 +1878,76 @@ var TableWrapper = function TableWrapper(_ref) {
   var toggleAllRowsSelected = tableInstanceRef.current.toggleAllRowsSelected;
 
   // Table features:
-  var _useState5 = React$1.useState(true),
+  var _useState5 = React.useState(true),
     _useState6 = _slicedToArray(_useState5, 2),
     featureSelection = _useState6[0];
     _useState6[1];
-  var _useState7 = React$1.useState(true),
+  var _useState7 = React.useState(true),
     _useState8 = _slicedToArray(_useState7, 2),
     featureEdit = _useState8[0];
     _useState8[1];
-  var _useState9 = React$1.useState(true),
+  var _useState9 = React.useState(true),
     _useState10 = _slicedToArray(_useState9, 2),
     featureBulk = _useState10[0];
     _useState10[1];
-  var _useState11 = React$1.useState(true),
+  var _useState11 = React.useState(true),
     _useState12 = _slicedToArray(_useState11, 2),
     featureGlobalFilter = _useState12[0];
     _useState12[1];
-  var _useState13 = React$1.useState(true),
+  var _useState13 = React.useState(true),
     _useState14 = _slicedToArray(_useState13, 2),
     featurePagination = _useState14[0];
     _useState14[1];
-  var _useState15 = React$1.useState(true),
+  var _useState15 = React.useState(true),
     _useState16 = _slicedToArray(_useState15, 2),
     featureColumnFilter = _useState16[0];
     _useState16[1];
-  var _useState17 = React$1.useState(true),
+  var _useState17 = React.useState(true),
     _useState18 = _slicedToArray(_useState17, 2),
     featureSorting = _useState18[0];
     _useState18[1];
-  var _useState19 = React$1.useState(false),
+  var _useState19 = React.useState(false),
     _useState20 = _slicedToArray(_useState19, 2),
     featureColumnVisibility = _useState20[0];
     _useState20[1];
-  var _useState21 = React$1.useState(true),
+  var _useState21 = React.useState(true),
     _useState22 = _slicedToArray(_useState21, 2),
     layoutDebug = _useState22[0];
     _useState22[1];
-  var _useState23 = React$1.useState(false),
+  var _useState23 = React.useState(false),
     _useState24 = _slicedToArray(_useState23, 2),
     layoutShowTypes = _useState24[0];
     _useState24[1];
-  var _useState25 = React$1.useState(false),
+  var _useState25 = React.useState(false),
     _useState26 = _slicedToArray(_useState25, 2),
     layoutShowHeaderTypes = _useState26[0];
     _useState26[1];
 
   // We can't change following to ref as we need to rerender BulkSection
-  var _useState27 = React$1.useState([]),
+  var _useState27 = React.useState([]),
     _useState28 = _slicedToArray(_useState27, 2);
     _useState28[0];
     var setSelectedRows = _useState28[1];
-  var _useState29 = React$1.useState(0),
+  var _useState29 = React.useState(0),
     _useState30 = _slicedToArray(_useState29, 2),
     pageIndex = _useState30[0],
     setPageIndex = _useState30[1];
-  var _useState31 = React$1.useState(10),
+  var _useState31 = React.useState(10),
     _useState32 = _slicedToArray(_useState31, 2);
     _useState32[0];
     var setPageSize = _useState32[1];
-  var globalFilterValueRef = React$1.useRef(undefined);
-  var _useState33 = React$1.useState([]),
+  var globalFilterValueRef = React.useRef(undefined);
+  var _useState33 = React.useState([]),
     _useState34 = _slicedToArray(_useState33, 2);
     _useState34[0];
     var setVisibleColumns = _useState34[1];
 
   // Store table position so that we can restore
-  var tableScrollPositionRef = React$1.useRef(0);
+  var tableScrollPositionRef = React.useRef(0);
 
   // console.log(`globalFilter='${globalFilterValueRef.current}'`);
 
-  React$1.useEffect(function () {
+  React.useEffect(function () {
     {
       console.log("<TableWrapper>: First render");
     }
@@ -1962,7 +1962,7 @@ var TableWrapper = function TableWrapper(_ref) {
   }, []);
 
   // col must have keyName property
-  var attachPresetProperties = React$1.useCallback(function (col, index, choices) {
+  var attachPresetProperties = React.useCallback(function (col, index, choices) {
     var mPresetCols = presetColumns.filter(function (pcol) {
       return pcol.keyName === col.keyName;
     });
@@ -1978,10 +1978,10 @@ var TableWrapper = function TableWrapper(_ref) {
 
   // The columns are derived from data only once.
   // We will change this behaviour in the future if needed.
-  var columns = React$1.useMemo(function () {
+  var columns = React.useMemo(function () {
     return getColumns(data);
   }, []);
-  var selectables = React$1.useMemo(function () {
+  var selectables = React.useMemo(function () {
     // This is compile time mapping.
     // For future: Can we do this run time?
     return [{
@@ -1991,7 +1991,7 @@ var TableWrapper = function TableWrapper(_ref) {
       }) : []
     }];
   }, [ledgers]);
-  var rtColumns = React$1.useMemo(function () {
+  var rtColumns = React.useMemo(function () {
     return columns.map(function (col, index) {
       var selIndex = selectables.findIndex(function (sel) {
         return sel.keyName === col.keyName;
@@ -2009,7 +2009,7 @@ var TableWrapper = function TableWrapper(_ref) {
     filterText: "",
     textFlags: {}
   };
-  var colFiltersInitState = React$1.useMemo(function () {
+  var colFiltersInitState = React.useMemo(function () {
     return rtColumns.map(function (col) {
       // console.log(col);
       return {
@@ -2018,21 +2018,21 @@ var TableWrapper = function TableWrapper(_ref) {
       };
     });
   }, [rtColumns]);
-  var columnFiltersValueRef = React$1.useRef(colFiltersInitState);
+  var columnFiltersValueRef = React.useRef(colFiltersInitState);
 
   // Keep this function as this is used for causing a render
   // Check the behaviour before and after in case this has to be deleted
-  var handleSelectionUpdate = React$1.useCallback(function (seletedFlatRows) {
+  var handleSelectionUpdate = React.useCallback(function (seletedFlatRows) {
     // console.log(`handleSelectionUpdate: `, seletedFlatRows);
     setSelectedRows(seletedFlatRows);
   }, []);
-  var handleRTableChange = React$1.useCallback(function (rt) {
+  var handleRTableChange = React.useCallback(function (rt) {
     // console.log(`handleRTableChange: `, rt);
     tableInstanceRef.current = rt;
   }, []);
 
   // convert before using this to ids and patch
-  var applyUpdate = React$1.useCallback(function (prevData, _ref2) {
+  var applyUpdate = React.useCallback(function (prevData, _ref2) {
     var action = _ref2.action,
       _ref2$payload = _ref2.payload,
       indices = _ref2$payload.indices,
@@ -2068,7 +2068,7 @@ var TableWrapper = function TableWrapper(_ref) {
         return prevData;
     }
   }, []);
-  var commitUpdates = React$1.useCallback(function (updates) {
+  var commitUpdates = React.useCallback(function (updates) {
     // Since data is updated on the previous state
     setData(function (prevData) {
       var newData = updates.reduce(function (pData, update, index) {
@@ -2082,7 +2082,7 @@ var TableWrapper = function TableWrapper(_ref) {
       return newData;
     });
   }, [applyUpdate]);
-  var handleCommitClick = React$1.useCallback(function (updates) {
+  var handleCommitClick = React.useCallback(function (updates) {
     // console.log(`updates count: ${updates.length}`);
     if (updates.length < 1) {
       return;
@@ -2095,7 +2095,7 @@ var TableWrapper = function TableWrapper(_ref) {
       toggleAllRowsSelected(false);
     }
   }, [commitUpdates, toggleAllRowsSelected]);
-  var handleDataChange = React$1.useCallback(function (action, indices, patch) {
+  var handleDataChange = React.useCallback(function (action, indices, patch) {
     // console.log('handleDataChange:', action, indices, patch);
 
     var update = {
@@ -2118,7 +2118,7 @@ var TableWrapper = function TableWrapper(_ref) {
       }
     }
   }, [commitUpdates, toggleAllRowsSelected]);
-  var handleResetClick = React$1.useCallback(function (updates) {
+  var handleResetClick = React.useCallback(function (updates) {
     // setTableKey((prevTableKey) => prevTableKey + 1);
     tableKeyRef.current += 1;
     setUpdates([]);
@@ -2126,11 +2126,11 @@ var TableWrapper = function TableWrapper(_ref) {
 
   // TBD: we get these so that we can update the sibling component
   // See if we can avoid the whole re-render
-  var handlePageChange = React$1.useCallback(function (pageIndex) {
+  var handlePageChange = React.useCallback(function (pageIndex) {
     // console.log(`handlePageChange: ${pageIndex}`);
     setPageIndex(pageIndex);
   }, []);
-  var handlePageSizeChange = React$1.useCallback(function (pageSize) {
+  var handlePageSizeChange = React.useCallback(function (pageSize) {
     // console.log(`handlePageChange: ${pageIndex}`);
     setPageSize(pageSize);
   }, []);
@@ -2140,7 +2140,7 @@ var TableWrapper = function TableWrapper(_ref) {
   };
 
   // We need to fix the pageIndex when filtering starts
-  var handleGlobalFilterChange = React$1.useCallback(function (value) {
+  var handleGlobalFilterChange = React.useCallback(function (value) {
     // console.log(`handleGlobalFilterChange: value=${value}`);
 
     if (featurePagination) {
@@ -2255,7 +2255,7 @@ var TableWrapper = function TableWrapper(_ref) {
     getColumnsFilters: provideColumnsFilters,
     onVisibleColumnsChange: handleVisibleColumnsChange
   };
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       width: "95%",
       padding: "40px 20px",
@@ -2264,16 +2264,16 @@ var TableWrapper = function TableWrapper(_ref) {
       alignItems: "flex-start",
       boxShadow: "0 0 3px 0 rgba(0, 0, 0, 0.5)"
     }
-  }, /*#__PURE__*/React$1.createElement(TableDataContext.Provider, {
+  }, /*#__PURE__*/React.createElement(TableDataContext.Provider, {
     value: tableContext
-  }, !data && /*#__PURE__*/React$1.createElement("div", {
+  }, !data && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React$1.createElement("h1", null, "Please upload an excel file")), data && /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h1", null, "Please upload an excel file")), data && /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
       display: "flex",
@@ -2282,7 +2282,7 @@ var TableWrapper = function TableWrapper(_ref) {
       justifyContent: "space-evenly",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
@@ -2291,15 +2291,15 @@ var TableWrapper = function TableWrapper(_ref) {
       width: "100%",
       padding: "0 40px"
     }
-  }, featureBulk && /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(BulkOperationsSection$1, {
+  }, featureBulk && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(BulkOperationsSection$1, {
     edit: featureEdit
-  })), featureColumnVisibility && /*#__PURE__*/React$1.createElement(ColumnVisibilitySection$1, null), layoutDebug && /*#__PURE__*/React$1.createElement("div", {
+  })), featureColumnVisibility && /*#__PURE__*/React.createElement(ColumnVisibilitySection$1, null), layoutDebug && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       gap: "10px"
     }
-  }, /*#__PURE__*/React$1.createElement(Button, {
+  }, /*#__PURE__*/React.createElement(Button, {
     className: "btn-outline-info bg-transparent",
     size: "sm",
     onClick: function onClick(e) {
@@ -2307,23 +2307,23 @@ var TableWrapper = function TableWrapper(_ref) {
         return console.log(JSON.stringify(col));
       });
     }
-  }, "Log Columns"), /*#__PURE__*/React$1.createElement(Button, {
+  }, "Log Columns"), /*#__PURE__*/React.createElement(Button, {
     className: "btn-outline-info bg-transparent",
     size: "sm",
     onClick: function onClick(e) {
       console.log(JSON.stringify(data, null, 2));
     }
-  }, "Log Data")), /*#__PURE__*/React$1.createElement("div", {
+  }, "Log Data")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       gap: "20px"
     }
-  }, (featureGlobalFilter || featureColumnFilter) && /*#__PURE__*/React$1.createElement(Button, {
+  }, (featureGlobalFilter || featureColumnFilter) && /*#__PURE__*/React.createElement(Button, {
     className: "btn-outline-dark bg-transparent",
     size: "sm",
     onClick: handleFilterClearClick
-  }, "Clear Filters"), featureGlobalFilter && /*#__PURE__*/React$1.createElement(GlobalFilterSection$1, null))), /*#__PURE__*/React$1.createElement("div", {
+  }, "Clear Filters"), featureGlobalFilter && /*#__PURE__*/React.createElement(GlobalFilterSection$1, null))), /*#__PURE__*/React.createElement("div", {
     style: {
       height: "60vh",
       width: "100%",
@@ -2332,21 +2332,21 @@ var TableWrapper = function TableWrapper(_ref) {
       background: "darkgray"
     },
     onScroll: handleTableCoreScroll
-  }, /*#__PURE__*/React$1.createElement(TableCore$1, {
+  }, /*#__PURE__*/React.createElement(TableCore$1, {
     key: tableKeyRef.current
-  })), featurePagination && /*#__PURE__*/React$1.createElement(PaginationSection, null), updateWithCommit && /*#__PURE__*/React$1.createElement("div", {
+  })), featurePagination && /*#__PURE__*/React.createElement(PaginationSection, null), updateWithCommit && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       gap: "20px"
     }
-  }, /*#__PURE__*/React$1.createElement(Button, {
+  }, /*#__PURE__*/React.createElement(Button, {
     className: "btn-outline-primary bg-transparent",
     disabled: updates.length < 1,
     onClick: function onClick(e) {
       return handleResetClick(updates);
     }
-  }, "Reset"), /*#__PURE__*/React$1.createElement(Button, {
+  }, "Reset"), /*#__PURE__*/React.createElement(Button, {
     disabled: updates.length < 1,
     onClick: function onClick(e) {
       return handleCommitClick(updates);

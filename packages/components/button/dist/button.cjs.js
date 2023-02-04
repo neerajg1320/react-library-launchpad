@@ -1,16 +1,8 @@
 'use strict';
 
 var React = require('react');
+var cx = require('clsx');
 
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
-}
 function _defineProperty(obj, key, value) {
   key = _toPropertyKey(key);
   if (key in obj) {
@@ -81,18 +73,6 @@ function _toPropertyKey(arg) {
   return typeof key === "symbol" ? key : String(key);
 }
 
-function r(e) {
-  var t,
-    f,
-    n = "";
-  if ("string" == typeof e || "number" == typeof e) n += e;else if ("object" == _typeof(e)) if (Array.isArray(e)) for (t = 0; t < e.length; t++) e[t] && (f = r(e[t])) && (n && (n += " "), n += f);else for (t in e) e[t] && (n && (n += " "), n += t);
-  return n;
-}
-function clsx() {
-  for (var e, t, f = 0, n = ""; f < arguments.length;) (e = arguments[f++]) && (t = r(e)) && (n && (n += " "), n += t);
-  return n;
-}
-
 function styleInject(css, ref) {
   if (ref === void 0) ref = {};
   var insertAt = ref.insertAt;
@@ -128,7 +108,7 @@ var Button = function Button(_ref) {
     className = _ref.className,
     variant = _ref.variant,
     rest = _objectWithoutProperties(_ref, _excluded);
-  var classes = clsx(styles.Button, _defineProperty({}, styles.ButtonSecondary, variant === 'secondary'), className);
+  var classes = cx(styles.Button, _defineProperty({}, styles.ButtonSecondary, variant === 'secondary'), className);
   return /*#__PURE__*/React.createElement("button", _extends({}, rest, {
     className: classes
   }), children);

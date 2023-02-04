@@ -1,4 +1,4 @@
-import React$1, { createContext, useEffect, useContext, useState, useCallback, useMemo, forwardRef, useRef } from 'react';
+import React, { createContext, useEffect, useContext, useState, useCallback, useMemo, forwardRef, useRef } from 'react';
 import { useTable, useGlobalFilter, useFilters, useSortBy, usePagination, useRowSelect, useBlockLayout, useResizeColumns, useAsyncDebounce } from 'react-table';
 import { format, isDate as isDate$1 } from 'date-fns';
 import Button from 'react-bootstrap/Button';
@@ -53,16 +53,16 @@ var BasicTable = function BasicTable(_ref) {
     headerGroups = _useTable.headerGroups,
     rows = _useTable.rows,
     prepareRow = _useTable.prepareRow;
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("table", getTableProps(), /*#__PURE__*/React$1.createElement("thead", null, headerGroups.map(function (headerGroup) {
-    return /*#__PURE__*/React$1.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
-      return /*#__PURE__*/React$1.createElement("th", column.getHeaderProps(), column.render("Header"));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("table", getTableProps(), /*#__PURE__*/React.createElement("thead", null, headerGroups.map(function (headerGroup) {
+    return /*#__PURE__*/React.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
+      return /*#__PURE__*/React.createElement("th", column.getHeaderProps(), column.render("Header"));
     }));
-  })), /*#__PURE__*/React$1.createElement("tbody", getTableBodyProps(), rows.map(function (row, i) {
+  })), /*#__PURE__*/React.createElement("tbody", getTableBodyProps(), rows.map(function (row, i) {
     prepareRow(row);
-    return /*#__PURE__*/React$1.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
-      return /*#__PURE__*/React$1.createElement("td", cell.getCellProps(), cell.render("Cell"));
+    return /*#__PURE__*/React.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
+      return /*#__PURE__*/React.createElement("td", cell.getCellProps(), cell.render("Cell"));
     }));
-  })))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("h2", null, "Data"), /*#__PURE__*/React$1.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React$1.createElement("h2", null, "Columns"), /*#__PURE__*/React$1.createElement("pre", null, JSON.stringify(columns, null, 2))));
+  })))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Data"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React.createElement("h2", null, "Columns"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(columns, null, 2))));
 };
 
 var StyledTable = function StyledTable(_ref) {
@@ -77,18 +77,18 @@ var StyledTable = function StyledTable(_ref) {
     headerGroups = _useTable.headerGroups,
     rows = _useTable.rows,
     prepareRow = _useTable.prepareRow;
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "styled-table"
-  }, /*#__PURE__*/React$1.createElement("table", getTableProps(), /*#__PURE__*/React$1.createElement("thead", null, headerGroups.map(function (headerGroup) {
-    return /*#__PURE__*/React$1.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
-      return /*#__PURE__*/React$1.createElement("th", column.getHeaderProps(), column.render("Header"));
+  }, /*#__PURE__*/React.createElement("table", getTableProps(), /*#__PURE__*/React.createElement("thead", null, headerGroups.map(function (headerGroup) {
+    return /*#__PURE__*/React.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
+      return /*#__PURE__*/React.createElement("th", column.getHeaderProps(), column.render("Header"));
     }));
-  })), /*#__PURE__*/React$1.createElement("tbody", getTableBodyProps(), rows.map(function (row, i) {
+  })), /*#__PURE__*/React.createElement("tbody", getTableBodyProps(), rows.map(function (row, i) {
     prepareRow(row);
-    return /*#__PURE__*/React$1.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
-      return /*#__PURE__*/React$1.createElement("td", cell.getCellProps(), cell.render("Cell"));
+    return /*#__PURE__*/React.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
+      return /*#__PURE__*/React.createElement("td", cell.getCellProps(), cell.render("Cell"));
     }));
-  })))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("h2", null, "Data"), /*#__PURE__*/React$1.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React$1.createElement("h2", null, "Columns"), /*#__PURE__*/React$1.createElement("pre", null, JSON.stringify(columns, null, 2))));
+  })))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Data"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React.createElement("h2", null, "Columns"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(columns, null, 2))));
 };
 
 function _iterableToArrayLimit(arr, i) {
@@ -387,7 +387,7 @@ function colToRTCol(colObj, _ref) {
     } else {
       alignment = valueType === "number" ? "flex-end" : valueType === "date" ? "center" : "flex-start";
     }
-    return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("div", {
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
       style: {
         height: "100%",
         overflow: "hidden",
@@ -396,26 +396,26 @@ function colToRTCol(colObj, _ref) {
         gap: "2px",
         justifyContent: "center"
       }
-    }, /*#__PURE__*/React$1.createElement("div", {
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         flexDirection: "column",
         alignItems: alignment
       }
-    }, /*#__PURE__*/React$1.createElement("div", {
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         height: "1em",
         display: "flex",
         flexDirection: "row",
         alignItems: "center"
       }
-    }, valToString(value, reactColObj.format) || "")), showTypes && /*#__PURE__*/React$1.createElement("div", {
+    }, valToString(value, reactColObj.format) || "")), showTypes && /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-end"
       }
-    }, /*#__PURE__*/React$1.createElement("span", {
+    }, /*#__PURE__*/React.createElement("span", {
       style: {
         color: "gray",
         fontSize: "0.7em"
@@ -556,11 +556,11 @@ var ExpandableButton = function ExpandableButton(_ref) {
   // console.log(`Rendering <ExpandableButton> value=${value}`);
 
   // The followed function can be use when we need to inject or remove props in child
-  var childrenWithProps = React$1.Children.map(children, function (child) {
+  var childrenWithProps = React.Children.map(children, function (child) {
     // https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
     // avoids typescript error as well
-    if ( /*#__PURE__*/React$1.isValidElement(child)) {
-      return /*#__PURE__*/React$1.cloneElement(child);
+    if ( /*#__PURE__*/React.isValidElement(child)) {
+      return /*#__PURE__*/React.cloneElement(child);
     }
     return child;
   });
@@ -573,7 +573,7 @@ var ExpandableButton = function ExpandableButton(_ref) {
       onChange(!expanded);
     }
   };
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     tabIndex: "1",
     onBlur: handleBlur,
     style: {
@@ -581,14 +581,14 @@ var ExpandableButton = function ExpandableButton(_ref) {
       flexDirection: "column",
       position: "relative"
     }
-  }, icon, clickComponent, !icon && !clickComponent && /*#__PURE__*/React$1.createElement(Button, {
+  }, icon, clickComponent, !icon && !clickComponent && /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "sm",
     disabled: disabled,
     onClick: function onClick(e) {
       return onChange(!expanded);
     }
-  }, title), expanded && /*#__PURE__*/React$1.createElement("div", {
+  }, title), expanded && /*#__PURE__*/React.createElement("div", {
     style: _objectSpread2({
       padding: "20px",
       display: "flex",
@@ -646,12 +646,12 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
       onCancel();
     }
   };
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, columns.map(function (col, col_idx) {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, columns.map(function (col, col_idx) {
     columnValues.push({
       active: false,
       name: col.keyName
     });
-    return /*#__PURE__*/React$1.createElement("div", {
+    return /*#__PURE__*/React.createElement("div", {
       key: col_idx,
       style: {
         display: "flex",
@@ -659,18 +659,18 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
         alignItems: "center",
         gap: "10px"
       }
-    }, /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("input", {
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("input", {
       type: "checkbox",
       onChange: function onChange(e) {
         columnValues[col_idx].active = e.target.checked;
       }
-    })), /*#__PURE__*/React$1.createElement("div", {
+    })), /*#__PURE__*/React.createElement("div", {
       style: {
         minWidth: "80px"
       }
-    }, col.Header), /*#__PURE__*/React$1.createElement("div", null, col.type === "input" ? /*#__PURE__*/React$1.createElement("form", null, /*#__PURE__*/React$1.createElement("div", {
+    }, col.Header), /*#__PURE__*/React.createElement("div", null, col.type === "input" ? /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("div", {
       className: "form-group"
-    }, /*#__PURE__*/React$1.createElement("input", {
+    }, /*#__PURE__*/React.createElement("input", {
       type: "email",
       className: "form-control",
       "aria-describedby": "emailHelp",
@@ -678,7 +678,7 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
       onChange: function onChange(e) {
         columnValues[col_idx].value = e.target.value;
       }
-    }))) : col.type === "select" ? /*#__PURE__*/React$1.createElement(Select, {
+    }))) : col.type === "select" ? /*#__PURE__*/React.createElement(Select, {
       options: col.choices.map(function (choice) {
         return {
           label: choice,
@@ -700,18 +700,18 @@ var ColumnsEditBox = function ColumnsEditBox(_ref) {
       }
       // isDisabled={false}
     }) : ""));
-  }), /*#__PURE__*/React$1.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       justifyContent: "end",
       paddingRight: "20px",
       gap: "10px"
     }
-  }, /*#__PURE__*/React$1.createElement(Button, {
+  }, /*#__PURE__*/React.createElement(Button, {
     variant: "outline-danger",
     size: "sm",
     onClick: handleCancelClick
-  }, "Cancel"), /*#__PURE__*/React$1.createElement(Button, {
+  }, "Cancel"), /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "sm",
     onClick: handleSaveClick
@@ -769,20 +769,20 @@ var BulkOperationsSection = function BulkOperationsSection(_ref) {
       return col.bulk;
     }) : [];
   }, [columns]);
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: "10px",
       alignItems: "center"
     }
-  }, edit && /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(Button, {
+  }, edit && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Button, {
     variant: "danger",
     size: "sm",
     disabled: !bulkEnabled,
     onClick: function onClick(e) {
       return handleBulkDeleteClick();
     }
-  }, "Bulk Delete"), /*#__PURE__*/React$1.createElement(ExpandableButton, {
+  }, "Bulk Delete"), /*#__PURE__*/React.createElement(ExpandableButton, {
     title: "Bulk Edit",
     disabled: !bulkColumns.length || !bulkEnabled,
     expanded: bulkEditExpanded,
@@ -793,12 +793,12 @@ var BulkOperationsSection = function BulkOperationsSection(_ref) {
       left: "60px",
       top: "25px"
     }
-  }, /*#__PURE__*/React$1.createElement(ColumnsEditBox, {
+  }, /*#__PURE__*/React.createElement(ColumnsEditBox, {
     columns: bulkColumns,
     onSave: handleBulkEditSaveClick,
     onCancel: handleBulkEditCancelClick,
     disabled: !bulkEnabled
-  }))), /*#__PURE__*/React$1.createElement(Button, {
+  }))), /*#__PURE__*/React.createElement(Button, {
     variant: "outline-dark",
     size: "sm",
     disabled: !bulkEnabled,
@@ -809,7 +809,7 @@ var BulkOperationsSection = function BulkOperationsSection(_ref) {
 // export default EditSelectionTable;
 
 // We use React.memo when we want to render the child only when any props change
-var BulkOperationsSection$1 = /*#__PURE__*/React$1.memo(BulkOperationsSection);
+var BulkOperationsSection$1 = /*#__PURE__*/React.memo(BulkOperationsSection);
 
 var css_248z$1 = ".table-column-resizer_resizer__ZPmdn {\n    display: inline-block;\n    background: green;\n    width: 10px;\n    height: 100%;\n    position: absolute;\n    right: 0;\n    top: 0;\n    transform: translateX(50%);\n    /*z-index: 1;*/\n    /* prevent scroll on touch devices */\n    touch-action: none;\n}\n\n\n.table-column-resizer_isResizing__l-fFJ {\n    background: darkgreen;\n}";
 styleInject(css_248z$1);
@@ -823,7 +823,7 @@ var RowCheckbox = /*#__PURE__*/forwardRef(function (_ref, ref) {
   useEffect(function () {
     resolvedRef.current.indeterminate = indeterminate;
   }, [resolvedRef, indeterminate]);
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("input", _extends({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("input", _extends({
     type: "checkbox",
     ref: resolvedRef
   }, rest)));
@@ -849,7 +849,7 @@ var EditableControlledCell = function EditableControlledCell(_ref) {
 
   // console.log(`value=${value} initialValue=${initialValue}`);
 
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("form", null, /*#__PURE__*/React$1.createElement("input", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("input", {
     className: "form-control",
     value: value,
     onChange: function onChange(e) {
@@ -899,11 +899,11 @@ var SelectableCell = function SelectableCell(_ref) {
     setValue(opt.value);
     updateData(PATCH, [row.index], _defineProperty({}, column.keyName, opt.value));
   }, []);
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     style: {
       overflow: "visible"
     }
-  }, /*#__PURE__*/React$1.createElement(Select, {
+  }, /*#__PURE__*/React.createElement(Select, {
     menuPlacement: placement,
     options: choices.map(function (choice) {
       return {
@@ -979,7 +979,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
       }
     });
   }, [caps, full, regex]);
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
       display: "flex",
@@ -987,7 +987,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
       gap: "4px",
       alignItems: "start"
     }
-  }, /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     ref: inputRef,
     disabled: disabled,
     className: "form-control",
@@ -996,7 +996,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
     style: {
       width: "200px"
     }
-  }), /*#__PURE__*/React$1.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "filter-flags",
     style: {
       display: "flex",
@@ -1005,22 +1005,22 @@ var InputWithIcons = function InputWithIcons(_ref) {
       position: "absolute",
       right: "5px"
     }
-  }, /*#__PURE__*/React$1.createElement(FlagIcon, {
+  }, /*#__PURE__*/React.createElement(FlagIcon, {
     value: caps,
     onChange: function onChange(e) {
       return setCaps(!caps);
     }
-  }, /*#__PURE__*/React$1.createElement(RxLetterCaseCapitalize, null)), /*#__PURE__*/React$1.createElement(FlagIcon, {
+  }, /*#__PURE__*/React.createElement(RxLetterCaseCapitalize, null)), /*#__PURE__*/React.createElement(FlagIcon, {
     value: full,
     onChange: function onChange(e) {
       return setFull(!full);
     }
-  }, /*#__PURE__*/React$1.createElement(TbLetterF, null)), /*#__PURE__*/React$1.createElement(FlagIcon, {
+  }, /*#__PURE__*/React.createElement(TbLetterF, null)), /*#__PURE__*/React.createElement(FlagIcon, {
     value: regex,
     onChange: function onChange(e) {
       return setRegex(!regex);
     }
-  }, /*#__PURE__*/React$1.createElement(SiExpress, null))));
+  }, /*#__PURE__*/React.createElement(SiExpress, null))));
 };
 
 var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
@@ -1082,14 +1082,14 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
     updateColumnFilter(renderedColumn.id, undefined);
     setFilter(undefined);
   }, [expanded]);
-  var searchIcon = filterValue !== null && filterValue !== void 0 && filterValue.flagBlank || filterValue !== null && filterValue !== void 0 && filterValue.flagText && filterValue !== null && filterValue !== void 0 && filterValue.filterText ? /*#__PURE__*/React$1.createElement(FaSearchPlus, {
+  var searchIcon = filterValue !== null && filterValue !== void 0 && filterValue.flagBlank || filterValue !== null && filterValue !== void 0 && filterValue.flagText && filterValue !== null && filterValue !== void 0 && filterValue.filterText ? /*#__PURE__*/React.createElement(FaSearchPlus, {
     onClick: function onClick(e) {
       return setExpanded(!expanded);
     },
     style: {
       cursor: "pointer"
     }
-  }) : /*#__PURE__*/React$1.createElement(BiSearchAlt, {
+  }) : /*#__PURE__*/React.createElement(BiSearchAlt, {
     onClick: function onClick(e) {
       return setExpanded(!expanded);
     },
@@ -1097,7 +1097,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       cursor: "pointer"
     }
   });
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(ExpandableButton, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(ExpandableButton, {
     title: "S",
     icon: searchIcon,
     expanded: expanded,
@@ -1114,7 +1114,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       top: "100%",
       right: "50%"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       color: "black",
       display: "flex",
@@ -1122,7 +1122,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       gap: "5px",
       alignItems: "start"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
       color: "black",
@@ -1130,7 +1130,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       justifyContent: "space-between",
       gap: "10px"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       color: "black",
       display: "flex",
@@ -1139,13 +1139,13 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       gap: "5px",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React$1.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", {
     style: {
       color: "black",
       fontSize: ".8em",
       fontWeight: "normal"
     }
-  }, renderedColumn.Header), /*#__PURE__*/React$1.createElement(BiSearchAlt, null)), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(TiTick, {
+  }, renderedColumn.Header), /*#__PURE__*/React.createElement(BiSearchAlt, null)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(TiTick, {
     style: {
       color: "green",
       fontSize: "1.3em",
@@ -1154,7 +1154,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
     onClick: function onClick(e) {
       return setExpanded(!expanded);
     }
-  }), /*#__PURE__*/React$1.createElement(AiOutlineClose, {
+  }), /*#__PURE__*/React.createElement(AiOutlineClose, {
     onClick: function onClick(e) {
       return clearFilter();
     },
@@ -1162,20 +1162,20 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       color: "red",
       cursor: "pointer"
     }
-  }))), /*#__PURE__*/React$1.createElement("div", {
+  }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       gap: "10px"
     }
-  }, /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     type: "checkbox",
     defaultChecked: true,
     onChange: function onChange(e) {
       setTextEnabled(e.target.checked);
     }
-  }), /*#__PURE__*/React$1.createElement(InputWithIcons, {
+  }), /*#__PURE__*/React.createElement(InputWithIcons, {
     disabled: !textEnabled,
     defaultValue: {
       text: filterValue === null || filterValue === void 0 ? void 0 : filterValue.filterText,
@@ -1188,7 +1188,7 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       setFilterText(text);
       setTextFlags(flags);
     }
-  })), /*#__PURE__*/React$1.createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "center",
@@ -1197,12 +1197,12 @@ var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {
       fontWeight: "normal",
       marginTop: "5px"
     }
-  }, /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     type: "checkbox",
     onChange: function onChange(e) {
       setBlankEnabled(e.target.checked);
     }
-  }), /*#__PURE__*/React$1.createElement("label", null, "Blanks")))));
+  }), /*#__PURE__*/React.createElement("label", null, "Blanks")))));
 };
 
 var filterUsingRegex = function filterUsingRegex(rows, columnIds, filterValue) {
@@ -1302,17 +1302,17 @@ var TooltipComponent = function TooltipComponent(_ref) {
     message = _ref.message,
     disabled = _ref.disabled;
   var renderTooltip = function renderTooltip(props) {
-    return /*#__PURE__*/React$1.createElement(Tooltip, props, message);
+    return /*#__PURE__*/React.createElement(Tooltip, props, message);
   };
   if (disabled === true) {
-    return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, children);
+    return /*#__PURE__*/React.createElement(React.Fragment, null, children);
   }
-  return /*#__PURE__*/React$1.createElement(OverlayTrigger, {
+  return /*#__PURE__*/React.createElement(OverlayTrigger, {
     placement: "top",
     overlay: renderTooltip
   }, children);
 };
-var TooltipComponent$1 = /*#__PURE__*/React$1.memo(TooltipComponent);
+var TooltipComponent$1 = /*#__PURE__*/React.memo(TooltipComponent);
 
 // Supports:
 //  - Rows Selection
@@ -1357,11 +1357,11 @@ var TableCore = function TableCore() {
       id: "selection",
       Header: function Header(_ref) {
         var getToggleAllRowsSelectedProps = _ref.getToggleAllRowsSelectedProps;
-        return /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(RowCheckbox, getToggleAllRowsSelectedProps()));
+        return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(RowCheckbox, getToggleAllRowsSelectedProps()));
       },
       Cell: function Cell(_ref2) {
         var row = _ref2.row;
-        return /*#__PURE__*/React$1.createElement("div", {
+        return /*#__PURE__*/React.createElement("div", {
           style: {
             height: "100%",
             display: "flex",
@@ -1369,7 +1369,7 @@ var TableCore = function TableCore() {
             justifyContent: "center",
             alignItems: "center"
           }
-        }, /*#__PURE__*/React$1.createElement(RowCheckbox, row.getToggleRowSelectedProps()));
+        }, /*#__PURE__*/React.createElement(RowCheckbox, row.getToggleRowSelectedProps()));
       },
       enableAddons: false,
       enableSorting: false,
@@ -1384,7 +1384,7 @@ var TableCore = function TableCore() {
               // The following is equivalent to col.Cell = EditableCell
               // We have kept it for uniformity
               col.Cell = function (props) {
-                return /*#__PURE__*/React$1.createElement(EditableControlledCell, props);
+                return /*#__PURE__*/React.createElement(EditableControlledCell, props);
               };
             } else if (col.type === 'select') {
               col.Cell = function (props) {
@@ -1403,7 +1403,7 @@ var TableCore = function TableCore() {
                   return item.index === row.index;
                 });
                 var placement = positionInView > topThreshold ? "top" : "bottom";
-                return /*#__PURE__*/React$1.createElement(SelectableCell, _extends({
+                return /*#__PURE__*/React.createElement(SelectableCell, _extends({
                   choices: col.choices
                 }, props, {
                   placement: placement
@@ -1572,19 +1572,19 @@ var TableCore = function TableCore() {
     // console.log(`Updated tableInstance`);
     updateRTable(tableInstance);
   }, [tableInstance]);
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement("table", getTableProps(), /*#__PURE__*/React$1.createElement("thead", null, headerGroups.map(function (headerGroup) {
-    return /*#__PURE__*/React$1.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (hdrColumn) {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("table", getTableProps(), /*#__PURE__*/React.createElement("thead", null, headerGroups.map(function (headerGroup) {
+    return /*#__PURE__*/React.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (hdrColumn) {
       var _JSON$stringify, _headersMap$hdrColumn;
       return (
         /*#__PURE__*/
         //  If we want header to be clickable then modify getHeaderProps call as 
         //  getHeaderProps(featureSorting ? hdrColumn.getSortByToggleProps() : {})
-        React$1.createElement("th", hdrColumn.getHeaderProps(), /*#__PURE__*/React$1.createElement("div", {
+        React.createElement("th", hdrColumn.getHeaderProps(), /*#__PURE__*/React.createElement("div", {
           style: {
             display: "flex",
             flexDirection: "column"
           }
-        }, /*#__PURE__*/React$1.createElement("div", {
+        }, /*#__PURE__*/React.createElement("div", {
           style: {
             display: "flex",
             flexDirection: "row",
@@ -1592,28 +1592,28 @@ var TableCore = function TableCore() {
             alignItems: "center",
             gap: "10px"
           }
-        }, /*#__PURE__*/React$1.createElement("div", {
+        }, /*#__PURE__*/React.createElement("div", {
           style: {
             width: "100%"
             // border: "1px dashed white"
           }
-        }, /*#__PURE__*/React$1.createElement(TooltipComponent$1, {
+        }, /*#__PURE__*/React.createElement(TooltipComponent$1, {
           message: hdrColumn.render('Header'),
           disabled: !layoutHeaderTooltip || hdrColumn.enableAddons === false
-        }, /*#__PURE__*/React$1.createElement("span", {
+        }, /*#__PURE__*/React.createElement("span", {
           style: {
             whiteSpace: "nowrap"
           }
-        }, hdrColumn.render('Header')))), hdrColumn.enableAddons !== false && /*#__PURE__*/React$1.createElement("div", {
+        }, hdrColumn.render('Header')))), hdrColumn.enableAddons !== false && /*#__PURE__*/React.createElement("div", {
           style: {
             display: "flex",
             flexDirection: "row",
             gap: "5px",
             alignItems: "center"
           }
-        }, featureSorting && hdrColumn.enableSorting !== false && /*#__PURE__*/React$1.createElement("span", hdrColumn.getSortByToggleProps(), hdrColumn.isSorted ? hdrColumn.isSortedDesc ? ' >' : ' <' : '<>'), featureColumnFilter && /*#__PURE__*/React$1.createElement("span", null, hdrColumn.canFilter ? hdrColumn.render('Filter') : null), layoutResize && /*#__PURE__*/React$1.createElement("div", _extends({}, hdrColumn.getResizerProps(), {
+        }, featureSorting && hdrColumn.enableSorting !== false && /*#__PURE__*/React.createElement("span", hdrColumn.getSortByToggleProps(), hdrColumn.isSorted ? hdrColumn.isSortedDesc ? ' >' : ' <' : '<>'), featureColumnFilter && /*#__PURE__*/React.createElement("span", null, hdrColumn.canFilter ? hdrColumn.render('Filter') : null), layoutResize && /*#__PURE__*/React.createElement("div", _extends({}, hdrColumn.getResizerProps(), {
           className: "resizer ".concat(hdrColumn.isResizing ? "isResizing" : "")
-        })))), layoutShowHeaderTypes && /*#__PURE__*/React$1.createElement("div", {
+        })))), layoutShowHeaderTypes && /*#__PURE__*/React.createElement("div", {
           style: {
             fontSize: "0.7em",
             "fontWeight": "normal"
@@ -1621,14 +1621,14 @@ var TableCore = function TableCore() {
         }, (_JSON$stringify = JSON.stringify((_headersMap$hdrColumn = headersMap[hdrColumn.header]) === null || _headersMap$hdrColumn === void 0 ? void 0 : _headersMap$hdrColumn.detectedTypes)) === null || _JSON$stringify === void 0 ? void 0 : _JSON$stringify.replaceAll('"', ''))))
       );
     }));
-  })), /*#__PURE__*/React$1.createElement("tbody", getTableBodyProps(), visibleRows.map(function (row) {
+  })), /*#__PURE__*/React.createElement("tbody", getTableBodyProps(), visibleRows.map(function (row) {
     prepareRow(row);
-    return /*#__PURE__*/React$1.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
-      return /*#__PURE__*/React$1.createElement("td", cell.getCellProps(), cell.render('Cell'));
+    return /*#__PURE__*/React.createElement("tr", row.getRowProps(), row.cells.map(function (cell) {
+      return /*#__PURE__*/React.createElement("td", cell.getCellProps(), cell.render('Cell'));
     }));
-  })), /*#__PURE__*/React$1.createElement("tfoot", null, layoutFooter && footerGroups.map(function (footerGroup) {
-    return /*#__PURE__*/React$1.createElement("tr", footerGroup.getFooterGroupProps(), footerGroup.headers.map(function (column) {
-      return /*#__PURE__*/React$1.createElement("td", column.getFooterProps(), column.render('Footer'));
+  })), /*#__PURE__*/React.createElement("tfoot", null, layoutFooter && footerGroups.map(function (footerGroup) {
+    return /*#__PURE__*/React.createElement("tr", footerGroup.getFooterGroupProps(), footerGroup.headers.map(function (column) {
+      return /*#__PURE__*/React.createElement("td", column.getFooterProps(), column.render('Footer'));
     }));
   }))));
 };
@@ -1636,7 +1636,7 @@ var TableCore = function TableCore() {
 // export default TableCore;
 
 // We use React.memo when we want to render the child only when any props change
-var TableCore$1 = /*#__PURE__*/React$1.memo(TableCore);
+var TableCore$1 = /*#__PURE__*/React.memo(TableCore);
 
 var GlobalFilter = function GlobalFilter(_ref) {
   var globalFilter = _ref.globalFilter,
@@ -1657,13 +1657,13 @@ var GlobalFilter = function GlobalFilter(_ref) {
     // console.log(`filter=${filter}`);
     setValue(globalFilter || "");
   }, [globalFilter]);
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: "10px",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React$1.createElement("span", null, "Search"), /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("span", null, "Search"), /*#__PURE__*/React.createElement("input", {
     className: "form-control",
     value: value,
     onChange: function onChange(e) {
@@ -1695,12 +1695,12 @@ var GlobalFilterSection = function GlobalFilterSection() {
   }, [globalFilter]);
 
   // We need to reset the pageIndex to 0 when we start typing in the filter
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, /*#__PURE__*/React$1.createElement(GlobalFilter, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(GlobalFilter, {
     globalFilter: globalFilter,
     setGlobalFilter: setGlobalFilter
   }));
 };
-var GlobalFilterSection$1 = /*#__PURE__*/React$1.memo(GlobalFilterSection);
+var GlobalFilterSection$1 = /*#__PURE__*/React.memo(GlobalFilterSection);
 
 var PaginationSection = function PaginationSection() {
   useEffect(function () {
@@ -1720,7 +1720,7 @@ var PaginationSection = function PaginationSection() {
   var _ref = state || {},
     pageIndex = _ref.pageIndex,
     pageSize = _ref.pageSize;
-  return /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("span", null, "Page", ' ', /*#__PURE__*/React$1.createElement("strong", null, pageIndex + 1, " of ", pageOptions === null || pageOptions === void 0 ? void 0 : pageOptions.length), ' '), /*#__PURE__*/React$1.createElement("span", null, "| Go to page: ", ' ', /*#__PURE__*/React$1.createElement("input", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, "Page", ' ', /*#__PURE__*/React.createElement("strong", null, pageIndex + 1, " of ", pageOptions === null || pageOptions === void 0 ? void 0 : pageOptions.length), ' '), /*#__PURE__*/React.createElement("span", null, "| Go to page: ", ' ', /*#__PURE__*/React.createElement("input", {
     type: "number",
     value: (pageIndex || 0) + 1,
     onChange: function onChange(e) {
@@ -1730,32 +1730,32 @@ var PaginationSection = function PaginationSection() {
     style: {
       width: 50
     }
-  })), /*#__PURE__*/React$1.createElement("select", {
+  })), /*#__PURE__*/React.createElement("select", {
     value: pageSize,
     onChange: function onChange(e) {
       return setPageSize(Number(e.target.value));
     }
   }, [10, 25, 50].map(function (pageSize) {
-    return /*#__PURE__*/React$1.createElement("option", {
+    return /*#__PURE__*/React.createElement("option", {
       key: pageSize,
       value: pageSize
     }, "Show ", pageSize);
-  })), /*#__PURE__*/React$1.createElement("button", {
+  })), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return gotoPage(0);
     },
     disabled: !canPreviousPage
-  }, '<<'), /*#__PURE__*/React$1.createElement("button", {
+  }, '<<'), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return previousPage();
     },
     disabled: !canPreviousPage
-  }, "Previous"), /*#__PURE__*/React$1.createElement("button", {
+  }, "Previous"), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return nextPage();
     },
     disabled: !canNextPage
-  }, "Next"), /*#__PURE__*/React$1.createElement("button", {
+  }, "Next"), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
       return gotoPage(pageCount - 1);
     },
@@ -1775,11 +1775,11 @@ var ColumnVisibilitySection = function ColumnVisibilitySection() {
   var _useContext = useContext(TableDataContext),
     allColumns = _useContext.allColumns,
     getToggleHideAllColumnsProps = _useContext.getToggleHideAllColumnsProps;
-  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, allColumns && /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, allColumns && /*#__PURE__*/React.createElement("div", {
     style: {
       marginLeft: "20px"
     }
-  }, /*#__PURE__*/React$1.createElement(ExpandableButton, {
+  }, /*#__PURE__*/React.createElement(ExpandableButton, {
     title: "Show Columns",
     expanded: showColumnsExpanded,
     onChange: setShowColumnsExpanded,
@@ -1787,31 +1787,31 @@ var ColumnVisibilitySection = function ColumnVisibilitySection() {
       top: "100%",
       left: "0px"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       width: "180px",
       padding: "10px",
       border: "1px dashed gray",
       borderRadius: "5px"
     }
-  }, /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(RowCheckbox, getToggleHideAllColumnsProps()), " Toggle All"),
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(RowCheckbox, getToggleHideAllColumnsProps()), " Toggle All"),
   // Individual checkbox for hide/show column
   allColumns.map(function (column) {
-    return /*#__PURE__*/React$1.createElement("div", {
+    return /*#__PURE__*/React.createElement("div", {
       key: column.id
-    }, /*#__PURE__*/React$1.createElement("div", {
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         flexDirection: "row",
         gap: "10px",
         alignItems: "center"
       }
-    }, /*#__PURE__*/React$1.createElement("input", _extends({
+    }, /*#__PURE__*/React.createElement("input", _extends({
       type: "checkbox"
-    }, column.getToggleHiddenProps())), /*#__PURE__*/React$1.createElement("span", null, column.render('Header'))));
+    }, column.getToggleHiddenProps())), /*#__PURE__*/React.createElement("span", null, column.render('Header'))));
   })))));
 };
-var ColumnVisibilitySection$1 = /*#__PURE__*/React$1.memo(ColumnVisibilitySection);
+var ColumnVisibilitySection$1 = /*#__PURE__*/React.memo(ColumnVisibilitySection);
 
 // import AppContext from "../AppContext";
 
@@ -2253,7 +2253,7 @@ var TableWrapper = function TableWrapper(_ref) {
     getColumnsFilters: provideColumnsFilters,
     onVisibleColumnsChange: handleVisibleColumnsChange
   };
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       width: "95%",
       padding: "40px 20px",
@@ -2262,16 +2262,16 @@ var TableWrapper = function TableWrapper(_ref) {
       alignItems: "flex-start",
       boxShadow: "0 0 3px 0 rgba(0, 0, 0, 0.5)"
     }
-  }, /*#__PURE__*/React$1.createElement(TableDataContext.Provider, {
+  }, /*#__PURE__*/React.createElement(TableDataContext.Provider, {
     value: tableContext
-  }, !data && /*#__PURE__*/React$1.createElement("div", {
+  }, !data && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React$1.createElement("h1", null, "Please upload an excel file")), data && /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h1", null, "Please upload an excel file")), data && /*#__PURE__*/React.createElement("div", {
     style: {
       width: "100%",
       display: "flex",
@@ -2280,7 +2280,7 @@ var TableWrapper = function TableWrapper(_ref) {
       justifyContent: "space-evenly",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
@@ -2289,15 +2289,15 @@ var TableWrapper = function TableWrapper(_ref) {
       width: "100%",
       padding: "0 40px"
     }
-  }, featureBulk && /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement(BulkOperationsSection$1, {
+  }, featureBulk && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(BulkOperationsSection$1, {
     edit: featureEdit
-  })), featureColumnVisibility && /*#__PURE__*/React$1.createElement(ColumnVisibilitySection$1, null), layoutDebug && /*#__PURE__*/React$1.createElement("div", {
+  })), featureColumnVisibility && /*#__PURE__*/React.createElement(ColumnVisibilitySection$1, null), layoutDebug && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       gap: "10px"
     }
-  }, /*#__PURE__*/React$1.createElement(Button, {
+  }, /*#__PURE__*/React.createElement(Button, {
     className: "btn-outline-info bg-transparent",
     size: "sm",
     onClick: function onClick(e) {
@@ -2305,23 +2305,23 @@ var TableWrapper = function TableWrapper(_ref) {
         return console.log(JSON.stringify(col));
       });
     }
-  }, "Log Columns"), /*#__PURE__*/React$1.createElement(Button, {
+  }, "Log Columns"), /*#__PURE__*/React.createElement(Button, {
     className: "btn-outline-info bg-transparent",
     size: "sm",
     onClick: function onClick(e) {
       console.log(JSON.stringify(data, null, 2));
     }
-  }, "Log Data")), /*#__PURE__*/React$1.createElement("div", {
+  }, "Log Data")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       gap: "20px"
     }
-  }, (featureGlobalFilter || featureColumnFilter) && /*#__PURE__*/React$1.createElement(Button, {
+  }, (featureGlobalFilter || featureColumnFilter) && /*#__PURE__*/React.createElement(Button, {
     className: "btn-outline-dark bg-transparent",
     size: "sm",
     onClick: handleFilterClearClick
-  }, "Clear Filters"), featureGlobalFilter && /*#__PURE__*/React$1.createElement(GlobalFilterSection$1, null))), /*#__PURE__*/React$1.createElement("div", {
+  }, "Clear Filters"), featureGlobalFilter && /*#__PURE__*/React.createElement(GlobalFilterSection$1, null))), /*#__PURE__*/React.createElement("div", {
     style: {
       height: "60vh",
       width: "100%",
@@ -2330,21 +2330,21 @@ var TableWrapper = function TableWrapper(_ref) {
       background: "darkgray"
     },
     onScroll: handleTableCoreScroll
-  }, /*#__PURE__*/React$1.createElement(TableCore$1, {
+  }, /*#__PURE__*/React.createElement(TableCore$1, {
     key: tableKeyRef.current
-  })), featurePagination && /*#__PURE__*/React$1.createElement(PaginationSection, null), updateWithCommit && /*#__PURE__*/React$1.createElement("div", {
+  })), featurePagination && /*#__PURE__*/React.createElement(PaginationSection, null), updateWithCommit && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "row",
       gap: "20px"
     }
-  }, /*#__PURE__*/React$1.createElement(Button, {
+  }, /*#__PURE__*/React.createElement(Button, {
     className: "btn-outline-primary bg-transparent",
     disabled: updates.length < 1,
     onClick: function onClick(e) {
       return handleResetClick(updates);
     }
-  }, "Reset"), /*#__PURE__*/React$1.createElement(Button, {
+  }, "Reset"), /*#__PURE__*/React.createElement(Button, {
     disabled: updates.length < 1,
     onClick: function onClick(e) {
       return handleCommitClick(updates);
