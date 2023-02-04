@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "Neeraj Gupta <neerajgupta.mbox@gmail.com>",
   "license": "ISC",
-  "src": "src/index.js",
+  "main": "src/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -15,8 +15,10 @@
     "url": "git+https://github.com/neeraj76/react-library-launchpad.git"
   },
   "scripts": {
-    "build": "builder-rollup",
-    "deploy": "http-server ./dist",
+    "build": "builder-rollup-app",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+    "deploy": "cp ./public/index.html ./dist/index.html && http-server ./dist",
     "test": "node ./__tests__/sample-app-basic.test.js"
   },
   "bugs": {
