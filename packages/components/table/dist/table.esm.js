@@ -979,7 +979,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
       }
     });
   }, [caps, full, regex]);
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React$1.createElement("div", {
     style: {
       position: "relative",
       display: "flex",
@@ -987,7 +987,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
       gap: "4px",
       alignItems: "start"
     }
-  }, /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React$1.createElement("input", {
     ref: inputRef,
     disabled: disabled,
     className: "form-control",
@@ -996,7 +996,7 @@ var InputWithIcons = function InputWithIcons(_ref) {
     style: {
       width: "200px"
     }
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React$1.createElement("div", {
     className: "filter-flags",
     style: {
       display: "flex",
@@ -1005,22 +1005,22 @@ var InputWithIcons = function InputWithIcons(_ref) {
       position: "absolute",
       right: "5px"
     }
-  }, /*#__PURE__*/React.createElement(FlagIcon, {
+  }, /*#__PURE__*/React$1.createElement(FlagIcon, {
     value: caps,
     onChange: function onChange(e) {
       return setCaps(!caps);
     }
-  }, /*#__PURE__*/React.createElement(RxLetterCaseCapitalize, null)), /*#__PURE__*/React.createElement(FlagIcon, {
+  }, /*#__PURE__*/React$1.createElement(RxLetterCaseCapitalize, null)), /*#__PURE__*/React$1.createElement(FlagIcon, {
     value: full,
     onChange: function onChange(e) {
       return setFull(!full);
     }
-  }, /*#__PURE__*/React.createElement(TbLetterF, null)), /*#__PURE__*/React.createElement(FlagIcon, {
+  }, /*#__PURE__*/React$1.createElement(TbLetterF, null)), /*#__PURE__*/React$1.createElement(FlagIcon, {
     value: regex,
     onChange: function onChange(e) {
       return setRegex(!regex);
     }
-  }, /*#__PURE__*/React.createElement(SiExpress, null))));
+  }, /*#__PURE__*/React$1.createElement(SiExpress, null))));
 };
 
 var ColumnFilterWithIcon = function ColumnFilterWithIcon(_ref) {

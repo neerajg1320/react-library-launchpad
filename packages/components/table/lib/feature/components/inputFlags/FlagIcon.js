@@ -1,3 +1,5 @@
+import React from 'react';
+
 const FlagIcon = ({ children, value, onChange }) => {
   return (
       <span
