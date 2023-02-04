@@ -33,6 +33,7 @@ const inputOptions = {
   ],
 };
 
+// These are to be defined in the "main" and "module" property in package.json
 const outputOptions = [
   {
     file: `dist/${fileName}.cjs.js`,

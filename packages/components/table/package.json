@@ -34,8 +34,12 @@
   "homepage": "https://github.com/neeraj76/react-library-launchpad#readme",
   "devDependencies": {
     "@glassball/builder-rollup": "^0.0.26",
+    "date-fns": "^2.29.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-select": "^5.7.0",
     "react-table": "^7.8.0"
   },
   "peerDependencies": {

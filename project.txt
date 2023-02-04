@@ -347,21 +347,21 @@ var React = require('react');
 # This means that the links haven't been resolved. Since our builder is meant for library, hence we are seeing this behaviour.
 # So we will leave it here for now and move on to including something which includes react-table
 
-## Create simple-table library
-lerna create @glassball/simple-table --yes
-mv packages/simple-table packages/components
+## Create table library
+lerna create @glassball/table --yes
+mv packages/table packages/components
 
-lerna add --dev @glassball/builder-rollup --scope=@glassball/simple-table
+lerna add --dev @glassball/builder-rollup --scope=@glassball/table
 
 # Add the dependencies
-lerna add react --dev --scope=@glassball/simple-table
-lerna add react-dom --dev --scope=@glassball/simple-table
-lerna add react-table --dev --scope=@glassball/simple-table
-lerna add react@18.x --peer --scope=@glassball/simple-table
-lerna add react-dom@18.x --peer --scope=@glassball/simple-table
-lerna add react-table@7.x --peer --scope=@glassball/simple-table
+lerna add react --dev --scope=@glassball/table
+lerna add react-dom --dev --scope=@glassball/table
+lerna add react-table --dev --scope=@glassball/table
+lerna add react@18.x --peer --scope=@glassball/table
+lerna add react-dom@18.x --peer --scope=@glassball/table
+lerna add react-table@7.x --peer --scope=@glassball/table
 
-# We will add the code lib/simple-table.js
+# We will add the code lib/basic-table.js
 import React from "react";
 import { useTable } from "react-table";
 
@@ -410,16 +410,43 @@ export default function Table({ columns, data }) {
 }
 
 # We will change the interface points in package.json
-  "main": "dist/simple-table.cjs.js",
-  "module": "lib/simple-table.esm.js",
-  "src": "lib/simple-table.js",
+  "main": "dist/table.cjs.js",
+  "module": "lib/table.esm.js",
+  "src": "lib/basic-table.js",
 
 $ Add the build, clean, purge scripts
 
 # The table is built and is also being shown in storybook.
 Now we  will try to use it in an application.
 
-sample-app-launchpad/ $ npm install --save-dev @glassball/simple-table
+sample-app-launchpad/ $ npm install --save-dev @glassball/table
 sample-app-launchpad/ $ npm install --save-dev react-table
 
 lerna add --dev @rollup/plugin-commonjs --scope=@glassball/builder-rollup
+
+## We created a styled component
+# Reference project: react-table-demo
+
+Now we will add a table with multiple features with major being
+i) Sorting
+ii) Filtering
+iii) Bulk handling
+iv) Pagination
+
+and more
+We will call it FeatureTable
+
+$ vi packages/components/table/lib/feature/feature-table.js
+
+lerna add --dev react-bootstrap --scope=@glassball/table
+lerna add --dev react-icons --scope=@glassball/table
+lerna add --dev react-select --scope=@glassball/table
+lerna add --dev react-table --scope=@glassball/table
+lerna add --dev date-fns --scope=@glassball/table
+
+
+    "react-bootstrap": "^2.7.0",
+    "react-icons": "^4.7.1",
+    "react-select": "^5.7.0",
+    "react-table": "^7.8.0",
+    "date-fns": "^2.29.3",
