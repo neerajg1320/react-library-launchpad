@@ -1,11 +1,11 @@
-# `@glassball/simple-table`
+# `@glassball/table`
 
 > TODO: description
 
 ## Usage
 
 ```
-const simpleTable = require('@glassball/simple-table');
+const simpleTable = require('@glassball/table');
 
 // TODO: DEMONSTRATE API
 ```

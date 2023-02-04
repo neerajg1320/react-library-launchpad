@@ -3,7 +3,7 @@
 var React = require('react');
 var reactTable = require('react-table');
 
-var Table = function Table(_ref) {
+var BasicTable = function BasicTable(_ref) {
   var data = _ref.data,
     columns = _ref.columns;
   var _useTable = reactTable.useTable({
@@ -27,4 +27,4 @@ var Table = function Table(_ref) {
   })))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Data"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(data, null, 2)), /*#__PURE__*/React.createElement("h2", null, "Columns"), /*#__PURE__*/React.createElement("pre", null, JSON.stringify(columns, null, 2))));
 };
 
-exports.Table = Table;
+exports.BasicTable = BasicTable;
