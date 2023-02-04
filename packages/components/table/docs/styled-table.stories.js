@@ -1,9 +1,9 @@
 import React, {useMemo} from 'react';
-import {BasicTable as BasicTableComponent} from "../lib/basic/basic-table";
+import {StyledTable as StyledTableComponent} from "../lib/styled/styled-table";
 
 export default { title: 'Table' };
 
-const BasicTable = () => {
+const StyledTable = () => {
 
   const data = useMemo(() => {
     return [
@@ -35,9 +35,9 @@ const BasicTable = () => {
   return (
       <>
         <h1>Basic Table</h1>
-        <BasicTableComponent data={data} columns={columns} />
+        <StyledTableComponent data={data} columns={columns} />
       </>
   );
 }
 
-export {BasicTable};
+export {StyledTable};

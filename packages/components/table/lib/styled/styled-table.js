@@ -1,8 +1,8 @@
 import React from 'react';
-// import * as ReactTable from "react-table";
 import {useTable} from "react-table";
 
-const BasicTable = ({data, columns}) => {
+
+const StyledTable = ({data, columns}) => {
   const {
     getTableProps, // table props from react-table
     getTableBodyProps, // table body props from react-table
@@ -16,7 +16,7 @@ const BasicTable = ({data, columns}) => {
 
   return (
       <>
-        <div>
+        <div className="styled-table">
           <table {...getTableProps()}>
             <thead>
             {headerGroups.map(headerGroup => (
@@ -51,4 +51,4 @@ const BasicTable = ({data, columns}) => {
   )
 }
 
-export {BasicTable};
+export {StyledTable};
