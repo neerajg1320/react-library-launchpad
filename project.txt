@@ -450,3 +450,59 @@ lerna add --dev date-fns --scope=@glassball/table
     "react-select": "^5.7.0",
     "react-table": "^7.8.0",
     "date-fns": "^2.29.3",
+
+# The problem of missing exports
+$ lerna add --dev rollup-plugin-peer-deps-external --scope=@glassball/builder-rollup
+
+# Replacement
+# https://www.npmjs.com/package/rollup-plugin-node-externals
+lerna add --dev rollup-plugin-node-externals --scope=@glassball/builder-rollup
+
+both didn't work
+We will manually add the dependencies mentioned in peerDependencies
+
+# Note: We had to modify the peerDependencies list and match them with devDependencies as shown below
+  "devDependencies": {
+    "@glassball/builder-rollup": "^0.0.26",
+    "date-fns": "^2.29.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-select": "^5.7.0",
+    "react-table": "^7.8.0"
+  },
+  "peerDependencies": {
+    "react": "18.x",
+    "react-dom": "18.x",
+    "react-table": "7.x",
+    "react-bootstrap": "^2.7.0",
+    "react-icons": "^4.7.1",
+    "react-select": "^5.7.0",
+    "date-fns": "^2.29.3"
+  }
+
+# Now we will try the plugin
+const externals = require('rollup-plugin-node-externals');
+
+const inputOptions = {
+  input: inputPath,
+  // external: ['react', 'react-dom', 'react-table'],
+  plugins: [
+    postcss({
+      // Key configuration
+      modules: true,
+    }),
+    babel({
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      babelHelpers: 'bundled',
+    }),
+    externals(),
+    commonjs(),
+    resolve(),
+  ],
+};
+
+# This was exactly the problem and it is resolved !
+Also we do not have to manually maintain this list of externals
+

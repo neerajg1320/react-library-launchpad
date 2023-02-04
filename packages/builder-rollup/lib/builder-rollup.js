@@ -3,6 +3,7 @@ const rollup = require('rollup');
 const path = require('path');
 const resolve = require('@rollup/plugin-node-resolve').default;
 const babel = require('@rollup/plugin-babel').default;
+const externals = require('rollup-plugin-node-externals');
 const commonjs = require('@rollup/plugin-commonjs').default;
 const postcss = require('rollup-plugin-postcss');
 
@@ -17,7 +18,7 @@ const fileName = name.replace('@glassball/', '');
 // see below for details on the options
 const inputOptions = {
   input: inputPath,
-  external: ['react', 'react-dom', 'react-table'],
+  // external: ['react', 'react-dom', 'react-table'],
   plugins: [
     postcss({
       // Key configuration
@@ -27,9 +28,9 @@ const inputOptions = {
       presets: ['@babel/preset-env', '@babel/preset-react'],
       babelHelpers: 'bundled',
     }),
+    externals(),
     commonjs(),
     resolve(),
-
   ],
 };
 

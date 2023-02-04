@@ -45,6 +45,10 @@
   "peerDependencies": {
     "react": "18.x",
     "react-dom": "18.x",
-    "react-table": "7.x"
+    "react-table": "7.x",
+    "react-bootstrap": "^2.7.0",
+    "react-icons": "^4.7.1",
+    "react-select": "^5.7.0",
+    "date-fns": "^2.29.3"
   }
 }

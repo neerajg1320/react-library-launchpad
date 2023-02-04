@@ -1,23 +1,18 @@
 import React from 'react';
+import require$$0 from 'react-dom';
 
-var m = require('react-dom');
+var createRoot;
+
+var m = require$$0;
 if (process.env.NODE_ENV === 'production') {
-  exports.createRoot = m.createRoot;
-  exports.hydrateRoot = m.hydrateRoot;
+  createRoot = m.createRoot;
+  m.hydrateRoot;
 } else {
   var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-  exports.createRoot = function (c, o) {
+  createRoot = function (c, o) {
     i.usingClientEntryPoint = true;
     try {
       return m.createRoot(c, o);
-    } finally {
-      i.usingClientEntryPoint = false;
-    }
-  };
-  exports.hydrateRoot = function (c, h, o) {
-    i.usingClientEntryPoint = true;
-    try {
-      return m.hydrateRoot(c, h, o);
     } finally {
       i.usingClientEntryPoint = false;
     }
@@ -28,5 +23,5 @@ var App = function App() {
   return /*#__PURE__*/React.createElement("h1", null, "App");
 };
 
-var root = undefined(document.getElementById('root'));
+var root = createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/React.createElement(App, null));
