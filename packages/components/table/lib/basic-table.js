@@ -2,7 +2,7 @@ import React from 'react';
 // import * as ReactTable from "react-table";
 import {useTable} from "react-table";
 
-const Table = ({data, columns}) => {
+const BasicTable = ({data, columns}) => {
   const {
     getTableProps, // table props from react-table
     getTableBodyProps, // table body props from react-table
@@ -51,4 +51,4 @@ const Table = ({data, columns}) => {
   )
 }
 
-export {Table};
+export {BasicTable};

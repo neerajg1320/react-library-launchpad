@@ -1,9 +1,9 @@
 import React, {useMemo} from 'react';
-import {Table} from "../lib/simple-table";
+import {BasicTable as BasicTableComponent} from "../lib/basic-table";
 
 export default { title: 'Table' };
 
-export const SimpleTable = () => {
+const BasicTable = () => {
 
   const data = useMemo(() => {
     return [
@@ -34,8 +34,10 @@ export const SimpleTable = () => {
 
   return (
       <>
-        <h1>Simple Table</h1>
-        <Table data={data} columns={columns} />
+        <h1>Basic Table</h1>
+        <BasicTableComponent data={data} columns={columns} />
       </>
   );
 }
+
+export {BasicTable};
