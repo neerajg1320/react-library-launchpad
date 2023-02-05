@@ -20,7 +20,7 @@
   "scripts": {
     "start": "rollup -c rollup.config.dev.mjs -w",
     "build": "rollup -c rollup.config.mjs",
-    "deploy": "http-server -c 1 ./public",
+    "deploy": "http-server -c 1 ./",
     "test": "node ./__tests__/sample-app.test.js"
   },
   "bugs": {
