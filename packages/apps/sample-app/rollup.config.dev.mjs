@@ -4,6 +4,7 @@ import babel from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
+import postcss from 'rollup-plugin-postcss';
 import path from "path";
 
 const currentWorkingPath = process.cwd();
@@ -25,6 +26,9 @@ export default {
     sourcemap: true,
   },
   plugins: [
+    postcss({
+      extensions: [".css"]
+    }),
     nodeResolve({
       extensions: [".js"],
     }),
