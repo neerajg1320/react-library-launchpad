@@ -40,7 +40,7 @@ export default {
     serve({
       open: true,
       verbose: true,
-      contentBase: ["", "public"],
+      contentBase: ["", "./"],
       host: "localhost",
       port: 3000,
     }),

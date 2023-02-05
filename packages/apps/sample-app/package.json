@@ -20,6 +20,7 @@
   "scripts": {
     "start": "rollup -c rollup.config.dev.mjs -w",
     "build": "rollup -c rollup.config.mjs",
+    "deploy": "http-server -c 1 ./public",
     "test": "node ./__tests__/sample-app.test.js"
   },
   "bugs": {
@@ -32,6 +33,7 @@
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.2",
+    "http-server": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.13.0",
