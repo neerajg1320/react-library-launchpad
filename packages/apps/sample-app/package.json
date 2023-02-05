@@ -18,7 +18,7 @@
     "url": "git+https://github.com/neeraj76/react-library-launchpad.git"
   },
   "scripts": {
-    "start": "rollup -c rollup.config.mjs -w",
+    "start": "rollup -c rollup.config.dev.mjs -w",
     "build": "rollup -c rollup.config.mjs",
     "test": "node ./__tests__/sample-app.test.js"
   },

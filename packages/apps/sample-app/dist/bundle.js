@@ -7939,7 +7939,7 @@
 	}
 
 	function App() {
-	  return /*#__PURE__*/React.createElement("h1", null, "Howdy World and Planet");
+	  return /*#__PURE__*/React.createElement("h1", null, "Howdy World and Planet of Apes");
 	}
 
 	const root = createRoot(document.getElementById('root'));
