@@ -7,7 +7,7 @@
   "license": "ISC",
   "bin": {
     "builder-rollup": "src/builder-rollup.js",
-    "builder-rollup-app": "src/builder-rollup-app.js"
+    "builder-rollup-dev": "src/builder-rollup-dev.js"
   },
   "main": "src/builder-rollup.js",
   "directories": {
