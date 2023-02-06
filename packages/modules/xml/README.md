@@ -1,11 +1,11 @@
-# `@glassball/tally`
+# `@glassball/xml`
 
 > TODO: description
 
 ## Usage
 
 ```
-const tally = require('@glassball/tally');
+const xml = require('@glassball/xml');
 
 // TODO: DEMONSTRATE API
 ```

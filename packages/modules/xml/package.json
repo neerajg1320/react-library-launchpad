@@ -1,12 +1,12 @@
 {
-  "name": "@glassball/tally",
-  "version": "0.0.7",
+  "name": "@glassball/xml",
+  "version": "0.0.5",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
   "author": "Neeraj Gupta <neerajgupta.mbox@gmail.com>",
   "license": "ISC",
-  "main": "dist/tally.cjs.js",
-  "module": "dist/tally.esm.js",
+  "main": "dist/xml.cjs.js",
+  "module": "dist/xml.esm.js",
   "src": "./index.js",
   "directories": {
     "lib": "lib",
@@ -26,13 +26,13 @@
     "build": "builder-rollup",
     "clean": "rm -rf dist",
     "purge": "rm -rf node_modules",
-    "test": "node ./__tests__/@glassball/tally.test.js"
+    "test": "node ./__tests__/@glassball/xml.test.js"
   },
   "bugs": {
     "url": "https://github.com/neeraj76/react-library-launchpad/issues"
   },
   "homepage": "https://github.com/neeraj76/react-library-launchpad#readme",
   "dependencies": {
-    "@glassball/xml": "^0.0.5"
+    "xml2js": "^0.4.23"
   }
 }

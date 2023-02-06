@@ -6,6 +6,7 @@ const babel = require('@rollup/plugin-babel').default;
 const externals = require('rollup-plugin-node-externals');
 const commonjs = require('@rollup/plugin-commonjs').default;
 const postcss = require('rollup-plugin-postcss');
+const json = require('@rollup/plugin-json');
 
 const currentWorkingPath = process.cwd();
 
@@ -39,8 +40,9 @@ const inputOptions = {
       babelHelpers: 'bundled',
     }),
     externals(),
-    commonjs(),
+    commonjs({transformMixedEsModules:true}),
     resolve(),
+    json()
   ],
 };
 
