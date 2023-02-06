@@ -1,0 +1,14 @@
+Enh (CSS, modules):
+Need to support the "css" property in the package.json of the libraries to be built
+
+Enh (excel):
+Need to support @glassball/excel library
+
+Enh (tally):
+Need to support @glassball/tally library
+
+Enh (schema):
+Need to support @glassball/schema library
+
+Enh (utils):
+Need to support @glassball/utils library
