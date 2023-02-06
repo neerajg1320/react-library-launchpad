@@ -11,20 +11,28 @@ const currentWorkingPath = process.cwd();
 
 // TBD: We have to support multiple entry points.
 // TBD: Our script is configured for libraries, we have to make one for apps as well.
-const { src, name } = require(path.join(currentWorkingPath, 'package.json'));
+const { src, name, external } = require(path.join(currentWorkingPath, 'package.json'));
 
 const inputPath = path.join(currentWorkingPath, src);
 
 // Little workaround to get package name without scope
 const fileName = name.replace('@glassball/', '');
 
+let externalFiles = [];
+if (external && external.length > 0) {
+  externalFiles = external;
+  console.log(`External Files:`, externalFiles);
+}
+
 // see below for details on the options
 const inputOptions = {
   input: inputPath,
+  external: externalFiles,
   plugins: [
     postcss({
       // Key configuration
-      modules: true,
+      // TBD (Immediate)
+      // modules: true,
     }),
     babel({
       presets: ['@babel/preset-env', '@babel/preset-react'],

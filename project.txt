@@ -550,7 +550,7 @@ touch rollup.config.mjs
 
   },
 
-# cat rollup.config.js
+# cat rollup.config.dev.js
 import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
 import babel from '@rollup/plugin-babel';
@@ -626,3 +626,95 @@ vi public/index.html
     <script src="../dist/bundle.js"></script>
 </body>
 </html>
+
+# We will support production and developement mode
+$ npm install --save-dev http-server
+
+$ cat rollup.config.mjs
+import babel from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
+import path from "path";
+
+const currentWorkingPath = process.cwd();
+
+// TBD: we will get the path from package.json main property
+const inputPath = path.join(currentWorkingPath, "src/index.js");
+
+// The output is generated to bundlePath
+const bundlePath = path.join(currentWorkingPath, "dist/bundle.js");
+
+export default {
+  input: inputPath,
+  output: {
+    file: bundlePath,
+    format: "iife",
+    sourcemap: true,
+  },
+  plugins: [
+    nodeResolve({
+      extensions: [".js"],
+    }),
+    replace({
+      preventAssignment: true,
+      'process.env.NODE_ENV': JSON.stringify( 'production' )
+    }),
+    babel({
+      presets: ["@babel/preset-react"],
+      babelHelpers: 'bundled',
+    }),
+    commonjs(),
+  ]
+};
+
+# The app and libs are working. Now we can start integrating the FeatureTable component.
+$ lerna add @glassball/table --scope=sample-app
+
+
+## Now we will add the FeatureTable.
+# We got an error
+
+## Add support for CSS in the rollup bundler for application
+# We will refer the same article
+# https://blog.bitsrc.io/trying-rollup-for-react-applications-d3c2304d16bf
+
+# We will refer the same article.
+# We will add support for images as well. The rollup-plugin-css is already installed.
+npm i @rollup/plugin-image --save-dev
+
+# regenerator-runtime error
+https://stackoverflow.com/questions/57402722/rollup-fails-to-transpile-async-await-regeneratorruntime-is-not-defined
+$ lerna add --dev @babel/plugin-transform-runtime --scope=sample-app
+
+# https://stackoverflow.com/questions/58385471/get-rid-of-regeneratorruntime-is-not-defined-without-importing-the-polyfill
+# https://risanb.com/code/regenerator-runtime-is-not-defined/
+
+# 12:55 pm:  We might need to drop this approach and move to our
+
+# 1:05 We switch our effor to excel-tally-production and take it from there
+# https://stackoverflow.com/questions/63436305/css-file-not-added-into-distribution-in-js-only-library-build-with-rollup
+Probable Solution:
+We will have to modify our builder-rollup.
+It has to look for external field in package.json.
+The files specified in the external field should be added to the external
+
+packages/components/table/package.json
+  "version": "0.1.4",
+  :
+  "main": "dist/table.cjs.js",
+  "module": "dist/table.esm.js",
+  "src": "./index.js",
+  "external": ["lib/feature/table-column-resizer.css"],
+
+packages/builder-rollup/src/builder-rollup.js
+:
+let externalFiles = [];
+if (external && external.length > 0) {
+  externalFiles = external;
+  console.log(`External Files:`, externalFiles);
+}
+:
+
+npm publish
+
