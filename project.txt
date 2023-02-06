@@ -764,3 +764,15 @@ lerna add --peer xlsx@0.18.x --scope=@glassball/excel
 lerna run build --scope=@glassball/excel
 cd packages/modules/excel
 npm publish
+
+This is working !
+##
+
+lerna create @glassball/read-excel --yes
+mv packages/read-excel packages/components/
+
+  "main": "dist/excel.cjs.js",
+  "module": "dist/excel.esm.js",
+  "src": "./index.js",
+
+lerna add @glassball/excel --scope=@glassball/read-excel
