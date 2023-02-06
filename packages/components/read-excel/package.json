@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "Neeraj Gupta <neerajgupta.mbox@gmail.com>",
   "license": "ISC",
-  "main": "lib/ReadExcel.js",
+  "src": "./index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -21,6 +21,9 @@
     "url": "git+https://github.com/neeraj76/react-library-launchpad.git"
   },
   "scripts": {
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
     "test": "node ./__tests__/@glassball/read-excel.test.js"
   },
   "bugs": {
@@ -28,6 +31,17 @@
   },
   "homepage": "https://github.com/neeraj76/react-library-launchpad#readme",
   "dependencies": {
-    "@glassball/excel": "^0.0.6"
+    "@glassball/excel": "^0.0.6",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@glassball/excel": "^0.0.6",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0"
+  },
+  "peerDependencies": {
+    "@glassball/excel": "0.0.6",
+    "react": "18.x",
+    "react-bootstrap": "2.7.x"
   }
 }

@@ -776,3 +776,44 @@ mv packages/read-excel packages/components/
   "src": "./index.js",
 
 lerna add @glassball/excel --scope=@glassball/read-excel
+
+# We have add the stories file in read-excel/docs/ReadExcel.stories.js
+import React, {useState} from "react";
+import ReadExcelComponent  from "../lib/ReadExcel";
+
+export default { title: 'FileReader' };
+
+const ReadExcel = () => {
+  const [data, setData] = useState([]);
+
+  const handleComplete = (json) => {
+    console.log(`json:`, json);
+    setData(json.data);
+  };
+
+  return (
+      <>
+        <ReadExcelComponent onComplete={handleComplete} />
+        <pre>
+        {data && JSON.stringify(data, null, 2)}
+      </pre>
+      </>
+  );
+}
+
+export {ReadExcel};
+
+# Now we will build the component library. So in the package.json we will add src and scripts
+
+  "src": "./index.js",
+
+# We wiill add dev dependencies
+lerna add --dev @glassball/excel --scope=@glassball/read-excel
+lerna add --dev react --scope=@glassball/read-excel
+lerna add --dev react-bootstrap --scope=@glassball/read-excel
+
+lerna add --peer react@18.x --scope=@glassball/read-excel
+lerna add --peer react-bootstrap@2.7.x --scope=@glassball/read-excel
+lerna add --peer @glassball/excel@0.0.6 --scope=@glassball/read-excel
+
+# We will add peer dependencies
