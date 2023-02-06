@@ -21,7 +21,7 @@ const tallyApiCall = ({req, timeout=3}) => {
   if (debugAxios) {
     console.log('getResource: Sending axios request');
     if (debugAxiosData) {
-      console.log(`req="${req}"`);
+      console.log(`req="${req}" ${typeof req}`);
     }
   }
 

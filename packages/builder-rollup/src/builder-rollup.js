@@ -35,14 +35,14 @@ const inputOptions = {
       // TBD (Immediate)
       // modules: true,
     }),
+    externals(),
+    commonjs({transformMixedEsModules:true}),
+    resolve(),
+    json(),
     babel({
       presets: ['@babel/preset-env', '@babel/preset-react'],
       babelHelpers: 'bundled',
     }),
-    externals(),
-    commonjs({transformMixedEsModules:true}),
-    resolve(),
-    json()
   ],
 };
 

@@ -900,3 +900,4 @@ https://stackoverflow.com/questions/62770883/how-to-include-both-import-and-requ
 $ vi builder-rollup.js
 commonjs({transformMixedEsModules:true})
 
+# We are having an issue with the typeof operator.
