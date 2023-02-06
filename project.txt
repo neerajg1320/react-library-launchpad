@@ -827,3 +827,76 @@ lerna add --peer @glassball/excel@0.0.6 --scope=@glassball/read-excel
   "main": "dist/read-excel.cjs.js",
   "module": "dist/read-excel.esm.js",
   "src": "./index.js",
+
+## Create @glassball/xml library
+#
+i) We need to support read, write functions
+
+lerna create @glassball/xml --yes
+mv packages/xml packages/modules/
+
+lerna bootstrap
+
+# The library depends on xml2js
+lerna add  xml2js --scope=@glassball/xml
+
+# Make changes in the packages/modules/xml/package.json
+  "version": "0.0.5",
+
+  "main": "dist/xml.cjs.js",
+  "module": "dist/xml.esm.js",
+  "src": "./index.js",
+
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+    :
+  }
+
+# Create packages/modules/xml/index.js
+# The excel-tally-builder has the command reading code in excel-tally-electron/spreadsheet.
+# We will keep in passive for now and we will try to get rest of the code.
+
+
+## Create @glassball/tally library
+#
+
+lerna create @glassball/tally --yes
+mv packages/tally packages/modules/
+lerna bootstrap
+
+# The library depends on @glassball/xml
+# Since we are not reading spreadsheets, hence we do not need to get @glassball/excel
+lerna add  @glassball/xml --scope=@glassball/tally
+
+# We will get the code from excel-tally-builder
+
+
+# Make changes in the packages/modules/xml/package.json
+  "version": "0.0.5",
+
+  "main": "dist/tally.cjs.js",
+  "module": "dist/tally.esm.js",
+  "src": "./index.js",
+
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+    :
+  }
+
+lerna run build --scope=@glassball/tally
+
+# Savior:
+https://stackoverflow.com/questions/62770883/how-to-include-both-import-and-require-statements-in-the-bundle-using-rollup
+$ vi builder-rollup.js
+commonjs({transformMixedEsModules:true})
+
