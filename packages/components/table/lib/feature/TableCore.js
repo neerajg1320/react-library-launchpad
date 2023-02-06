@@ -1,4 +1,5 @@
 import '../table.css';
+// This is getting dropped most probably due to tree-shaking as it is not directly being used in our library
 import './table-column-resizer.css';
 import {
   useTable,

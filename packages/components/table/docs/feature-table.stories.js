@@ -4,8 +4,6 @@ import {FeatureTable as FeatureTableComponent} from "../lib/feature/feature-tabl
 export default { title: 'Table' };
 
 const FeatureTable = () => {
-
-
   const [data, setData] = useState([
     {
       name: "Alice",
