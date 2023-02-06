@@ -719,3 +719,48 @@ if (external && external.length > 0) {
 npm publish
 
 
+## Create @glassball/excel library
+#
+i) We need to support read, write functions
+
+lerna create @glassball/excel --yes
+
+mkdir packages/modules
+mv packages/excel packages/modules/
+
+
+# Modify workspaces in <project>/package.json and add packages/modules/* in the workspaces
+  "workspaces": [
+    "packages/*",
+    "packages/components/*",
+    "packages/modules/*",
+    "packages/apps/*"
+  ]
+lerna bootstrap
+
+# We will get the code from the excel-tally-modular project
+# We need to import xlsx (sheetjs) library
+
+lerna add xlsx --scope=@glassball/excel
+# Make changes in the packages/modules/excel/package.json
+  "version": "0.0.5",
+
+  "main": "dist/excel.cjs.js",
+  "module": "dist/excel.esm.js",
+  "src": "./index.js",
+
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+  }
+
+lerna add --dev xlsx --scope=@glassball/excel
+lerna add --peer xlsx@0.18.x --scope=@glassball/excel
+
+lerna run build --scope=@glassball/excel
+cd packages/modules/excel
+npm publish
