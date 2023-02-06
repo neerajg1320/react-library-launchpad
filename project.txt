@@ -817,3 +817,13 @@ lerna add --peer react-bootstrap@2.7.x --scope=@glassball/read-excel
 lerna add --peer @glassball/excel@0.0.6 --scope=@glassball/read-excel
 
 # We will add peer dependencies
+
+# Now we need to update the publish info i.e. put dist folder and modify "main", "module" attributes in package.json
+
+  "files": [
+    "dist"
+  ],
+
+  "main": "dist/read-excel.cjs.js",
+  "module": "dist/read-excel.esm.js",
+  "src": "./index.js",
