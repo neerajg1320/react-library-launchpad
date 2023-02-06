@@ -1,5 +1,5 @@
-const {convertObjToXml, convertXmlToObj} = require("../xml/convert");
-const {tallyApiCall, tallyApiInit} = require("../services/api");
+const {convertObjToXml, convertXmlToObj} = require("@glassball/xml");
+const {tallyApiCall, tallyApiInit} = require("./api");
 
 const flagShowKeepAlive = false;
 const flagShowRequest = false;

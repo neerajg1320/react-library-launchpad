@@ -1,5 +1,13 @@
 const {endOfDay, format} = require("date-fns");
 
+// const endOfDay = (date) => {
+//   return date;
+// }
+//
+// const format = (date) => {
+//   return date.toString();
+// }
+
 const dateTallyCreateVoucherFormat = (date) => {
   return format(endOfDay(date),"yyyyMMdd");
 }
