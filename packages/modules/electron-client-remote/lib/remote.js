@@ -19,12 +19,16 @@ function initRenderer() {
             console.log(`removeListener: ${channel}: stub call`);
         };
 
+        const removeAllListeners = () => {
+            console.log(`removeAllListeners: stub call`);
+        };
+
         ipcRenderer = {
             on: addListener,
             once: addListener,
             send: eventSender,
             removeListener: removeListener,
-            removeListeners: removeListener
+            removeAllListeners: removeAllListeners
         }
     }
 }
@@ -58,18 +62,31 @@ export const remoteCall = (channel, command) => {
 export const remoteMonitorStart = (channel, callback) => {
     initRenderer();
 
-    ipcRenderer.on(channel, callback);
+    if (ipcRenderer) {
+        ipcRenderer.on(channel, callback);
+    }
 }
 
 export const remoteMonitorStop = (channel, callback) => {
     initRenderer();
 
-    ipcRenderer.removeListener(channel, callback);
+    if (ipcRenderer) {
+        ipcRenderer.removeListener(channel, callback);
+    }
 }
 
-export const removeListeners = () => {
+export const removeListener = (channel, callback) => {
     initRenderer();
 
-    console.log('Removing Listeners');
-    ipcRenderer.removeAllListeners();
+    if (ipcRenderer) {
+        ipcRenderer.removeListener(channel, callback);
+    }
+}
+
+export const removeAllListeners = () => {
+    initRenderer();
+
+    if (ipcRenderer) {
+        ipcRenderer.removeAllListeners();
+    }
 }
