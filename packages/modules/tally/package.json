@@ -29,9 +29,14 @@
     "url": "https://github.com/neeraj76/react-library-launchpad/issues"
   },
   "homepage": "https://github.com/neeraj76/react-library-launchpad#readme",
-  "dependencies": {
+  "devDependencies": {
     "@glassball/xml": "^0.0.5",
     "axios": "^1.3.2",
     "date-fns": "^2.29.3"
+  },
+  "peerDependencies": {
+    "@glassball/xml": "^0.0.5",
+    "axios": "^1.3.x",
+    "date-fns": "^2.29.x"
   }
 }
