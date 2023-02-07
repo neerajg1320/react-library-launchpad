@@ -901,3 +901,26 @@ $ vi builder-rollup.js
 commonjs({transformMixedEsModules:true})
 
 # We are having an issue with the typeof operator.
+
+## Now we will create the ui-electron library
+lerna create @glassball/electron-client-remote --yes
+mv packages/electron-client-remote packages/modules
+lerna bootstrap
+
+lerna add electron --scope=@glassball/electron-client-remote
+
+  "main": "dist/electron-client-remote.cjs.js",
+  "module": "dist/electron-client-remote.esm.js",
+  "src": "./index.js",
+
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+    :
+  }
+
+lerna run build --scope=@glassball/electron-client-remote
