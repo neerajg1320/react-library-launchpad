@@ -14,15 +14,28 @@ import {
   tallyCheckServer,
   tallyCheckServerBoolean
 } from "./lib/request";
-// import {
-//   dateTallyModifyVoucherFormat,
-//   dateTallyCreateVoucherFormat
-// } from "./lib/tally_date"
-
 import {
   get_companies_request,
   get_current_company_request,
 } from "./lib/messages";
+import {
+  handleCreateLedgerGroup,
+  handleCreateLedger,
+  handleCreateVoucher,
+  handleDeleteVoucher,
+  handleModifyVoucher,
+  handleCreateVoucherSplit,
+  getAccounts,
+  getLedgers,
+  getLedgerGroups,
+  getBalanceSheet,
+  getProfitLoss,
+  getTrialBalance,
+  getDayBook,
+  getCompanies,
+  getCurrentCompany,
+  getLicenseInfo,
+} from './lib/handlers';
 
 export {
   getTallyCommandMap,
@@ -35,9 +48,23 @@ export {
   tallyInitServer,
   tallyCheckServer,
   tallyCheckServerBoolean,
-  // dateTallyModifyVoucherFormat,
-  // dateTallyCreateVoucherFormat,
   get_companies_request,
   get_current_company_request,
+  handleCreateLedgerGroup,
+  handleCreateLedger,
+  handleCreateVoucher,
+  handleDeleteVoucher,
+  handleModifyVoucher,
+  handleCreateVoucherSplit,
+  getAccounts,
+  getLedgers,
+  getLedgerGroups,
+  getBalanceSheet,
+  getProfitLoss,
+  getTrialBalance,
+  getDayBook,
+  getCompanies,
+  getCurrentCompany,
+  getLicenseInfo,
 };
 
