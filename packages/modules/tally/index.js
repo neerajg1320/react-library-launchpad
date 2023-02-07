@@ -1,23 +1,13 @@
 import {
+  tallyApiInit,
+  tallyApiCall
+} from "./lib/api";
+import {
   getTallyCommandMap,
   getTallyParameterMap,
   getTallyCommands,
   getTallyReadOnlyCommands
 } from './lib/commands';
-import {
-  tallyApiInit,
-  tallyApiCall
-} from "./lib/api";
-import {
-  tallyProcessRequestPromise,
-  tallyInitServer,
-  tallyCheckServer,
-  tallyCheckServerBoolean
-} from "./lib/request";
-import {
-  get_companies_request,
-  get_current_company_request,
-} from "./lib/messages";
 import {
   handleCreateLedgerGroup,
   handleCreateLedger,
@@ -36,6 +26,21 @@ import {
   getCurrentCompany,
   getLicenseInfo,
 } from './lib/handlers';
+import {
+  get_companies_request,
+  get_current_company_request,
+} from "./lib/messages";
+import {
+  tallyProcessRequestPromise,
+  tallyInitServer,
+  tallyCheckServer,
+  tallyCheckServerBoolean
+} from "./lib/request";
+import {
+  dateTallyCreateVoucherFormat,
+  dateTallyModifyVoucherFormat
+} from './lib/tally_date';
+
 
 export {
   getTallyCommandMap,
@@ -66,5 +71,7 @@ export {
   getCompanies,
   getCurrentCompany,
   getLicenseInfo,
+  dateTallyCreateVoucherFormat,
+  dateTallyModifyVoucherFormat,
 };
 

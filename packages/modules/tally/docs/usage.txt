@@ -1,0 +1,2 @@
+# We need to write the usage of the API
+For using the Tally API we need to first initialize the API with the server address
