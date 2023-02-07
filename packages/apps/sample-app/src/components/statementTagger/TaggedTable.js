@@ -123,8 +123,8 @@ const TaggedTable = () => {
   return (
       <>
         <h1>Table Tagger</h1>
-        <BasicTable {...{data, columns}} />
-        {/*<FeatureTable data={data} onDataChange={handleDataChange} ledgers={ledgers} />*/}
+        {/*<BasicTable {...{data, columns}} />*/}
+        <FeatureTable data={data} onDataChange={handleDataChange} ledgers={ledgers} />
       </>
   );
 }

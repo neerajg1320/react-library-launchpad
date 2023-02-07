@@ -36,6 +36,7 @@ export default {
       preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify( 'development' )
     }),
+
     babel({
       presets: ["@babel/preset-react"],
       babelHelpers: 'bundled',
