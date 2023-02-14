@@ -7,7 +7,6 @@ const externals = require('rollup-plugin-node-externals');
 const commonjs = require('@rollup/plugin-commonjs').default;
 const postcss = require('rollup-plugin-postcss');
 const json = require('@rollup/plugin-json');
-const {myDopePlugin} = require('../../plugins/rollup-plugin-mydopeplugin.js');
 
 const currentWorkingPath = process.cwd();
 
@@ -37,14 +36,13 @@ const inputOptions = {
       // modules: true,
     }),
     externals(),
-    // commonjs({transformMixedEsModules:true}), // needed for commonjs code
+    commonjs({transformMixedEsModules:true}),
     resolve(),
     json(),
     babel({
       presets: ['@babel/preset-env', '@babel/preset-react'],
       babelHelpers: 'bundled',
     }),
-    myDopePlugin()
   ],
 };
 
