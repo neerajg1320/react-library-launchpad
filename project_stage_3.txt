@@ -1,0 +1,38 @@
+## Recap
+# Stage 1:
+In the first stage we made the javascript modules and components and got them working in a monorepo setup.
+# Stage 2:
+In the second stage we got the react-app and electron-app working in a monorepo setup.
+
+## Stage 3:
+# We are going to setup the react, electron app in a monorepo setup along with the javascript modules.
+
+git submodule add ssh://git@github.com/neeraj76/react-excel-min packages/apps/react-excel-min
+git submodule add ssh://git@github.com/neeraj76/electron-excel-tally packages/apps/elecron-excel-tally
+
+git submodule status
+# Check if we can see the repositories
+
+Now we will run the appliations and check
+
+lerna bootstrap
+cd packages/apps/
+apps/ $ du -d 1 -h
+ 13M	./sample-app
+372K	./react-excel-min
+213M	./elecron-excel-tally
+227M	.
+apps/ $
+
+# The repositories are setup as expected.
+
+cd react-excel-min
+npm start
+
+cd ../electron-excel-tally
+npm start
+
+# Our application is working and it is connected to tally !!
+
+
+
