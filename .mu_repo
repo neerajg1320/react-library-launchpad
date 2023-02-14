@@ -1,0 +1,4 @@
+repo=.
+repo=packages/apps/elecron-excel-tally
+repo=packages/apps/react-excel-min
+serial=True
