@@ -30,3 +30,5 @@ module.exports = {
     convertObjToXml,
     convertXmlToObj
 };
+
+export {convertObjToXml, convertXmlToObj};
