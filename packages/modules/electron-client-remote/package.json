@@ -32,7 +32,7 @@
     "url": "https://github.com/neeraj76/react-library-launchpad/issues"
   },
   "homepage": "https://github.com/neeraj76/react-library-launchpad#readme",
-  "dependencies": {
+  "peerDependencies": {
     "electron": "^23.0.0"
   }
 }
