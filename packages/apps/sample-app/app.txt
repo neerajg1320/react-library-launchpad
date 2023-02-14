@@ -1,0 +1,65 @@
+# The application bundler was generated using rollup
+# Currently it is stuck at"
+
+[Error] ReferenceError: Can't find variable: regeneratorRuntime
+	(anonymous function) (bundle.js:8202)
+	useAsyncDebounce (bundle.js:8266)
+	GlobalFilter (bundle.js:29207)
+	renderWithHooks (bundle.js:5716:169)
+	mountIndeterminateComponent (bundle.js:6290:1463)
+	callCallback (bundle.js:3728:126)
+	dispatchEvent
+	invokeGuardedCallbackDev (bundle.js:3748)
+	invokeGuardedCallback (bundle.js:3769:133)
+	beginWork$1 (bundle.js:7691)
+	performUnitOfWork (bundle.js:7507:284)
+	workLoopSync (bundle.js:7493)
+	renderRootSync (bundle.js:7489:173)
+	recoverFromConcurrentError (bundle.js:7368:186)
+	performConcurrentWorkOnRoot (bundle.js:7332:154)
+	performConcurrentWorkOnRoot
+	workLoop (bundle.js:2685)
+	flushWork (bundle.js:2663)
+	performWorkUntilDeadline (bundle.js:2900)
+[Error] The above error occurred in the <GlobalFilter> component:
+
+GlobalFilter@http://localhost:3000/dist/bundle.js:29199:27
+GlobalFilterSection@http://localhost:3000/dist/bundle.js:29236:26
+div
+div
+div
+div
+TableWrapper@http://localhost:3000/dist/bundle.js:29374:26
+TaggedTable@http://localhost:3000/dist/bundle.js:29907:49
+StatementTagger
+div
+div
+App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+	logCapturedError (bundle.js:5959)
+	(anonymous function) (bundle.js:5967:125)
+	callCallback (bundle.js:5400:335)
+	commitUpdateQueue (bundle.js:5401:221)
+	commitLayoutEffectOnFiber (bundle.js:6941:316)
+	commitLayoutMountEffects_complete (bundle.js:7119:637)
+	commitLayoutEffects_begin (bundle.js:7119:359)
+	commitLayoutEffects (bundle.js:7110:251)
+	commitRootImpl (bundle.js:7577)
+	commitRoot (bundle.js:7534:225)
+	finishConcurrentRender (bundle.js:7379)
+	performConcurrentWorkOnRoot (bundle.js:7352)
+	performConcurrentWorkOnRoot
+	workLoop (bundle.js:2685)
+	flushWork (bundle.js:2663)
+	performWorkUntilDeadline (bundle.js:2900)
+[Error] ReferenceError: Can't find variable: regeneratorRuntime
+	commitRootImpl (bundle.js:7602:416)
+	commitRoot (bundle.js:7534:225)
+	finishConcurrentRender (bundle.js:7379)
+	performConcurrentWorkOnRoot (bundle.js:7352)
+	performConcurrentWorkOnRoot
+	workLoop (bundle.js:2685)
+	flushWork (bundle.js:2663)
+	performWorkUntilDeadline (bundle.js:2900)
