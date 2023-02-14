@@ -924,3 +924,56 @@ lerna add electron --scope=@glassball/electron-client-remote
   }
 
 lerna run build --scope=@glassball/electron-client-remote
+
+## We are having an issue when creating modules out of ES6 code and Commonjs code
+
+The sequence that works on ES6 code is
+// see below for details on the options
+const inputOptions = {
+  input: inputPath,
+  external: externalFiles,
+  plugins: [
+    postcss({
+      // Key configuration
+      // TBD (Immediate)
+      // modules: true,
+    }),
+    externals(),
+    resolve(),
+    json(),
+    babel({
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      babelHelpers: 'bundled',
+    }),
+  ],
+};
+
+The sequence that works on mix (ES6 + Commonjs) code is:
+const inputOptions = {
+  input: inputPath,
+  external: externalFiles,
+  plugins: [
+    postcss({
+      // Key configuration
+      // TBD (Immediate)
+      // modules: true,
+    }),
+    externals(),
+    commonjs({transformMixedEsModules:true}),
+    resolve(),
+    json(),
+    babel({
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      babelHelpers: 'bundled',
+    }),
+  ],
+};
+
+# The difference is caused by:
+--  commonjs({transformMixedEsModules:true}),
+
+# References for above
+# https://stackoverflow.com/questions/52884278/rollup-react-not-compiling-jsx
+# https://github.com/rollup/plugins/issues/805#issuecomment-779902868
+
+# We will make a small sample plugin to understand plugins. Seems like this should be a small distraction of about 15-20 mins
