@@ -1,4 +1,4 @@
-function myDopePlugin() {
+function myDopePlugin(options={}) {
   return {
     name:"my-dope-plugin",
     transform(source, id) {

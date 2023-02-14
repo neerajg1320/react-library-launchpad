@@ -13,7 +13,8 @@ const currentWorkingPath = process.cwd();
 
 // TBD: We have to support multiple entry points.
 // TBD: Our script is configured for libraries, we have to make one for apps as well.
-const { src, name, external } = require(path.join(currentWorkingPath, 'package.json'));
+const { src, srcType, name, external } = require(path.join(currentWorkingPath, 'package.json'));
+const cjsPresent = srcType && srcType.includes('cjs');
 
 const inputPath = path.join(currentWorkingPath, src);
 
@@ -37,14 +38,14 @@ const inputOptions = {
       // modules: true,
     }),
     externals(),
-    // commonjs({transformMixedEsModules:true}), // needed for commonjs code
+    srcType ? commonjs({transformMixedEsModules:true}) : null, // needed for commonjs code
     resolve(),
     json(),
     babel({
       presets: ['@babel/preset-env', '@babel/preset-react'],
       babelHelpers: 'bundled',
     }),
-    myDopePlugin()
+    // myDopePlugin()
   ],
 };
 

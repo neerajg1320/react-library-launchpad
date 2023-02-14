@@ -8,6 +8,7 @@
   "main": "dist/tally.cjs.js",
   "module": "dist/tally.esm.js",
   "src": "./index.js",
+  "srcType": ["cjs"],
   "directories": {
     "lib": "lib",
     "test": "__tests__"
