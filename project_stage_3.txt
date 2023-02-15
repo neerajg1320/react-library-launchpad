@@ -34,5 +34,9 @@ npm start
 
 # Our application is working and it is connected to tally !!
 
+# Now we will make the build
+npm run build.
+
+# The build is also successful!
 
 
