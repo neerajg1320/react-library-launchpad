@@ -11,6 +11,10 @@ In the second stage we got the react-app and electron-app working in a monorepo 
 # We will setup the mac store target
 
 ## Stage 5:
+# We will make the Application Menu compliant with macos app store.
+
+
+## Stage 6:
 # We will setup the windows store target
 
 # We will now deploy this on mac store
