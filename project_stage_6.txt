@@ -13,29 +13,47 @@ In the second stage we got the react-app and electron-app working in a monorepo 
 ## Stage 5:
 # We will make the Application Menu compliant with macos app store.
 
-
 ## Stage 6:
+# We wull make the menu compliant to the app store
+
+## Stage 7:
 # We will setup the windows store target
 
-# We will now deploy this on mac store
-# The steps to be followed at an abstract level.
-i) Create an an application id on the apple mac store.
-ii) Create a profile
-iii) Prepare a mas target for the image
-iv) Upload the mas release using a transporter
-v) Submit for review
 
-# i)
-https://developer.apple.com
-https://appstoreconnect.apple.com -->  My Apps
-We will create a new App
+## Make the menu compliant to the app store:
+lerna create @glassball/electron-menu-base --yes
+lerna bootstrap
+lerna add --dev @glassball/builder-rollup --scope=@glassball/electron-menu-base
 
-# Download the icon from icons8.com
-# We have to put a link
-<a target="_blank" href="https://icons8.com/icon/Ru0tNwlOUfBH/microsoft-excel">Microsoft Excel</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+# package.json
+  "scripts": {
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+    :
+  },
+# set src, main, module property in package.json
+  "module": "dist/electron-menu-base.esm.js",
+  "main": "dist/electron-menu-base.cjs.js",
+  "src": "./index.js",
 
-# Convert it using cloudconvert.com
+# Now we will include our lib in the electron-excel-tally package
+lerna add @glassball/electron-menu-base --scope=@glassball/tallymate
 
-# Submitted the app for review.
-# The previous experience and exercise of uploading the app on macstore helped us tremendously.
-Feb 15, 2023 at 5:28 PM
+# In the main.js file we include the library and use it
+const {getBaseMenuTemplate, setSubmenuStatusById} = require("@glassball/electron-menu-base");
+let mainMenu;
+
+  mainMenu = Menu.buildFromTemplate(getBaseMenuTemplate({app, mainWindow}));
+  Menu.setApplicationMenu(mainMenu);
+
+
+$ yarn add --ignore-workspace-root-check --dev crossenv wait-on concurrently
+
+To use the menu we have to add
+
+app.on('window-all-closed', ()=> {
+  closeWindow({app, mainMenu});
+  mainWindow = null;
+});
+

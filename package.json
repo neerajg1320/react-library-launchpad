@@ -9,7 +9,12 @@
     "clean": "lerna run clean",
     "purge": "lerna run purge",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "tallymate-ui": "lerna run start --scope=@glassball/tallymate-ui",
+    "tallymate-ui:no-browser": "cross-env BROWSER=none npm run tallymate-ui",
+    "tallymate": "lerna run start --scope=@glassball/tallymate",
+    "tallymate:after:tallymate-ui": "wait-on tcp:3000 && npm run tallymate",
+    "start": "concurrently -k \"npm run tallymate-ui:no-browser\" \"npm run tallymate:after:tallymate-ui\" "
   },
   "keywords": [],
   "author": "",
@@ -31,9 +36,13 @@
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.3.0",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "crossenv": "^0.0.2-security",
     "lerna": "^6.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-table": "^7.8.0"
+    "react-table": "^7.8.0",
+    "wait-on": "^7.0.1"
   }
 }
