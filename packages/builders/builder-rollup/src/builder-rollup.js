@@ -10,10 +10,15 @@ const json = require('@rollup/plugin-json');
 const {myDopePlugin} = require('../../plugins/rollup-plugin-mydopeplugin.js');
 
 const currentWorkingPath = process.cwd();
-
+const packageFilePath = path.join(currentWorkingPath, 'package.json');
 // TBD: We have to support multiple entry points.
 // TBD: Our script is configured for libraries, we have to make one for apps as well.
-const { src, srcType, name, external } = require(path.join(currentWorkingPath, 'package.json'));
+const { src, srcType, name, external } = require(packageFilePath);
+
+if (!src) {
+  throw(`Error! property 'src' is missing in '${packageFilePath}'`);
+}
+
 const cjsPresent = srcType && srcType.includes('cjs');
 
 const inputPath = path.join(currentWorkingPath, src);

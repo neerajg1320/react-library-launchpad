@@ -1,0 +1,41 @@
+## Recap
+# Stage 1:
+In the first stage we made the javascript modules and components and got them working in a monorepo setup.
+# Stage 2:
+In the second stage we got the react-app and electron-app working in a monorepo setup.
+
+## Stage 3:
+# We asetup the react, electron app in a monorepo setup along with the javascript modules.
+
+## Stage 4:
+# We will setup the mac store target
+
+## Stage 5:
+# We will make the Application Menu compliant with macos app store.
+
+
+## Stage 6:
+# We will setup the windows store target
+
+# We will now deploy this on mac store
+# The steps to be followed at an abstract level.
+i) Create an an application id on the apple mac store.
+ii) Create a profile
+iii) Prepare a mas target for the image
+iv) Upload the mas release using a transporter
+v) Submit for review
+
+# i)
+https://developer.apple.com
+https://appstoreconnect.apple.com -->  My Apps
+We will create a new App
+
+# Download the icon from icons8.com
+# We have to put a link
+<a target="_blank" href="https://icons8.com/icon/Ru0tNwlOUfBH/microsoft-excel">Microsoft Excel</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+# Convert it using cloudconvert.com
+
+# Submitted the app for review.
+# The previous experience and exercise of uploading the app on macstore helped us tremendously.
+Feb 15, 2023 at 5:28 PM
