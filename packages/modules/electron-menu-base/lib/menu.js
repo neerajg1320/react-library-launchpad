@@ -31,8 +31,10 @@ function getBaseMenuTemplate(config) {
                         if (!config.mainWindow) {
                             config.createWindow();
                         } else {
-                            console.log(`config.mainWindow=${config.mainWindow}`);
+                            config.mainWindow.show();
                         }
+                        setSubmenuStatusById(config.mainMenu, "submenu-open", false);
+                        setSubmenuStatusById(config.mainMenu, "submenu-close", true);
                     }
                 },
                 {
@@ -44,11 +46,10 @@ function getBaseMenuTemplate(config) {
                             config.mainWindow.hide();
                             setSubmenuStatusById(config.mainMenu, "submenu-open", true);
                             setSubmenuStatusById(config.mainMenu, "submenu-close", false);
-                            config.mainWindow = null;
                         } else {
                             app.quit();
                         }
-                        console.log(`config.mainWindow set to null`);
+                        // console.log(`config.mainWindow set to null`);
                     }
                 },
                 {
@@ -57,7 +58,7 @@ function getBaseMenuTemplate(config) {
                     click() {
                         app.quit();
                         config.mainWindow = null;
-                        console.log(`config.mainWindow set to null`);
+                        // console.log(`config.mainWindow set to null`);
                     }
                 }
             ]
@@ -97,7 +98,7 @@ function getBaseMenuTemplate(config) {
         menuTemplate.push({
             label: 'Developer',
             id: 'developer',
-            enabled: true,
+            enabled: !!config.mainWindow,
             submenu: [
                 {
                     id: "view-reload",
@@ -108,7 +109,7 @@ function getBaseMenuTemplate(config) {
                     label: 'Toggle Developer Tools',
                     accelerator: `${main_qualifier_key}+${second_qualifier_key}+I`,
                     click(item, focusedWindow) {
-                        focusedWindow.toggleDevTools();
+                        focusedWindow?.toggleDevTools();
                     }
                 }
             ]
@@ -147,8 +148,21 @@ const closeWindow = (config) => {
     setSubmenuStatusById(mainMenu, "view-dev-tools", false);
 };
 
+const activateWindow = (config) => {
+    const {mainMenu} = config;
+    console.log(`activateWindow`);
+    if (!config.mainWindow) {
+        config.createWindow();
+    } else {
+        config.mainWindow.show();
+    }
+    setSubmenuStatusById(mainMenu, "submenu-open", false);
+    setSubmenuStatusById(mainMenu, "submenu-close", true);
+}
+
 exports.closeWindow = closeWindow;
 exports.getBaseMenuTemplate = getBaseMenuTemplate;
 exports.setSubmenuStatusById = setSubmenuStatusById;
+exports.activateWindow = activateWindow;
 
-export {setSubmenuStatusById, getBaseMenuTemplate, closeWindow};
+// export {setSubmenuStatusById, getBaseMenuTemplate, closeWindow};
