@@ -17,8 +17,8 @@ function getBaseMenuTemplate(config) {
 
     const menuTemplate = [
         {
-            label: 'Monitor',
-            id: "menu-monitor",
+            label: 'File',
+            id: "menu-file",
             submenu: [
                 {
                     label: 'Open',
@@ -51,6 +51,17 @@ function getBaseMenuTemplate(config) {
                         }
                         // console.log(`config.mainWindow set to null`);
                     }
+                }
+            ]
+        }
+    ]
+
+    if (isMac) {
+        menuTemplate.unshift(  {
+            label: 'TallyMate',
+            submenu: [
+                {
+                    role: 'about'
                 },
                 {
                     label: 'Quit',
@@ -60,17 +71,6 @@ function getBaseMenuTemplate(config) {
                         config.mainWindow = null;
                         // console.log(`config.mainWindow set to null`);
                     }
-                }
-            ]
-        }
-    ]
-
-    if (isMac) {
-        menuTemplate.unshift(  {
-            label: app.label,
-            submenu: [
-                {
-                    role: 'about'
                 }
             ]
         });

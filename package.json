@@ -14,7 +14,8 @@
     "tallymate-ui:no-browser": "cross-env BROWSER=none npm run tallymate-ui",
     "tallymate": "lerna run start --scope=@glassball/tallymate",
     "tallymate:after:tallymate-ui": "wait-on tcp:3000 && npm run tallymate",
-    "start": "concurrently -k \"npm run tallymate-ui:no-browser\" \"npm run tallymate:after:tallymate-ui\" "
+    "start": "concurrently -k \"npm run tallymate-ui:no-browser\" \"npm run tallymate:after:tallymate-ui\" ",
+    "build:app": "lerna run build --scope=@glassball/tallymate-ui && lerna run build --scope=@glassball/tallymate"
   },
   "keywords": [],
   "author": "",
