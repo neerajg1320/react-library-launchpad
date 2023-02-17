@@ -13,7 +13,7 @@ const setSubmenuStatusById = (mainMenu, submenuId, status) => {
 };
 
 function getBaseMenuTemplate(config) {
-    const {app, mainWindow} = config;
+    const {app} = config;
     const main_qualifier_key = isMac ? 'Command' : 'Ctrl';
     const second_qualifier_key = isMac ? 'Alt' : 'Shift';
 
@@ -28,22 +28,37 @@ function getBaseMenuTemplate(config) {
                     accelerator: `${main_qualifier_key}+O`,
                     enabled: false,
                     click() {
-                        if (!mainWindow) {
-                            createWindow();
+                        if (!config.mainWindow) {
+                            config.createWindow();
                         } else {
-                            console.log(`mainWindow=${mainWindow}`);
+                            console.log(`config.mainWindow=${config.mainWindow}`);
                         }
                     }
                 },
                 {
                     label: 'Close',
                     id: "submenu-close",
-                    role: isMac ? "close" : "quit"
+                    // role: isMac ? "close" : "quit",
+                    click() {
+                        if (isMac) {
+                            config.mainWindow.hide();
+                            setSubmenuStatusById(config.mainMenu, "submenu-open", true);
+                            setSubmenuStatusById(config.mainMenu, "submenu-close", false);
+                            config.mainWindow = null;
+                        } else {
+                            app.quit();
+                        }
+                        console.log(`config.mainWindow set to null`);
+                    }
                 },
                 {
                     label: 'Quit',
                     visible: isMac,
-                    role: "quit"
+                    click() {
+                        app.quit();
+                        config.mainWindow = null;
+                        console.log(`config.mainWindow set to null`);
+                    }
                 }
             ]
         }
@@ -131,5 +146,9 @@ const closeWindow = (config) => {
     setSubmenuStatusById(mainMenu, "view-reload", false);
     setSubmenuStatusById(mainMenu, "view-dev-tools", false);
 };
+
+exports.closeWindow = closeWindow;
+exports.getBaseMenuTemplate = getBaseMenuTemplate;
+exports.setSubmenuStatusById = setSubmenuStatusById;
 
 export {setSubmenuStatusById, getBaseMenuTemplate, closeWindow};
