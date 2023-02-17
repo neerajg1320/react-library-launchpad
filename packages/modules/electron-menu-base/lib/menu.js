@@ -1,8 +1,6 @@
 const isMac = process.platform === 'darwin';
 
 const setSubmenuStatusById = (mainMenu, submenuId, status) => {
-    // console.log(`submenuId=${submenuId} status=${status}`);
-
     const submenuItem = mainMenu.getMenuItemById(submenuId);
     if (submenuItem) {
         // console.log(submenuItem);
@@ -166,5 +164,3 @@ exports.closeWindow = closeWindow;
 exports.getBaseMenuTemplate = getBaseMenuTemplate;
 exports.setSubmenuStatusById = setSubmenuStatusById;
 exports.activateWindow = activateWindow;
-
-// export {setSubmenuStatusById, getBaseMenuTemplate, closeWindow};
