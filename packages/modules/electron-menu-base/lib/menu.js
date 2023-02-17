@@ -43,9 +43,11 @@ function getBaseMenuTemplate(config) {
                     // role: isMac ? "close" : "quit",
                     click() {
                         if (isMac) {
-                            config.mainWindow.hide();
-                            setSubmenuStatusById(config.mainMenu, "submenu-open", true);
-                            setSubmenuStatusById(config.mainMenu, "submenu-close", false);
+                            if (config.mainWindow) {
+                                config.mainWindow.hide();
+                                setSubmenuStatusById(config.mainMenu, "submenu-open", true);
+                                setSubmenuStatusById(config.mainMenu, "submenu-close", false);
+                            }
                         } else {
                             app.quit();
                         }
