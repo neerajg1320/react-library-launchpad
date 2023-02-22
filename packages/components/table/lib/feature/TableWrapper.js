@@ -21,18 +21,13 @@ import ColumnVisibilitySection from "./features/ColumnVisibilitySection";
 export const TableWrapper = ({
   data:initialData,
   onDataChange: updateData,
+  updateWithCommit=false,
   ledgers,
   categories
 }) => {
   if (debug.lifecycle) {
     console.log(`Rendering <TableWrapper>`);
   }
-
-  // const {
-  //   data:initialData,
-  //   onDataChange: updateData,
-  //   ledgers
-  // } = useContext(AppContext);
 
   const [data, setData] = useState(initialData);
 
@@ -49,7 +44,7 @@ export const TableWrapper = ({
 
   // Data Features:
   // Update with commit
-  const updateWithCommit = useMemo(() => false, []);
+  // const updateWithCommit = useMemo(() => true, []);
   const [updates, setUpdates] = useState([]);
 
   // // Table Section
