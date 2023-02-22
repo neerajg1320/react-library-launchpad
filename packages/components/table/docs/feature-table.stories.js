@@ -1,5 +1,5 @@
 import React, {useMemo, useState, useCallback, useRef} from "react";
-import {FeatureTable as FeatureTableComponent} from "../lib/feature/feature-table";
+import {FeatureTable as FeatureTableComponent} from "../lib/feature/TableBulk";
 
 export default { title: 'Table' };
 

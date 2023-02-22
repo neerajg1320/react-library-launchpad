@@ -19,10 +19,11 @@ import ColumnVisibilitySection from "./features/ColumnVisibilitySection";
 
 
 export const TableWrapper = ({
-                               data:initialData,
-                               onDataChange: updateData,
-                               ledgers
-                             }) => {
+  data:initialData,
+  onDataChange: updateData,
+  ledgers,
+  categories
+}) => {
   if (debug.lifecycle) {
     console.log(`Rendering <TableWrapper>`);
   }
@@ -133,13 +134,23 @@ export const TableWrapper = ({
   const selectables = useMemo(() => {
     // This is compile time mapping.
     // For future: Can we do this run time?
+    if (ledgers && ledgers.length > 0) {
+      return [
+        {
+          'keyName': 'category',
+          'choices': ledgers.map(ledger => ledger.name)
+        }
+      ];
+    }
+
     return [
       {
         'keyName': 'category',
-        'choices': ledgers ? ledgers.map(ledger => ledger.name) : []
+        'choices': categories ? categories.map(category => category.name) : []
       }
     ];
-  }, [ledgers]);
+  }, [ledgers, categories]);
+
 
   const rtColumns = useMemo(() => {
     return columns.map((col, index) => {

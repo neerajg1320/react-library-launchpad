@@ -1,0 +1,62 @@
+## Recap
+# Stage 1:
+In the first stage we made the javascript modules and components and got them working in a monorepo setup.
+# Stage 2:
+In the second stage we got the react-app and electron-app working in a monorepo setup.
+
+## Stage 3:
+# We asetup the react, electron app in a monorepo setup along with the javascript modules.
+
+## Stage 4:
+# We will setup the mac store target
+
+## Stage 5:
+# We will make the Application Menu compliant with macos app store.
+
+## Stage 6:
+# We will make the menu compliant to the app store
+
+## Stage 7:
+# Make the table library modular i.e. include it from library.
+
+## Stage 8:
+# We will setup the windows store target
+
+
+## Make the menu compliant to the app store:
+lerna create @glassball/electron-menu-base --yes
+lerna bootstrap
+lerna add --dev @glassball/builder-rollup --scope=@glassball/electron-menu-base
+
+# package.json
+  "scripts": {
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+    :
+  },
+# set src, main, module property in package.json
+  "module": "dist/electron-menu-base.esm.js",
+  "main": "dist/electron-menu-base.cjs.js",
+  "src": "./index.js",
+
+# Now we will include our lib in the electron-excel-tally package
+lerna add @glassball/electron-menu-base --scope=@glassball/tallymate
+
+# In the main.js file we include the library and use it
+const {getBaseMenuTemplate, setSubmenuStatusById} = require("@glassball/electron-menu-base");
+let mainMenu;
+
+  mainMenu = Menu.buildFromTemplate(getBaseMenuTemplate({app, mainWindow}));
+  Menu.setApplicationMenu(mainMenu);
+
+
+$ yarn add --ignore-workspace-root-check --dev crossenv wait-on concurrently
+
+To use the menu we have to add
+
+app.on('window-all-closed', ()=> {
+  closeWindow({app, mainMenu});
+  mainWindow = null;
+});
+
