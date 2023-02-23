@@ -1,5 +1,5 @@
 import {TableWrapper} from "./TableWrapper";
-import {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 
 const debugData = true;
 
@@ -75,7 +75,11 @@ export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) 
 
     console.log(`newData=`, newData);
     // setData(newData);
-    updateData(newData, {modified: modifiedIndices, deleted: deletedIndices}, source);
+    updateData(
+        newData,
+        {modifiedRows:modifiedIndices, deletedRows:deletedIndices},
+        source
+    );
   }, []);
 
 
