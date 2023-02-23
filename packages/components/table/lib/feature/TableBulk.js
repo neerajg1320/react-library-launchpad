@@ -1,7 +1,7 @@
 import {TableWrapper} from "./TableWrapper";
 import React, {useCallback, useEffect, useState} from "react";
 
-const debugData = true;
+const debugData = false;
 
 export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) => {
   const [modifiedRows, setModifiedRows] = useState([]);
