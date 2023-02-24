@@ -4,8 +4,6 @@ import React, {useCallback, useEffect, useRef} from "react";
 const debugData = false;
 
 export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) => {
-  // const [modifiedRows, setModifiedRows] = useState([]);
-  // const [deletedRows, setDeletedRows] = useState([]);
   const modifiedRowsRef = useRef([]);
   const deletedRowsRef = useRef([]);
 
@@ -26,13 +24,9 @@ export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) 
     modifiedRowsRef.current =  prevModified.filter(index => !indices.includes(index))
   }, []);
 
-
-
   // The App component just maintains a copy of data.
   // The modification are done in table and tally components.
   const handleDataChange = useCallback((data, updates, source) => {
-    console.log(`handleDataChange: source=${source} data=`, data);
-
     let newData = data;
 
     // TBD: We can do the below asynchronously
