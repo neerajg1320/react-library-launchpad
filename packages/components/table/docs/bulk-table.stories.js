@@ -8,12 +8,12 @@ const BulkTable = () => {
     {
       name: "Alice",
       age: 25,
-      group: "Tourists"
+      team: "Tourists"
     },
     {
       name: "Bob",
       age: 26,
-      group: "Archaeologists"
+      team: "Archaeologists"
     },
   ]);
 

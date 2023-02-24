@@ -156,22 +156,25 @@ export const TableWrapper = ({
 
 
   const rtColumns = useMemo(() => {
-    console.log(`rtColumns: columns=`, columns);
+    // console.log(`rtColumns: columns=`, columns);
 
     const rtCols =  columns.map((col, index) => {
-      const selIndex = selectables.findIndex(sel => {
-        console.log(`sel.keyName=${sel.keyName} col.keyName=${col.keyName}`);
-        return sel.keyName === col.keyName
-      });
       let choices;
-      if (selIndex >= 0) {
-        choices = selectables[selIndex].choices;
+
+      if (selectables) {
+        const selIndex = selectables.findIndex(sel => {
+          console.log(`sel.keyName=${sel.keyName} col.keyName=${col.keyName}`);
+          return sel.keyName === col.keyName
+        });
+        if (selIndex >= 0) {
+          choices = selectables[selIndex].choices;
+        }
       }
 
       return attachPresetProperties(col, index, choices);
     });
 
-    console.log(`rtColumns: rtCols=${JSON.stringify(rtCols, null,2)}`);
+    // console.log(`rtColumns: rtCols=${JSON.stringify(rtCols, null,2)}`);
     return rtCols;
   }, [columns, selectables]);
 
