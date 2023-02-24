@@ -7,18 +7,29 @@ const BulkTable = () => {
   const [data, setData] = useState([
     {
       name: "Alice",
-      age: 25
+      age: 25,
+      group: "Tourists"
     },
     {
       name: "Bob",
-      age: 26
+      age: 26,
+      group: "Archaeologists"
     },
   ]);
 
+  const selectables = useMemo(() => {
+    return [
+      {
+        keyName: "group",
+        choices: ['Tourists', 'Archaeologists', 'Professionals']
+      }
+    ]
+  });
   const [ledgers, setLedgers] = useState([]);
   // The following two could be turned to refs
   const tallySavedRef = useRef(false);
 
+  // Kept for reference
   const columns = useMemo(
       () => {
         return [
@@ -32,7 +43,6 @@ const BulkTable = () => {
           }
         ]
       }, []);
-
 
 
   // The App component just maintains a copy of data.
@@ -78,7 +88,11 @@ const BulkTable = () => {
       <>
         <h1>Table Tagger</h1>
         {/*<TableTagger {...{data, columns}} />*/}
-        <BulkTableComponent data={data} onDataChange={handleDataChange} ledgers={ledgers} />
+        <BulkTableComponent
+            data={data}
+            onDataChange={handleDataChange}
+            {...{ledgers, selectables}}
+        />
       </>
   );
 }

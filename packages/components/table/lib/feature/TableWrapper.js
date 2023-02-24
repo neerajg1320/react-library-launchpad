@@ -23,7 +23,8 @@ export const TableWrapper = ({
   onDataChange: updateData,
   updateWithCommit=false,
   ledgers,
-  categories
+  categories,
+  selectables
 }) => {
   if (debug.lifecycle) {
     console.log(`Rendering <TableWrapper>`);
@@ -114,8 +115,15 @@ export const TableWrapper = ({
 
     if (mPresetCols.length) {
       col = mPresetCols[0];
-      col.choices = choices;
     }
+
+    if (choices) {
+      col.choices = choices;
+      col.type = 'select';
+      col.edit = true;
+      col.bulk = true;
+    }
+
     return colToRTCol(col, {showTypes:layoutShowTypes});
   }, []);
 
@@ -126,7 +134,7 @@ export const TableWrapper = ({
     return getColumns(data);
   }, []);
 
-  const selectables = useMemo(() => {
+  const selectables_xx = useMemo(() => {
     // This is compile time mapping.
     // For future: Can we do this run time?
     if (ledgers && ledgers.length > 0) {
@@ -148,8 +156,13 @@ export const TableWrapper = ({
 
 
   const rtColumns = useMemo(() => {
-    return columns.map((col, index) => {
-      const selIndex = selectables.findIndex(sel => sel.keyName === col.keyName);
+    console.log(`rtColumns: columns=`, columns);
+
+    const rtCols =  columns.map((col, index) => {
+      const selIndex = selectables.findIndex(sel => {
+        console.log(`sel.keyName=${sel.keyName} col.keyName=${col.keyName}`);
+        return sel.keyName === col.keyName
+      });
       let choices;
       if (selIndex >= 0) {
         choices = selectables[selIndex].choices;
@@ -157,6 +170,9 @@ export const TableWrapper = ({
 
       return attachPresetProperties(col, index, choices);
     });
+
+    console.log(`rtColumns: rtCols=${JSON.stringify(rtCols, null,2)}`);
+    return rtCols;
   }, [columns, selectables]);
 
   const defaultColumnFilterState = {
