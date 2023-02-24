@@ -22,8 +22,6 @@ export const TableWrapper = ({
   data:initialData,
   onDataChange: updateData,
   updateWithCommit=false,
-  ledgers,
-  categories,
   selectables
 }) => {
   if (debug.lifecycle) {
@@ -134,26 +132,6 @@ export const TableWrapper = ({
     return getColumns(data);
   }, []);
 
-  const selectables_xx = useMemo(() => {
-    // This is compile time mapping.
-    // For future: Can we do this run time?
-    if (ledgers && ledgers.length > 0) {
-      return [
-        {
-          'keyName': 'category',
-          'choices': ledgers.map(ledger => ledger.name)
-        }
-      ];
-    }
-
-    return [
-      {
-        'keyName': 'category',
-        'choices': categories ? categories.map(category => category.name) : []
-      }
-    ];
-  }, [ledgers, categories]);
-
 
   const rtColumns = useMemo(() => {
     // console.log(`rtColumns: columns=`, columns);
@@ -163,7 +141,7 @@ export const TableWrapper = ({
 
       if (selectables) {
         const selIndex = selectables.findIndex(sel => {
-          console.log(`sel.keyName=${sel.keyName} col.keyName=${col.keyName}`);
+          // console.log(`sel.keyName=${sel.keyName} col.keyName=${col.keyName}`);
           return sel.keyName === col.keyName
         });
         if (selIndex >= 0) {

@@ -15,6 +15,16 @@ const BulkTable = () => {
       age: 26,
       team: "Archaeologists"
     },
+    {
+      name: "Charlie",
+      age: 25,
+      team: "Tourists"
+    },
+    {
+      name: "Don",
+      age: 26,
+      team: "Archaeologists"
+    },
   ]);
 
   const selectables = useMemo(() => {

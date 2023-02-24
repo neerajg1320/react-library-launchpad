@@ -1,42 +1,32 @@
 import {TableWrapper} from "./TableWrapper";
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useRef} from "react";
 
 const debugData = false;
 
 export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) => {
-  const [modifiedRows, setModifiedRows] = useState([]);
-  const [deletedRows, setDeletedRows] = useState([]);
+  // const [modifiedRows, setModifiedRows] = useState([]);
+  // const [deletedRows, setDeletedRows] = useState([]);
+  const modifiedRowsRef = useRef([]);
+  const deletedRowsRef = useRef([]);
 
   const updateModifiedRows = useCallback((indices) => {
-    setModifiedRows((prev) => {
-      const newIds = indices.filter(index => !prev.includes(index));
-      return [...prev, ...newIds];
-    });
-  }, [setModifiedRows]);
+    const prevModified = modifiedRowsRef.current;
+    const newIds = indices.filter(index => !prevModified.includes(index));
+    modifiedRowsRef.current = [...prevModified, ...newIds];
+
+  }, []);
 
   const updateDeletedRows = useCallback((indices) => {
-    setDeletedRows((prev) => {
-      const newIds = indices.filter(index => !prev.includes(index));
-      return [...prev, ...newIds];
-    });
+    const prevDeleted = deletedRowsRef.current;
+    const newIds = indices.filter(index => !prevDeleted.includes(index));
+    deletedRowsRef.current = [...prevDeleted, ...newIds];
 
     // Remove the deleted indices from the modifiedRows
-    setModifiedRows((prev) => {
-      return prev.filter(index => !indices.includes(index))
-    });
-  }, [setDeletedRows, setModifiedRows]);
+    const prevModified = modifiedRowsRef.current;
+    modifiedRowsRef.current =  prevModified.filter(index => !indices.includes(index))
+  }, []);
 
-  const clearMarkedRows = useCallback(() => {
-    setModifiedRows([]);
-    setDeletedRows([]);
-  }, [setModifiedRows, setDeletedRows]);
 
-  useEffect(() => {
-    if (debugData) {
-      console.log(`modifiedRows:`, modifiedRows);
-      console.log(`deletedRows:`, deletedRows);
-    }
-  }, [modifiedRows, deletedRows]);
 
   // The App component just maintains a copy of data.
   // The modification are done in table and tally components.
@@ -70,6 +60,7 @@ export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) 
       if (deletedIndices.length > 0) {
         // TBD: This is the place where we need to check if data is in sync with server
         newData = data.filter((item, index) => !deletedIndices.includes(index));
+        updateDeletedRows(deletedIndices);
       }
     }
 
@@ -77,7 +68,7 @@ export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) 
     // setData(newData);
     updateData(
         newData,
-        {modifiedRows:modifiedIndices, deletedRows:deletedIndices},
+        {modifiedRows:modifiedRowsRef.current, deletedRows:deletedRowsRef.current},
         source
     );
   }, []);
