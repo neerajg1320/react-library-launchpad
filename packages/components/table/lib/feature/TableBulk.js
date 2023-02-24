@@ -1,11 +1,27 @@
 import {TableWrapper} from "./TableWrapper";
-import React, {useCallback, useEffect, useRef} from "react";
+import React, {useCallback, useImperativeHandle, useRef} from "react";
 
 const debugData = false;
 
-export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) => {
+
+export const TableBulk = React.forwardRef((props, ref) => {
+  const {data:initialData, onDataChange:updateData, ...rest} = props;
+
   const modifiedRowsRef = useRef([]);
   const deletedRowsRef = useRef([]);
+
+  // https://stackoverflow.com/questions/37949981/call-child-method-from-parent
+  useImperativeHandle(ref, () => ({
+    clearMarkedRows() {
+      clearMarkedRows()
+    }
+  }))
+
+  const clearMarkedRows = useCallback(() => {
+    console.log(`TableBulk: clearMarkedRows()`);
+    modifiedRowsRef.current = [];
+    deletedRowsRef.current = [];
+  }, []);
 
   const updateModifiedRows = useCallback((indices) => {
     const prevModified = modifiedRowsRef.current;
@@ -67,8 +83,7 @@ export const TableBulk = ({data:initialData, onDataChange:updateData, ...rest}) 
     );
   }, []);
 
-
   return (
       <TableWrapper data={initialData} onDataChange={handleDataChange} {...rest} />
   );
-}
+});
