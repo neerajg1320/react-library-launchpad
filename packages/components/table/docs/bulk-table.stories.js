@@ -20,7 +20,7 @@ const BulkTable = () => {
   const selectables = useMemo(() => {
     return [
       {
-        keyName: "group",
+        keyName: "team",
         choices: ['Tourists', 'Archaeologists', 'Professionals']
       }
     ]
