@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo, useRef, useState} from 'react';
-import {BasicTable, FeatureTable} from "@glassball/table";
+import {BasicTable, TableBulk} from "@glassball/table";
 
 const TaggedTable = () => {
   const [data, setData] = useState([
@@ -124,7 +124,7 @@ const TaggedTable = () => {
       <>
         <h1>Table Tagger</h1>
         {/*<BasicTable {...{data, columns}} />*/}
-        <FeatureTable data={data} onDataChange={handleDataChange} ledgers={ledgers} />
+        <TableBulk data={data} onDataChange={handleDataChange} />
       </>
   );
 }
