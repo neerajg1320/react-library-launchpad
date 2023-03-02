@@ -1,11 +1,12 @@
 import {TableWrapper} from "./TableWrapper";
 import React, {useCallback, useImperativeHandle, useRef} from "react";
+import Button from "react-bootstrap/Button";
 
 const debugData = false;
 
 
 export const TableBulk = React.forwardRef((props, ref) => {
-  const {data:initialData, onDataChange:updateData, ...rest} = props;
+  const {data:initialData, onDataChange:updateData, highlighters, ...rest} = props;
 
   const modifiedRowsRef = useRef([]);
   const deletedRowsRef = useRef([]);
@@ -14,6 +15,12 @@ export const TableBulk = React.forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     clearMarkedRows() {
       clearMarkedRows()
+    },
+    highlightRows() {
+      highlightRows()
+    },
+    clearRows() {
+      clearRows()
     }
   }))
 
@@ -76,15 +83,29 @@ export const TableBulk = React.forwardRef((props, ref) => {
 
     console.log(`newData=`, newData);
     // setData(newData);
-    updateData(
-        null,
-        newData,
-        {modifiedRows:modifiedRowsRef.current, deletedRows:deletedRowsRef.current},
-        'dataSourceTable'
-    );
+    updateData(null, newData, {modifiedRows:modifiedRowsRef.current, deletedRows:deletedRowsRef.current}, 'dataSourceTable');
+  }, []);
+
+  const highlightRows = useCallback(() => {
+    console.log('TableBulk:highlightRows Rows highlighted');
+    console.log('hightlighters:', highlighters);
+  }, []);
+
+  const clearRows = useCallback(() => {
+    console.log('TableBulk:clearRows Rows cleared');
   }, []);
 
   return (
-      <TableWrapper data={initialData} onDataChange={handleDataChange} {...rest} />
+      <>
+        <div>
+          <Button onClick={highlightRows}>
+            Highlight
+          </Button>
+          <Button onClick={clearRows}>
+            Clear
+          </Button>
+        </div>
+        <TableWrapper data={initialData} onDataChange={handleDataChange} {...rest} />
+      </>
   );
 });

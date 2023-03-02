@@ -22,7 +22,8 @@ export const TableWrapper = ({
   data:initialData,
   onDataChange: updateData,
   updateWithCommit=false,
-  selectables
+  selectables,
+  highlighters
 }) => {
   if (debug.lifecycle) {
     console.log(`Rendering <TableWrapper>`);
