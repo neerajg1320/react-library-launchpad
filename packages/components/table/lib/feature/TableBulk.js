@@ -77,9 +77,10 @@ export const TableBulk = React.forwardRef((props, ref) => {
     console.log(`newData=`, newData);
     // setData(newData);
     updateData(
+        null,
         newData,
         {modifiedRows:modifiedRowsRef.current, deletedRows:deletedRowsRef.current},
-        source
+        'dataSourceTable'
     );
   }, []);
 
