@@ -1,5 +1,5 @@
 import {TableWrapper} from "./TableWrapper";
-import React, {useCallback, useImperativeHandle, useRef} from "react";
+import React, {useCallback, useImperativeHandle, useRef, useState} from "react";
 import Button from "react-bootstrap/Button";
 
 const debugData = false;
@@ -8,6 +8,20 @@ const debugData = false;
 export const TableBulk = React.forwardRef((props, ref) => {
   const {data:initialData, onDataChange:updateData, highlighters, ...rest} = props;
 
+  const [tableStyler, setTableStyler] = useState({
+    10: {
+      style: {
+        backgroundColor: 'blue',
+        opacity: '0.2'
+      }
+    },
+    15: {
+      style: {
+        backgroundColor: 'green',
+        opacity: '0.2'
+      }
+    }
+  })
   const modifiedRowsRef = useRef([]);
   const deletedRowsRef = useRef([]);
 
@@ -89,6 +103,30 @@ export const TableBulk = React.forwardRef((props, ref) => {
   const highlightRows = useCallback(() => {
     console.log('TableBulk:highlightRows Rows highlighted');
     console.log('hightlighters:', highlighters);
+
+    // We build a style Map where key is the row index
+    const styleMap = {};
+
+    // item is an array, we need to ensure that we get an array
+    if (highlighters && initialData) {
+      initialData.map((row, rIdx) => {
+            highlighters.forEach(highlighter => {
+              if (rIdx == -1) {
+                console.log(`highlightRows: row=`, row);
+                console.log(highlighter);
+              }
+              if (highlighter['condition'](row, rIdx)) {
+                // console.log(`style:${JSON.stringify(highlighter['style'])}`)
+                styleMap[rIdx] = highlighter['style'];
+              }
+            })
+          }
+      )
+    }
+
+    // console.log(`styleMap:${JSON.stringify(styleMap, null, 2)}`);
+    // return styleMap;
+    setTableStyler(styleMap);
   }, []);
 
   const clearRows = useCallback(() => {
@@ -105,7 +143,7 @@ export const TableBulk = React.forwardRef((props, ref) => {
             Clear
           </Button>
         </div>
-        <TableWrapper data={initialData} onDataChange={handleDataChange} {...rest} />
+        <TableWrapper data={initialData} onDataChange={handleDataChange} styler={tableStyler} {...rest} />
       </>
   );
 });

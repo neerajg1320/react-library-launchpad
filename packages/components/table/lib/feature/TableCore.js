@@ -30,6 +30,7 @@ const TableCore = () => {
   const {
     data,
     columns,
+    styler,
     headersMap,
     onChange:updateData,
 

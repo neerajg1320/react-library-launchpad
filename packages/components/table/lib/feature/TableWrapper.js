@@ -21,6 +21,7 @@ import ColumnVisibilitySection from "./features/ColumnVisibilitySection";
 export const TableWrapper = ({
   data:initialData,
   onDataChange: updateData,
+  styler,
   updateWithCommit=false,
   selectables,
   highlighters
@@ -105,6 +106,10 @@ export const TableWrapper = ({
       }
     }
   }, []);
+
+  useEffect(() => {
+    console.log(`TableWrapper[useEffect([styler])] styler:${JSON.stringify(styler, null, 2)}`);
+  }, [styler]);
 
   // col must have keyName property
   const attachPresetProperties = useCallback((col, index, choices) => {
@@ -379,6 +384,8 @@ export const TableWrapper = ({
   const tableContext = {
     data,
     columns: rtColumns,
+    styler,
+
     // headersMap, // header(column in excel file) info
     onChange: handleDataChange,
 
