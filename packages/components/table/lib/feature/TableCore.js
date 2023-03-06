@@ -78,6 +78,10 @@ const TableCore = () => {
     }
   }, []);
 
+  useEffect(() => {
+    console.log(`TableCore[useEffect([styler])] styler:${JSON.stringify(styler, null, 2)}`);
+  }, [styler]);
+
   const usePrepareColumn = useCallback((hooks) => {
     // Support row select
     const selectionColumn = {
@@ -293,6 +297,10 @@ const TableCore = () => {
     return featurePagination ? page : rows
   }, [page, rows]);
 
+  // Temporary for inspection
+  useEffect(() => {
+    console.log(`TableCore[useEffect(visibleRows)]: row[0]=`, visibleRows[0]);
+  }, [visibleRows]);
 
   useEffect(() => {
     if (rows.length != rowsPrevRef.current.length) {
@@ -392,8 +400,16 @@ const TableCore = () => {
     {
       visibleRows.map((row) => {
         prepareRow(row);
+
+        const rowStyle = (styler[row.index.toString()]) || {};
+
+        if (row.index === 12) {
+          console.log(`styler=${JSON.stringify(styler, null, 2)}`);
+          console.log(`row[${row.index}]: rowStyle=${JSON.stringify(rowStyle)}`);
+        }
+
         return (
-            <tr {...row.getRowProps()}>
+            <tr {...row.getRowProps()} style={rowStyle}>
               {
                 row.cells.map(cell => {
                   return (

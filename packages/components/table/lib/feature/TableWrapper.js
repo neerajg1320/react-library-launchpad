@@ -107,9 +107,9 @@ export const TableWrapper = ({
     }
   }, []);
 
-  useEffect(() => {
-    console.log(`TableWrapper[useEffect([styler])] styler:${JSON.stringify(styler, null, 2)}`);
-  }, [styler]);
+  // useEffect(() => {
+  //   console.log(`TableWrapper[useEffect([styler])] styler:${JSON.stringify(styler, null, 2)}`);
+  // }, [styler]);
 
   // col must have keyName property
   const attachPresetProperties = useCallback((col, index, choices) => {
