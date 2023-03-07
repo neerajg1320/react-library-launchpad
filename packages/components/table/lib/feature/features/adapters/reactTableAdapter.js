@@ -40,7 +40,7 @@ export function colToRTCol (colObj, {showTypes}) {
           <div style={{
             display: "flex", flexDirection:"column", alignItems: alignment,
           }}>
-            <div style={{height:"1em", fontSize: "0.7", whiteSpace: "nowrap",
+            <div style={{height:"1em", whiteSpace: "nowrap",
               display:"flex", flexDirection: "row", alignItems: "center",
             }}>
                 {valToString(value, reactColObj.format) || ""}
