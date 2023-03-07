@@ -101,8 +101,8 @@ export const TableBulk = React.forwardRef((props, ref) => {
   }, []);
 
   const highlightRows = useCallback(() => {
-    console.log('TableBulk:highlightRows Rows highlighted');
-    console.log('hightlighters:', highlighters);
+    // console.log('TableBulk:highlightRows Rows highlighted');
+    // console.log('hightlighters:', highlighters);
 
     // We build a style Map where key is the row index
     const styleMap = {};

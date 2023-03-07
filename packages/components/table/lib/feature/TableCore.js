@@ -78,9 +78,9 @@ const TableCore = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(`TableCore[useEffect([styler])] styler:${JSON.stringify(styler, null, 2)}`);
-  }, [styler]);
+  // useEffect(() => {
+  //   console.log(`TableCore[useEffect([styler])] styler:${JSON.stringify(styler, null, 2)}`);
+  // }, [styler]);
 
   const usePrepareColumn = useCallback((hooks) => {
     // Support row select
@@ -298,9 +298,9 @@ const TableCore = () => {
   }, [page, rows]);
 
   // Temporary for inspection
-  useEffect(() => {
-    console.log(`TableCore[useEffect(visibleRows)]: row[0]=`, visibleRows[0]);
-  }, [visibleRows]);
+  // useEffect(() => {
+  //   console.log(`TableCore[useEffect(visibleRows)]: row[0]=`, visibleRows[0]);
+  // }, [visibleRows]);
 
   useEffect(() => {
     if (rows.length != rowsPrevRef.current.length) {
@@ -355,7 +355,7 @@ const TableCore = () => {
                   display:"flex", flexDirection:"column"
                 }}>
                   <div style={{
-                      display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "center", gap:"10px"
+                      display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "flex-start", gap:"10px"
                     }}
                   >
                     <div style={{
@@ -371,7 +371,7 @@ const TableCore = () => {
                       </TooltipComponent>
                     </div>
                     {hdrColumn.enableAddons !== false &&
-                      <div style={{display: "flex", flexDirection: "row", gap: "5px", alignItems: "center"}}>
+                      <div style={{display: "flex", flexDirection: "row", gap: "5px", alignItems: "flex-start"}}>
                         {(featureSorting && (hdrColumn.enableSorting !== false)) &&
                             <span {...hdrColumn.getSortByToggleProps()}>{hdrColumn.isSorted ? (hdrColumn.isSortedDesc ? ' >' : ' <') : '<>'}</span>}
                         {featureColumnFilter && <span>{hdrColumn.canFilter ? hdrColumn.render('Filter') : null}</span>}
@@ -403,7 +403,7 @@ const TableCore = () => {
 
         const rowStyle = (styler[row.index.toString()]) || {};
 
-        if (row.index === 12) {
+        if (row.index === -1) {
           console.log(`styler=${JSON.stringify(styler, null, 2)}`);
           console.log(`row[${row.index}]: rowStyle=${JSON.stringify(rowStyle)}`);
         }
