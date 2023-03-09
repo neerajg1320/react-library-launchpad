@@ -6,7 +6,7 @@ const debugData = false;
 
 
 export const TableBulk = React.forwardRef((props, ref) => {
-  const {data:initialData, onDataChange:updateData, highlighters, ...rest} = props;
+  const {data:initialData, onDataChange:updateData, stylerRules, ...rest} = props;
 
   const [tableStyler, setTableStyler] = useState({
     10: {
@@ -108,9 +108,9 @@ export const TableBulk = React.forwardRef((props, ref) => {
     const styleMap = {};
 
     // item is an array, we need to ensure that we get an array
-    if (highlighters && initialData) {
+    if (stylerRules && initialData) {
       initialData.map((row, rIdx) => {
-            highlighters.forEach(highlighter => {
+            stylerRules.forEach(highlighter => {
               if (rIdx == -1) {
                 console.log(`highlightRows: row=`, row);
                 console.log(highlighter);
