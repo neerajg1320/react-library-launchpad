@@ -127,7 +127,7 @@ export const TableBulk = React.forwardRef((props, ref) => {
     // console.log(`styleMap:${JSON.stringify(styleMap, null, 2)}`);
     // return styleMap;
     setTableStyler(styleMap);
-  }, []);
+  }, [stylerRules]);
 
   const clearRows = useCallback(() => {
     console.log('TableBulk:clearRows Rows cleared');
