@@ -8,20 +8,16 @@ const debugData = false;
 export const TableBulk = React.forwardRef((props, ref) => {
   const {data:initialData, onDataChange:updateData, stylerRules, ...rest} = props;
 
-  const [tableStyler, setTableStyler] = useState({
-    10: {
-      style: {
-        backgroundColor: 'blue',
-        opacity: '0.2'
-      }
+  const presetStyler = {
+    5: {
+      backgroundColor: 'rgba(0, 255, 0, 0.2)'
     },
-    15: {
-      style: {
-        backgroundColor: 'green',
-        opacity: '0.2'
-      }
+    8: {
+      backgroundColor: 'rgba(0, 0, 255, 0.2)'
     }
-  })
+  };
+
+  const [tableStyler, setTableStyler] = useState({})
   const modifiedRowsRef = useRef([]);
   const deletedRowsRef = useRef([]);
 
@@ -110,14 +106,17 @@ export const TableBulk = React.forwardRef((props, ref) => {
     // item is an array, we need to ensure that we get an array
     if (stylerRules && initialData) {
       initialData.map((row, rIdx) => {
-            stylerRules.forEach(highlighter => {
+            stylerRules.forEach(styleRule => {
               if (rIdx == -1) {
                 console.log(`highlightRows: row=`, row);
-                console.log(highlighter);
+                console.log(styleRule);
               }
-              if (highlighter['condition'](row, rIdx)) {
-                // console.log(`style:${JSON.stringify(highlighter['style'])}`)
-                styleMap[rIdx] = highlighter['style'];
+              if (styleRule['condition'](row, rIdx)) {
+                // console.log(`style:${JSON.stringify(styleRule['style'])}`)
+                styleMap[rIdx] = styleRule['style'];
+                if (styleRule['action']) {
+                  styleRule['action'](row, rIdx);
+                }
               }
             })
           }
