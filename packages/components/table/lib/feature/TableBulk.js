@@ -6,7 +6,13 @@ const debugData = false;
 
 
 export const TableBulk = React.forwardRef((props, ref) => {
-  const {data:initialData, onDataChange:updateData, stylerRules, ...rest} = props;
+  const {
+    data:initialData,
+    onDataChange:updateData,
+    stylerRules,
+    onRulesComplete,
+    ...rest
+  } = props;
 
   const presetStyler = {
     5: {
@@ -121,6 +127,10 @@ export const TableBulk = React.forwardRef((props, ref) => {
             })
           }
       )
+
+      if (onRulesComplete) {
+        onRulesComplete();
+      }
     }
 
     // console.log(`styleMap:${JSON.stringify(styleMap, null, 2)}`);
