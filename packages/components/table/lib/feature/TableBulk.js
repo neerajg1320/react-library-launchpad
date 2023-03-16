@@ -117,7 +117,7 @@ export const TableBulk = React.forwardRef((props, ref) => {
                 console.log(`highlightRows: row=`, row);
                 console.log(styleRule);
               }
-              const style = styleRule['condition'];
+              const style = styleRule['rule'];
 
               if (typeof(style) === 'function') {
                 const result = style(row, rIdx);
