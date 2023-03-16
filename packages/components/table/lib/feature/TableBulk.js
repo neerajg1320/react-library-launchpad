@@ -117,11 +117,15 @@ export const TableBulk = React.forwardRef((props, ref) => {
                 console.log(`highlightRows: row=`, row);
                 console.log(styleRule);
               }
-              const result = styleRule['condition'](row, rIdx);
-              if (result && result['style']) {
-                styleMap[rIdx] = result['style'];
-                if (styleRule['action']) {
-                  styleRule['action'](row, rIdx);
+              const style = styleRule['condition'];
+
+              if (typeof(style) === 'function') {
+                const result = style(row, rIdx);
+                if (result && result['style']) {
+                  styleMap[rIdx] = result['style'];
+                  if (styleRule['action']) {
+                    styleRule['action'](row, rIdx);
+                  }
                 }
               }
             })
