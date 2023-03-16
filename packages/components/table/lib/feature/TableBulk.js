@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 const debugData = false;
 
-
+// Note: TableBulk also supports styles as well.
 export const TableBulk = React.forwardRef((props, ref) => {
   const {
     data:initialData,
@@ -117,9 +117,9 @@ export const TableBulk = React.forwardRef((props, ref) => {
                 console.log(`highlightRows: row=`, row);
                 console.log(styleRule);
               }
-              if (styleRule['condition'](row, rIdx)) {
-                // console.log(`style:${JSON.stringify(styleRule['style'])}`)
-                styleMap[rIdx] = styleRule['style'];
+              const result = styleRule['condition'](row, rIdx);
+              if (result && result['style']) {
+                styleMap[rIdx] = result['style'];
                 if (styleRule['action']) {
                   styleRule['action'](row, rIdx);
                 }
