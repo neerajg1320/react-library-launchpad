@@ -14,9 +14,16 @@ export function isDate(val) {
   return fnsIsDate(val);
 }
 
+// This is a very involved function
 export function valToString(val, format) {
   if (isDate(val)) {
-    return fnsFormat(val, format ? format : indiaDateFormat);
+    let dateStr = val.toString();
+    try {
+      dateStr = fnsFormat(val, format ? format : indiaDateFormat);
+    } catch (err) {
+      console.error(`valToString: ${err}: cannot format '${val}[${typeof(val)}]' as date string`);
+    }
+    return dateStr;
   }
 
   return val ? val.toString() : "";
