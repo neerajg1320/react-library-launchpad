@@ -10,7 +10,7 @@ export const TableBulk = React.forwardRef((props, ref) => {
     data:initialData,
     onDataChange:updateData,
     stylerRules,
-    onRulesComplete,
+    onRulesEvent,
     ...rest
   } = props;
 
@@ -111,6 +111,10 @@ export const TableBulk = React.forwardRef((props, ref) => {
 
     // item is an array, we need to ensure that we get an array
     if (stylerRules && initialData) {
+      if (onRulesEvent) {
+        onRulesEvent({name:'start'});
+      }
+
       initialData.map((row, rIdx) => {
             stylerRules.forEach(styleRule => {
               if (rIdx == -1) {
@@ -132,8 +136,8 @@ export const TableBulk = React.forwardRef((props, ref) => {
           }
       )
 
-      if (onRulesComplete) {
-        onRulesComplete();
+      if (onRulesEvent) {
+        onRulesEvent({name:'complete'});
       }
     }
 
