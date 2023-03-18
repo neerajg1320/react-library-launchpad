@@ -14,15 +14,6 @@ export const TableBulk = React.forwardRef((props, ref) => {
     ...rest
   } = props;
 
-  const presetStyler = {
-    5: {
-      backgroundColor: 'rgba(0, 255, 0, 0.2)'
-    },
-    8: {
-      backgroundColor: 'rgba(0, 0, 255, 0.2)'
-    }
-  };
-
   const [tableStyler, setTableStyler] = useState({})
   const modifiedRowsRef = useRef([]);
   const deletedRowsRef = useRef([]);
