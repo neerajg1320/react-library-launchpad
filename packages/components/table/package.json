@@ -8,7 +8,9 @@
   "main": "dist/table.cjs.js",
   "module": "dist/table.esm.js",
   "src": "./index.js",
-  "external": ["lib/feature/table-column-resizer.css"],
+  "external": [
+    "lib/feature/table-column-resizer.css"
+  ],
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -44,12 +46,15 @@
     "react-table": "^7.8.0"
   },
   "peerDependencies": {
+    "date-fns": "^2.29.3",
     "react": "18.x",
-    "react-dom": "18.x",
-    "react-table": "7.x",
     "react-bootstrap": "^2.7.0",
+    "react-dom": "18.x",
     "react-icons": "^4.7.1",
     "react-select": "^5.7.0",
-    "date-fns": "^2.29.3"
+    "react-table": "7.x"
+  },
+  "dependencies": {
+    "@glassball/schema": "^0.0.1"
   }
 }

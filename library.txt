@@ -1,0 +1,83 @@
+# How to create a library
+lerna create @glassball/schema --yes
+
+# The folder schema will be created in one of the subfolders in packages
+find packages -name schema
+
+mv packages/.../schema packages/modules
+
+cd packages/modules/schema
+vi package.json
+// Add src property
+// Add scripts
+// Add files
+
+:
+"main": "dist/schema.cjs.js"
+"module": "dist/schema.esm.js"
+"src": "./index.js"
+
+:
+"scripts": {
+"build": "builder-rollup",
+"clean": "rm -rf dist",
+"purge": "rm -rf node_modules",
+"test": "node ./__tests__/@glassball/xml.test.js"
+},
+"files": [
+    "dist"
+]
+
+vi index.js
+import {getColumns} from "./lib/generate";
+
+export {getColumns};
+
+vi lib/generate.js
+// Code for getColumns
+
+// Build the library
+lerna run build --scope=@glassball/schema
+
+// To publish
+cd packages/modules/schema
+npm publish
+
+
+//
+// package.json
+{
+  "name": "@glassball/schema",
+  "version": "0.0.1",
+  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "keywords": [],
+  "author": "Neeraj Gupta <neerajgupta.mbox@gmail.com>",
+  "license": "ISC",
+  "src": "./index.js",
+  "main": "dist/schema.cjs.js",
+  "module": "dist/schema.esm.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/neeraj76/react-library-launchpad.git"
+  },
+  "scripts": {
+    "build": "builder-rollup",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf node_modules",
+    "test": "node ./__tests__/@glassball/schema.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/neeraj76/react-library-launchpad/issues"
+  },
+  "homepage": "https://github.com/neeraj76/react-library-launchpad#readme"
+}

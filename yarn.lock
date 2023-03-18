@@ -1578,6 +1578,10 @@
     "@glassball/excel" "^0.0.6"
     "react" "^18.2.0"
 
+"@glassball/schema@^0.0.1", "@glassball/schema@file:/Users/neeraj/Projects/Glassball/Production/project-excel-tally-monorepo/excel-tally-launchpad/packages/modules/schema":
+  "resolved" "file:packages/modules/schema"
+  "version" "0.0.1"
+
 "@glassball/table@^0.1.3", "@glassball/table@^0.1.5", "@glassball/table@file:/Users/neeraj/Projects/Glassball/Production/project-excel-tally-monorepo/excel-tally-launchpad/packages/components/table":
   "resolved" "file:packages/components/table"
   "version" "0.1.6"
@@ -1593,6 +1597,7 @@
   "version" "0.1.0"
   dependencies:
     "@glassball/table" "^0.1.5"
+    "react-switch" "^7.0.0"
 
 "@glassball/tallymate@file:/Users/neeraj/Projects/Glassball/Production/project-excel-tally-monorepo/excel-tally-launchpad/packages/apps/elecron-excel-tally":
   "resolved" "file:packages/apps/elecron-excel-tally"
