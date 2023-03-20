@@ -23,7 +23,8 @@ export const TableWrapper = ({
   onDataChange: updateData,
   styler,
   updateWithCommit=false,
-  selectables
+  selectables,
+  onSelectionChange: updateSelection,
 }) => {
   if (debug.lifecycle) {
     console.log(`Rendering <TableWrapper>`);
@@ -185,6 +186,9 @@ export const TableWrapper = ({
   const handleSelectionUpdate = useCallback((seletedFlatRows) => {
     // console.log(`handleSelectionUpdate: `, seletedFlatRows);
     setSelectedRows(seletedFlatRows);
+    if (updateSelection) {
+      updateSelection(seletedFlatRows);
+    }
   }, []);
 
   const handleRTableChange = useCallback((rt) => {
