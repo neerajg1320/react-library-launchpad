@@ -3,7 +3,7 @@ import {colToRTCol} from "./features/adapters/reactTableAdapter";
 import {presetColumns} from "./presets/presetColumns";
 import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from "react";
 import Button from "react-bootstrap/Button";
-import {debug} from "./config/debugEnabled";
+import {debug} from "./config/debug";
 import BulkOperationsSection from "./features/BulkOperationsSection";
 import TableDataContext from "./TableDataContext";
 import TableCore from "./TableCore";
