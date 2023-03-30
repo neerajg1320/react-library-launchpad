@@ -402,7 +402,14 @@ const TableCore = () => {
         prepareRow(row);
 
         const rowStyle = (styler[row.index.toString()]) || {};
-        // rowStyle['height'] = "100%";
+        let rowProps = row.getRowProps();
+        if (styler[row.index.toString()]) {
+          rowProps['style'] = {
+            ...rowProps['style'],
+            ...rowStyle
+          };
+          console.log(`rowProps['style']=${JSON.stringify(rowProps['style'], null, 2)}`);
+        }
 
         if (row.index === -1 || row.index === -2) {
           console.log(`styler=${JSON.stringify(styler, null, 2)}`);
@@ -411,7 +418,7 @@ const TableCore = () => {
 
         // The style={rowStyle} is causing the issue where we get fractured border
         return (
-            <tr {...row.getRowProps()} style={rowStyle}>
+            <tr {...rowProps}>
               {
                 row.cells.map(cell => {
                   return (
