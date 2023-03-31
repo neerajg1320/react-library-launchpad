@@ -183,7 +183,6 @@ const TableCore = () => {
     return getCurrentPageIndex();
   }, [getCurrentPageIndex]);
 
-  // console.log(`<TableCore>: currentPageIndex:${currentPageIndex}`);
 
   const defaultColumnAttrs = useMemo(() => {
     let attrs = {};
@@ -418,7 +417,7 @@ const TableCore = () => {
           console.log(`styler=${JSON.stringify(styler, null, 2)}`);
           console.log(`row[${row.index}]: rowStyle=${JSON.stringify(rowStyle)}`);
         }
-        
+
         return (
             <tr {...rowProps}>
               {
