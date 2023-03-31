@@ -408,7 +408,10 @@ const TableCore = () => {
             ...rowProps['style'],
             ...rowStyle
           };
-          console.log(`rowProps['style']=${JSON.stringify(rowProps['style'], null, 2)}`);
+          if (debug.details) {
+            console.log(`rowProps['style']=${JSON.stringify(rowProps['style'], null, 2)}`);
+            console.log(`rowProps=${JSON.stringify(rowProps, null, 2)}`);
+          }
         }
 
         if (row.index === -1 || row.index === -2) {
